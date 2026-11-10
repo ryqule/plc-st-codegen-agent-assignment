@@ -97,7 +97,19 @@ py tools/posthoc_recheck_failures.py `
   --output-dir experiments/local_runs/posthoc_repair
 ```
 
-复测脚本读取原始 `experiments/results.csv` 和各单元源码；它不修改这些源码。输出目录应使用 `experiments/local_runs/` 下的新路径，避免覆盖随仓库交付的证据。PLC runtime 服务和 runtime 测试 adapter 没有配置，所以本仓库无法据此执行 112 个 runtime 场景。
+复测脚本读取原始 `experiments/results.csv` 和各单元源码；它不修改这些源码。输出目录应使用 `experiments/local_runs/` 下的新路径，避免覆盖随仓库交付的证据。当前仅为 P02 配置了 CODESYS runtime 冒烟测试驱动，其余 29 题的场景仍未在 runtime 执行。
+
+### P02 CODESYS Control Win 运行时冒烟测试
+
+本仓库含 P02 runtime 测试驱动和 CODESYS 脚本入口。先确认系统托盘中的 **CODESYS Control Win V3 x64** 已启动，再执行：
+
+```powershell
+py tools/run_p02_codesys_runtime.py `
+  --run `
+  --output-dir experiments/local_runs/codesys_runtime/P02_runtime
+```
+
+脚本会建立包含生成 POU 和测试驱动的工程，离线构建后尝试登录本机 runtime、启动 50 ms 周期任务，并读取每个用例的实测输出。结果及工程只写入 `experiments/local_runs/`。只有 `RUNTIME_PASS` 代表五个 P02 用例在 Control Win 扫描中执行通过；`COMPILE_PASS`、`RUNTIME_UNAVAILABLE` 和 `RUNTIME_TIMEOUT` 都不算功能通过。112 个设计场景不能据此记作已运行。
 
 ## 6. 可选：运行新模型实验
 

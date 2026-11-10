@@ -1,0 +1,77 @@
+{
+  "task_id": "P02",
+  "cycle_time_ms": 50,
+  "purpose": "CODESYS Control Win scan-level functional test vectors",
+  "cases": [
+    {
+      "id": "P02-T1",
+      "steps": [{"value": "16#00000000"}],
+      "assert_after_step": 1,
+      "expected": {
+        "hasChanged": false,
+        "hasRisingEdges": false,
+        "risingBits": "16#00000000",
+        "noOfRisingBits": 0,
+        "hasFallingEdges": false,
+        "fallingBits": "16#00000000",
+        "noOfFallingBits": 0
+      }
+    },
+    {
+      "id": "P02-T2",
+      "steps": [{"value": "16#0000000F"}, {"value": "16#00000013"}],
+      "assert_after_step": 2,
+      "expected": {
+        "hasChanged": true,
+        "hasRisingEdges": true,
+        "risingBits": "16#00000010",
+        "noOfRisingBits": 1,
+        "hasFallingEdges": true,
+        "fallingBits": "16#0000000C",
+        "noOfFallingBits": 2
+      }
+    },
+    {
+      "id": "P02-T3",
+      "steps": [{"value": "16#00000015"}, {"value": "16#00000015"}],
+      "assert_after_step": 2,
+      "expected": {
+        "hasChanged": false,
+        "hasRisingEdges": false,
+        "risingBits": "16#00000000",
+        "noOfRisingBits": 0,
+        "hasFallingEdges": false,
+        "fallingBits": "16#00000000",
+        "noOfFallingBits": 0
+      }
+    },
+    {
+      "id": "P02-B1",
+      "steps": [{"value": "16#FFFFFFFF"}],
+      "assert_after_step": 1,
+      "expected": {
+        "hasChanged": true,
+        "hasRisingEdges": true,
+        "risingBits": "16#FFFFFFFF",
+        "noOfRisingBits": 32,
+        "hasFallingEdges": false,
+        "fallingBits": "16#00000000",
+        "noOfFallingBits": 0
+      }
+    },
+    {
+      "id": "P02-B2",
+      "steps": [{"value": "16#FFFFFFFF"}, {"value": "16#00000000"}],
+      "assert_after_step": 2,
+      "expected": {
+        "hasChanged": true,
+        "hasRisingEdges": false,
+        "risingBits": "16#00000000",
+        "noOfRisingBits": 0,
+        "hasFallingEdges": true,
+        "fallingBits": "16#FFFFFFFF",
+        "noOfFallingBits": 32
+      }
+    }
+  ]
+}
