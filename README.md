@@ -8,8 +8,8 @@
 - 正式矩阵为 30 题 × 2 个模型 × 2 种 Agent，共 120 格。首次编译为 77 PASS、39 FAIL、4 TIMEOUT；四个首次超时独立重试后，矩阵最终状态为 **90 PASS、30 FAIL、0 个未结清 TIMEOUT**（3 个重试通过、1 个重试失败）。见 [`experiments/results.csv`](experiments/results.csv) 和 [`experiments/results_summary.json`](experiments/results_summary.json)。
 - 对原始 30 个 FAIL 源码使用修正后的 CODESYS 项目适配器复编译，结果为 **30/30 PASS**，且源码哈希不变。合并证据表示 120 份源码都至少有一次离线编译通过记录；这不是新版适配器对全部 120 格的一次统一重跑。详见 [`experiments/posthoc_repair/README.md`](experiments/posthoc_repair/README.md)。
 - P02 的四种输出通过 STruC++ 测试 **20/20**；相应翻译代码通过 CBMC **918 项性质**。这些补充验证的题目范围为 P02；全数据集的 201 条 LTL 规约保存在题目数据集中。
-- **CODESYS runtime 场景测试：**自研 Agent × GPT/DeepSeek 共 60 份输出，计划执行 224 个模型-场景组合；实际执行 88 个（82 PASS、6 FAIL），覆盖 56/112 个不同场景 ID。20 份输出的全部场景通过，3 份存在断言失败，37 份因编译问题未进入完整 runtime 执行（12 份正式离线编译失败，25 份集成测试工程编译失败）。逐题结果见 [`experiments/codesys_validation/self_agent_runtime_20261110.md`](experiments/codesys_validation/self_agent_runtime_20261110.md)。
-- **LTL 验证范围：**数据集提供 201 条 scan-level LTL 规约；CBMC 有界检查覆盖 P02 的四种输出，PLCVerif 未纳入本项目验证。
+- **CODESYS runtime 场景测试：** 自研 Agent × GPT/DeepSeek 共 60 份输出，计划执行 224 个模型-场景组合；实际执行 88 个（82 PASS、6 FAIL），覆盖 56/112 个不同场景 ID。20 份输出的全部场景通过，3 份存在断言失败，37 份因编译问题未进入完整 runtime 执行（12 份正式离线编译失败，25 份集成测试工程编译失败）。逐题结果见 [`experiments/codesys_validation/self_agent_runtime_20261110.md`](experiments/codesys_validation/self_agent_runtime_20261110.md)。
+- **LTL 验证范围：** 数据集提供 201 条 scan-level LTL 规约；CBMC 有界检查覆盖 P02 的四种输出，PLCVerif 未纳入本项目验证。
 - DeepSeek 修复前后的实验和调用费用记录保留在 `experiments/`，但不保留 prompt、模型响应正文或 API key。
 
 完整验收判断见 [`验收对照表.md`](验收对照表.md)，提交内容清单见 [`README_提交说明.md`](README_提交说明.md)，分析细节见 [`report/实验报告.pdf`](report/实验报告.pdf) 或 [`report/实验报告.docx`](report/实验报告.docx)。
