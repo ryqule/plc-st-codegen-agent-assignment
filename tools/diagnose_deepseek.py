@@ -35,7 +35,8 @@ def inspect_response(payload: dict) -> dict:
 
 
 def main() -> int:
-    log_path = ROOT / "experiments" / "deepseek_probe_usage.jsonl"
+    log_path = ROOT / "experiments" / "local_runs" / "diagnostics" / "deepseek_probe_usage.jsonl"
+    log_path.parent.mkdir(parents=True, exist_ok=True)
     relay = start_relay(log_path, budget_cny=0.10, request_reserve_cny=0.02)
     cases = (
         ("enable_thinking_false", {"enable_thinking": False}),

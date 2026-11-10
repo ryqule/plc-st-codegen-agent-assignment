@@ -6,8 +6,8 @@
   "pilot": false,
   "dataset_total": 30,
   "planned_cells": 120,
-  "results_csv": "submission\\experiments\\deepseek_recovery.csv",
-  "usage_log": "submission\\experiments\\deepseek_recovery_usage_20261109_155416.jsonl",
+  "results_csv": "experiments/diagnostics/deepseek/recovery.csv",
+  "usage_log": "experiments/deepseek_recovery_usage_20261109_155416.jsonl",
   "resumed": false,
   "run_status": "INCOMPLETE"
 }

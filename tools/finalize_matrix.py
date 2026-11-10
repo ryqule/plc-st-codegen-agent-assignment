@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import csv
-import glob
 import json
 import math
 import statistics
@@ -50,7 +49,7 @@ def wilson95(passed: int, total: int) -> list[float] | None:
 
 def main() -> None:
     original = read_csv(EXPERIMENTS / "results.csv")
-    recovery = read_csv(EXPERIMENTS / "deepseek_recovery.csv")
+    recovery = read_csv(EXPERIMENTS / "diagnostics" / "deepseek" / "recovery.csv")
     if len(original) != 120:
         raise SystemExit(f"Expected 120 original matrix rows, found {len(original)}")
     if len(recovery) != 60:
@@ -162,7 +161,10 @@ def main() -> None:
         summary["final_compile_wilson95_over_all_attempts"] = wilson95(summary["final_compile_passed"], summary["attempted"])
 
     dataset = read_json(ROOT / "dataset" / "tasks.json")
-    usage_files = sorted(Path(p) for p in glob.glob(str(EXPERIMENTS / "*usage*.jsonl")))
+    usage_files = sorted(
+        path for path in EXPERIMENTS.rglob("*usage*.jsonl")
+        if "local_runs" not in path.relative_to(EXPERIMENTS).parts
+    )
     usage_records = [(path, record) for path in usage_files for record in read_usage(path)]
     model_totals = defaultdict(float)
     model_tokens = defaultdict(lambda: {"prompt_tokens": 0, "completion_tokens": 0})

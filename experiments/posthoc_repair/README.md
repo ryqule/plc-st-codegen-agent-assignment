@@ -32,3 +32,15 @@ correctness. P07 and P17 support DUTs are delivered in `st/support_types/`.
 
 Evidence is in `recheck.csv`, `summary.json`, and one compiler JSON log per
 original failed cell in `codesys_logs/`.
+
+To repeat the 30-cell pass without overwriting this archived evidence, run from
+the repository root:
+
+```powershell
+py tools/posthoc_recheck_failures.py `
+  --output-dir experiments/local_runs/posthoc_repair
+```
+
+This requires the same CODESYS installation/profile. The script reads the
+committed matrix and source files and writes the rerun into the ignored
+`experiments/local_runs/` directory.

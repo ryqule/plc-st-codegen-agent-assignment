@@ -19,7 +19,9 @@ try {
     foreach ($file in [System.IO.Directory]::EnumerateFiles($root,'*',[System.IO.SearchOption]::AllDirectories)) {
         $relative = [Uri]::UnescapeDataString($rootUri.MakeRelativeUri([Uri]$file).ToString()).Replace('/','\')
         $parts = $relative -split '[\\/]'
-        if ($parts -contains 'node_modules' -or $parts -contains '__pycache__' -or $file.EndsWith('.pyc')) { continue }
+        if ($relative -match '^(experiments[\\/]local_runs|st[\\/]pilot)([\\/]|$)') { continue }
+        if ($parts -contains '.git' -or $parts -contains 'node_modules' -or
+            $parts -contains '__pycache__' -or $file.EndsWith('.pyc')) { continue }
         if (($parts -contains 'report') -and ([IO.Path]::GetExtension($file) -eq '.pdf') -and
             ([IO.Path]::GetFileNameWithoutExtension($file) -match '_QA$')) { continue }
         $entryName = 'submission/' + ($relative -replace '\\','/')
@@ -35,7 +37,7 @@ try {
     if (!($entries.FullName | Where-Object { $_ -match '^submission/report/.+\.docx$' })) { throw 'DOCX report missing from package' }
     if (!($entries.FullName -contains 'submission/dataset/tasks.json')) { throw 'Dataset missing from package' }
     if (!($entries.FullName -contains 'submission/experiments/results.csv')) { throw 'Experiment matrix missing from package' }
-    if ($entries | Where-Object { $_.FullName -match 'node_modules|__pycache__|\.pyc$|_QA\.pdf$' }) { throw 'Unexpected generated or QA files in package' }
+    if ($entries | Where-Object { $_.FullName -match '(^|/)(\.git|node_modules|__pycache__)/|(^|/)(experiments/local_runs|st/pilot)(/|$)|\.pyc$|_QA\.pdf$' }) { throw 'Unexpected generated or QA files in package' }
     Write-Output "Entries: $($entries.Count)"
     Write-Output "Report, dataset and matrix present."
 } finally {

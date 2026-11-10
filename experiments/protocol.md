@@ -14,7 +14,7 @@
 ## 指标口径
 
 - 首次编译结果记录为 `first_compile`，包含 PASS、FAIL 和 TIMEOUT；编译器确实被调用的样本都计入分母。
-- 最终编译结果记录为 `final_compile`。独立离线重试更新最终状态，但保留原始首次 TIMEOUT，并在 `codesys_timeout_retries/` 保存单独证据。
+- 最终编译结果记录为 `final_compile`。独立离线重试更新最终状态，但保留原始首次 TIMEOUT，并在 `experiments/codesys_validation/deepseek_timeout_retries/` 保存单独证据。
 - 完整矩阵按 120 个计划单元计算端到端成功率；空输出、失败和未结清超时均不计通过。本次所有 120 格都取得非空 ST，最终无超时。
 - 统计报告分子、分母与 Wilson 95% 区间；功能测试和形式验证的 NOT_RUN 不当作通过。
 - 成本、token 和请求状态以 usage JSONL 为准；行级 CSV 费用可能缺失或与同模型请求相邻，不能用于单题成本对比。
@@ -35,7 +35,7 @@
 | 自研 harness + DeepSeek V4.1 Flash | 30 | 26 / 2 / 2 | 28 / 2 |
 | 合计 | 120 | 77 / 39 / 4 | 90 / 30 |
 
-四个首次编译超时均在模型请求结束后重跑：Pi P15、P11 两份和自研 harness P15 均通过；自研 harness P11 重试后报告 `R_TRIG` 未声明及 ST 结构不完整等编译错误。逐次诊断在 `codesys_validation/deepseek_timeout_retries/`。因此最终矩阵为 90 PASS、30 FAIL、0 TIMEOUT。CODESYS Control Win x64 Windows 服务在实验时停止，以上是离线项目构建结果，不是 PLC 下载或扫描仿真。
+四个首次编译超时均在模型请求结束后重跑：Pi P15、P11 两份和自研 harness P15 均通过；自研 harness P11 重试后报告 `R_TRIG` 未声明及 ST 结构不完整等编译错误。逐次诊断在 `experiments/codesys_validation/deepseek_timeout_retries/`。因此最终矩阵为 90 PASS、30 FAIL、0 TIMEOUT。CODESYS Control Win x64 Windows 服务在实验时停止，以上是离线项目构建结果，不是 PLC 下载或扫描仿真。
 
 ## 自动化测试与有界形式验证加分项
 
@@ -56,7 +56,7 @@
 
 ## 复现配置
 
-矩阵配置见 `config.example.json`。复现时将 API key 放在 `DMXAPI_API_KEY` 环境变量中，不要写入配置或提交文件。CODESYS 编译器版本为 3.5.22.40 / SP22 Patch 4，目标设备为 Control Win V3 x64（`0000 0004`）。P02 STruC++ 和 CBMC 的复现步骤见 `../tests/structured_text/README.md`。
+矩阵配置见 `config.example.json`。新运行的 CSV、usage 日志和 ST/编译文件默认写入 `experiments/local_runs/`，不会覆盖本次正式矩阵与归档源码。复现时将 API key 放在当前进程的 `DMXAPI_API_KEY` 环境变量中，不要写入配置或提交文件；运行前设置并检查预算上限。CODESYS 编译器版本为 3.5.22.40 / SP22 Patch 4，目标设备为 Control Win V3 x64（`0000 0004`）。P02 STruC++ 和 CBMC 的复现步骤见 `../tests/structured_text/README.md`，新成员从克隆开始的完整命令见 `../docs/REPRODUCING.md`。
 
 ## 外部工具资料
 

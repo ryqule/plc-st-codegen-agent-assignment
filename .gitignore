@@ -6,4 +6,5 @@ __pycache__/
 !.env.example
 config.local.json
 st/pilot/
+experiments/local_runs/
 report/*_QA.pdf

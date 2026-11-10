@@ -178,7 +178,10 @@ def main():
     ap.add_argument("--frameworks",default="pi,self",help="comma-separated subset: pi,self")
     ap.add_argument("--models",default="gpt,deepseek",help="comma-separated subset: gpt,deepseek")
     ap.add_argument("--resume",action="store_true",help="reuse completed cells in the existing output and retry errors")
-    ap.add_argument("--output",type=Path,default=None)
+    ap.add_argument("--output",type=Path,default=None,
+                    help="CSV path; defaults to an ignored file under experiments/local_runs")
+    ap.add_argument("--artifact-root",type=Path,default=None,
+                    help="directory for generated ST and compiler logs; defaults under experiments/local_runs/st")
     args=ap.parse_args()
     if args.pilot==args.full: raise SystemExit("Choose exactly one of --pilot or --full")
     if args.max_cost_cny <= 0: raise SystemExit("--max-cost-cny must be positive")
@@ -199,14 +202,30 @@ def main():
     if not selected_models or selected_models-set(model_keys):
         raise SystemExit("--models must be a comma-separated subset of: gpt,deepseek")
     frameworks=tuple(framework_names[k] for k in ("pi","self") if k in selected_frameworks)
+    local_runs=HERE/"local_runs"
+    artifact_root=(args.artifact_root or (local_runs/"st")).resolve()
+    try:
+        artifact_root.relative_to(ROOT.resolve())
+    except ValueError:
+        raise SystemExit("--artifact-root must be inside the repository; use experiments/local_runs/st")
+    protected_st=(ROOT/"st").resolve()
+    try:
+        artifact_root.relative_to(protected_st)
+    except ValueError:
+        pass
+    else:
+        raise SystemExit("--artifact-root cannot write into archived st/ evidence; use experiments/local_runs/st")
+    output=args.output
+    if output is not None and output.resolve() == (HERE/"results.csv").resolve():
+        raise SystemExit("Refusing to overwrite the committed experiments/results.csv; use experiments/local_runs/")
     if args.pilot:
         chosen={"P02","S08"}
         tasks=[t for t in tasks if t["id"] in chosen]
         max_tokens=int(cfg["experiment"].get("pilot_max_tokens",768))
-        output=args.output or (HERE/"pilot_results.csv")
+        output=output or (local_runs/"pilot_results.csv")
     else:
         max_tokens=768
-        output=args.output or (HERE/"results.csv")
+        output=output or (local_runs/"full_matrix.csv")
     existing_rows=[]
     if args.resume and output.exists():
         with output.open(newline="",encoding="utf-8-sig") as stream:
@@ -301,7 +320,7 @@ def main():
                 if framework.startswith("Pi"):
                     result=run_pi(task,model_cfg,pi_dir,entry,max_tokens)
                     code=result["code"]
-                    outdir=ROOT/"st"/("pilot" if args.pilot else "runs")/"pi"/model_key
+                    outdir=artifact_root/("pilot" if args.pilot else "runs")/"pi"/model_key
                     outpath=outdir/f"{task['id']}.st"
                     if code.strip():
                         outdir.mkdir(parents=True,exist_ok=True)
@@ -313,7 +332,7 @@ def main():
                     latency=result["latency_ms"]; repairs=0
                 else:
                     from src.agent_harness import run_task
-                    outdir=ROOT/"st"/("pilot" if args.pilot else "runs")/"self"/model_key
+                    outdir=artifact_root/("pilot" if args.pilot else "runs")/"self"/model_key
                     result=run_task(task,model_cfg,outdir,args.config,repair_limit=0 if args.pilot else int(cfg["experiment"].get("repair_limit",2)))
                     code=result["code"]
                     outpath=outdir/f"{task['id']}_attempt{int(result.get('repair_attempts',0))+1}.st"

@@ -6,6 +6,7 @@ sources untouched and records each rebuild under experiments/posthoc_repair/.
 from __future__ import annotations
 
 import csv
+import argparse
 import hashlib
 import json
 import sys
@@ -16,10 +17,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from codesys_compile_posthoc import compile_one  # noqa: E402
 
 
-OUT = ROOT / "experiments" / "posthoc_repair"
-LOG_DIR = OUT / "codesys_logs"
-CSV_PATH = OUT / "recheck.csv"
-SUMMARY_PATH = OUT / "summary.json"
 FIELDS = [
     "run_id", "task_id", "framework", "model_id", "original_status",
     "posthoc_status", "source_file", "source_sha256_before", "source_sha256_after",
@@ -27,18 +24,41 @@ FIELDS = [
 ]
 
 
-def write_csv(rows: list[dict]) -> None:
-    OUT.mkdir(parents=True, exist_ok=True)
-    temporary = CSV_PATH.with_suffix(".csv.tmp")
+def write_csv(csv_path: Path, rows: list[dict]) -> None:
+    csv_path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = csv_path.with_suffix(".csv.tmp")
     with temporary.open("w", newline="", encoding="utf-8-sig") as stream:
         writer = csv.DictWriter(stream, fieldnames=FIELDS)
         writer.writeheader()
         writer.writerows(rows)
-    temporary.replace(CSV_PATH)
+    temporary.replace(csv_path)
 
 
 def main() -> int:
-    LOG_DIR.mkdir(parents=True, exist_ok=True)
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--output-dir", type=Path,
+        default=ROOT / "experiments" / "local_runs" / "posthoc_repair",
+        help="output directory; defaults to an ignored local-run folder",
+    )
+    args = parser.parse_args()
+    out_dir = args.output_dir.resolve()
+    try:
+        out_dir.relative_to(ROOT.resolve())
+    except ValueError:
+        parser.error("--output-dir must be inside the repository")
+    protected_output = (ROOT / "experiments" / "posthoc_repair").resolve()
+    try:
+        out_dir.relative_to(protected_output)
+    except ValueError:
+        pass
+    else:
+        parser.error("--output-dir cannot overwrite the committed posthoc_repair evidence; use experiments/local_runs/")
+    log_dir = out_dir / "codesys_logs"
+    csv_path = out_dir / "recheck.csv"
+    summary_path = out_dir / "summary.json"
+
+    log_dir.mkdir(parents=True, exist_ok=True)
     with (ROOT / "experiments" / "results.csv").open("r", newline="", encoding="utf-8-sig") as stream:
         original_rows = list(csv.DictReader(stream))
     failed_rows = [row for row in original_rows if row["final_compile"] == "FAIL"]
@@ -52,7 +72,7 @@ def main() -> int:
             source_hash = ""
         else:
             source_hash = hashlib.sha256(source.read_bytes()).hexdigest()
-            log_path = LOG_DIR / (row["run_id"] + ".json")
+            log_path = log_dir / (row["run_id"] + ".json")
             result = compile_one(source, row["task_id"], log_path, timeout=150)
 
         status = result.get("status", "UNAVAILABLE")
@@ -75,9 +95,9 @@ def main() -> int:
             "elapsed_ms": result.get("elapsed_ms", ""),
             "error_count": len(result.get("errors", [])),
             "diagnostics": diagnostics or result.get("error", ""),
-            "compile_log": str((LOG_DIR / (row["run_id"] + ".json")).relative_to(ROOT)).replace("\\", "/"),
+            "compile_log": str((log_dir / (row["run_id"] + ".json")).relative_to(ROOT)).replace("\\", "/"),
         })
-        write_csv(output_rows)
+        write_csv(csv_path, output_rows)
         print(json.dumps({
             "progress": f"{index}/{len(failed_rows)}",
             "run_id": row["run_id"],
@@ -105,7 +125,7 @@ def main() -> int:
             "PASS means offline CODESYS project compilation only; it is not runtime or functional verification.",
         ],
     }
-    SUMMARY_PATH.write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    summary_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(summary, ensure_ascii=False), flush=True)
     return 0 if unchanged and len(output_rows) == len(failed_rows) else 1
 
