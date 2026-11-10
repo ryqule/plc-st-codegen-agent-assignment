@@ -1,0 +1,47 @@
+{
+  "compiled_at_local": "2026-11-09",
+  "profile": "CODESYS V3.5 SP22 Patch 4",
+  "codesys_version": "3.5.22.40",
+  "device": "CODESYS Control Win V3 x64",
+  "device_id": "0000 0004",
+  "build_mode": "offline application rebuild",
+  "records": [
+    {
+      "evidence": "experiments/codesys_validation/S08_pi_compile.json",
+      "source": "st/pilot/pi/gpt/S08.st",
+      "source_sha256": "1bd41d1c7a64ffd03664a8586bb0ebeebbc5e24aeb80fb0d09a5786ce1f77eae",
+      "evidence_sha256": "6c86d27720c65c61114240cbc679a82ec9675adb15ae3e793ff58d6044ab24bb",
+      "pou_kind": "PROGRAM",
+      "pou_name": "S08",
+      "status": "PASS",
+      "compiler_errors": []
+    },
+    {
+      "evidence": "experiments/codesys_validation/P02_self_compile.json",
+      "source": "st/pilot/self/gpt/P02_attempt1.st",
+      "source_sha256": "42ff699e8d6f307bb30c7e78dbd024a8a2948b4dbc40ab0ea8a0f2e60b1215b9",
+      "evidence_sha256": "ebdc6884f3d414af3dfe92dcb868ac318901deef51a686dc850db20acd0060c9",
+      "pou_kind": "FUNCTION_BLOCK",
+      "pou_name": "FB",
+      "status": "PASS",
+      "compiler_errors": []
+    },
+    {
+      "evidence": "experiments/codesys_validation/S08_self_compile.json",
+      "source": "st/pilot/self/gpt/S08_attempt1.st",
+      "source_sha256": "62db8132af1e08cec14cf9c03130b7491a3109c766487fffab8008a8662d7614",
+      "evidence_sha256": "dec32668df3e9e17808a486dd4ddba119ad08ba3117aa27308a552c79607cfff",
+      "pou_kind": "PROGRAM",
+      "pou_name": "S08",
+      "status": "FAIL",
+      "compiler_errors": [
+        "8",
+        "13"
+      ]
+    }
+  ],
+  "limitations": [
+    "No PLC runtime or hardware scan was executed.",
+    "No functional test vectors or PLCVerif properties were run."
+  ]
+}

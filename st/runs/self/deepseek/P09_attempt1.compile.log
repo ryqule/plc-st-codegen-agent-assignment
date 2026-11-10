@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "task_id": "P09",
+  "source": "I:\\genai\\submission\\st\\runs\\self\\deepseek\\P09_attempt1.st",
+  "compiler": "C:\\Program Files\\CODESYS 3.5.22.40\\CODESYS\\Common\\CODESYS.exe",
+  "profile": "CODESYS V3.5 SP22 Patch 4",
+  "version": "3.5.22.40",
+  "return_code": 0,
+  "elapsed_ms": 49150,
+  "pou": {
+    "kind": "FUNCTION_BLOCK",
+    "device_id": "0000 0004",
+    "device_name": "CODESYS Control Win V3 x64",
+    "device_version": "3.5.22.40",
+    "name": "FB_MovingAverage"
+  },
+  "errors": [],
+  "warnings": [],
+  "error": null,
+  "stdout": "{\"status\": \"PASS\", \"warnings\": [], \"errors\": [], \"pou\": {\"kind\": \"FUNCTION_BLOCK\", \"device_id\": \"0000 0004\", \"device_name\": \"CODESYS Control Win V3 x64\", \"device_version\": \"3.5.22.40\", \"name\": \"FB_MovingAverage\"}}\n",
+  "stderr": "编译: Text: C0: ------ 开始构建应用程序 Device.Application -------\n编译: Text: C0: 代码典型化...\n附加代码检查: Text: SA0: 其他代码检查...\n附加代码检查: Text: SA0: 其他代码检查完成-0 个错误\n编译: Text: C0: 编译完成 -- 0错误,0警告\n"
+}

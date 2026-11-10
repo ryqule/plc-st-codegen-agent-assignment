@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "task_id": "P17",
+  "source": "I:\\genai\\submission\\st\\runs\\self\\gpt\\P17_attempt3.st",
+  "source_sha256": "2a240286a0455c4994eec882e50c812bd9c206e2a4350be87f005e909c43e833",
+  "posthoc_duts": [
+    "ST_Recipe"
+  ],
+  "build_adapter": "Standard library + task-defined DUTs; compile POU without task call binding",
+  "compiler": "C:\\Program Files\\CODESYS 3.5.22.40\\CODESYS\\Common\\CODESYS.exe",
+  "profile": "CODESYS V3.5 SP22 Patch 4",
+  "version": "3.5.22.40",
+  "return_code": 0,
+  "elapsed_ms": 37867,
+  "pou": {
+    "kind": "PROGRAM",
+    "device_id": "0000 0004",
+    "device_name": "CODESYS Control Win V3 x64",
+    "device_version": "3.5.22.40",
+    "name": "P17"
+  },
+  "errors": [],
+  "warnings": [],
+  "error": null,
+  "stdout": "{\"status\": \"PASS\", \"warnings\": [], \"errors\": [], \"pou\": {\"kind\": \"PROGRAM\", \"device_id\": \"0000 0004\", \"device_name\": \"CODESYS Control Win V3 x64\", \"device_version\": \"3.5.22.40\", \"name\": \"P17\"}}\n",
+  "stderr": "编译: Text: C0: ------ 开始构建应用程序 Device.Application -------\n编译: Text: C0: 代码典型化...\n附加代码检查: Text: SA0: 其他代码检查...\n附加代码检查: Text: SA0: 其他代码检查完成-0 个错误\n编译: Text: C0: 编译完成 -- 0错误,0警告\n"
+}

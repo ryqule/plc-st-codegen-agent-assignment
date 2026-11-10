@@ -1,0 +1,20 @@
+{
+  "purpose": "Post-hoc recheck of original FAIL cells with corrected project adapter",
+  "original_matrix_file": "experiments/results.csv",
+  "original_failure_cells": 30,
+  "rechecked_cells": 30,
+  "posthoc_status_counts": {
+    "PASS": 30
+  },
+  "sources_unchanged": true,
+  "adapter_changes": [
+    "Adds installed CODESYS Standard 3.5.22.0 (System) library for IEC standard symbols.",
+    "Imports task-provided ST_Pump and ST_Recipe as DUTs when required.",
+    "Builds the POU without binding a VAR_IN_OUT program to an empty task call.",
+    "Strips Markdown code-fence wrappers from the compiler input view only."
+  ],
+  "limitations": [
+    "This pass does not change the original 120-cell experiment results or source files.",
+    "PASS means offline CODESYS project compilation only; it is not runtime or functional verification."
+  ]
+}

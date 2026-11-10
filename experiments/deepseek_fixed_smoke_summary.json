@@ -1,0 +1,13 @@
+{
+  "run_rows": 2,
+  "cost_cny": 0.013898,
+  "budget_accounted_cny": 0.013898,
+  "budget_limit_cny": 0.2,
+  "pilot": false,
+  "dataset_total": 30,
+  "planned_cells": 4,
+  "results_csv": "submission\\experiments\\deepseek_fixed_smoke.csv",
+  "usage_log": "submission\\experiments\\deepseek_fixed_smoke_usage_20261109_155144.jsonl",
+  "resumed": false,
+  "run_status": "INCOMPLETE"
+}

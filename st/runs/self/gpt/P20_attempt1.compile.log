@@ -1,0 +1,6 @@
+{
+  "status": "UNAVAILABLE",
+  "task_id": "P20",
+  "elapsed_ms": 15,
+  "error": "Variable declaration block is missing END_VAR"
+}

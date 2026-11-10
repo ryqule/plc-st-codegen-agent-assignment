@@ -1,0 +1,517 @@
+CBMC version 5.95.1 (cbmc-5.95.1) 64-bit x86_64 linux
+Parsing /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp
+Parsing /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp
+Converting
+Type-checking P02_translated
+Type-checking harness
+Generating GOTO Program
+Adding CPROVER library (x86_64)
+Removal of function pointers and virtual functions
+Generic Property Instrumentation
+Running with 8 object bits, 56 offset bits (default)
+Starting Bounded Model Checking
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 1 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 2 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 3 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 4 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 5 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 6 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 7 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 8 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 9 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 10 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 11 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 12 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 13 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 14 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 15 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 16 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 17 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 18 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 19 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 20 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 21 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 22 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 23 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 24 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 25 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 26 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 27 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 28 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 29 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 30 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 31 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 32 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 33 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 34 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 35 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 36 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 37 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 38 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 39 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Not unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 40 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 1 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 2 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 3 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 4 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 5 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 6 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 7 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 8 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 9 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 10 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 11 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 12 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 13 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 14 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 15 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 16 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 17 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 18 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 19 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 20 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 21 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 22 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 23 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 24 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 25 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 26 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 27 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 28 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 29 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 30 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 31 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 32 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 33 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 34 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 35 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 36 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 37 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 38 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 39 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Not unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 40 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 1 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 2 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 3 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 4 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 5 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 6 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 7 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 8 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 9 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 10 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 11 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 12 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 13 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 14 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 15 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 16 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 17 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 18 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 19 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 20 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 21 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 22 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 23 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 24 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 25 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 26 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 27 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 28 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 29 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 30 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 31 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 32 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 1 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 2 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 3 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 4 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 5 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 6 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 7 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 8 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 9 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 10 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 11 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 12 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 13 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 14 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 15 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 16 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 17 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 18 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 19 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 20 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 21 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 22 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 23 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 24 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 25 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 26 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 27 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 28 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 29 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 30 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 31 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 32 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 1 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 2 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 3 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 4 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 5 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 6 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 7 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 8 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 9 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 10 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 11 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 12 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 13 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 14 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 15 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 16 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 17 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 18 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 19 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 20 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 21 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 22 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 23 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 24 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 25 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 26 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 27 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 28 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 29 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 30 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 31 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 32 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 33 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 34 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 35 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 36 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 37 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 38 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 39 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Not unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 40 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 1 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 2 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 3 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 4 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 5 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 6 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 7 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 8 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 9 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 10 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 11 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 12 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 13 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 14 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 15 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 16 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 17 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 18 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 19 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 20 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 21 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 22 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 23 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 24 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 25 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 26 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 27 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 28 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 29 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 30 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 31 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 32 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 33 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 34 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 35 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 36 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 37 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 38 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 39 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Not unwinding loop strucpp::COUNTSETBITS(unsigned_int).0 iteration 40 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 39 function COUNTSETBITS thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 1 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 2 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 3 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 4 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 5 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 6 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 7 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 8 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 9 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 10 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 11 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 12 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 13 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 14 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 15 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 16 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 17 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 18 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 19 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 20 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 21 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 22 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 23 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 24 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 25 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 26 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 27 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 28 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 29 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 30 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 31 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 32 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 1 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 2 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 3 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 4 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 5 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 6 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 7 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 8 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 9 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 10 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 11 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 12 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 13 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 14 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 15 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 16 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 17 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 18 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 19 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 20 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 21 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 22 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 23 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 24 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 25 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 26 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 27 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 28 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 29 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 30 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 31 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Unwinding loop popcount32(unsigned_int).0 iteration 32 file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp line 11 function popcount32 thread 0
+Runtime Symex: 0.23904s
+size of program expression: 1875 steps
+simple slicing removed 12 assignments
+Generated 650 VCC(s), 20 remaining after simplification
+Runtime Postprocess Equation: 0.00719758s
+Passing problem to propositional reduction
+converting SSA
+Runtime Convert SSA: 0.154582s
+Running propositional reduction
+Post-processing
+Runtime Post-process: 0.00223312s
+Solving with MiniSAT 2.2.1 with simplifier
+23147 variables, 79388 clauses
+SAT checker: instance is UNSATISFIABLE
+Runtime Solver: 47.892s
+Runtime decision procedure: 48.0588s
+
+** Results:
+[pointer_dereference.1] file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 9 dereference failure: pointer NULL in this->PREVVALUE: SUCCESS
+[pointer_dereference.2] file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 9 dereference failure: pointer invalid in this->PREVVALUE: SUCCESS
+[pointer_dereference.3] file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 9 dereference failure: deallocated dynamic object in this->PREVVALUE: SUCCESS
+[pointer_dereference.4] file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 9 dereference failure: dead object in this->PREVVALUE: SUCCESS
+[pointer_dereference.5] file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 9 dereference failure: pointer outside object bounds in this->PREVVALUE: SUCCESS
+[pointer_dereference.6] file /mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp line 9 dereference failure: invalid integer address in this->PREVVALUE: SUCCESS
+/mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp function COUNTSETBITS
+[COUNTSETBITS.unwind.0] line 39 unwinding assertion loop 0: SUCCESS
+[COUNTSETBITS.overflow.1] line 41 arithmetic overflow on signed + in (signed int)C + 1: SUCCESS
+
+/mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/P02_translated.cpp function operator()
+[operator().pointer_dereference.1] line 15 dereference failure: pointer NULL in this->RISINGBITS: SUCCESS
+[operator().pointer_dereference.2] line 15 dereference failure: pointer invalid in this->RISINGBITS: SUCCESS
+[operator().pointer_dereference.3] line 15 dereference failure: deallocated dynamic object in this->RISINGBITS: SUCCESS
+[operator().pointer_dereference.4] line 15 dereference failure: dead object in this->RISINGBITS: SUCCESS
+[operator().pointer_dereference.5] line 15 dereference failure: pointer outside object bounds in this->RISINGBITS: SUCCESS
+[operator().pointer_dereference.6] line 15 dereference failure: invalid integer address in this->RISINGBITS: SUCCESS
+[operator().pointer_dereference.7] line 15 dereference failure: pointer NULL in this->VALUE: SUCCESS
+[operator().pointer_dereference.8] line 15 dereference failure: pointer invalid in this->VALUE: SUCCESS
+[operator().pointer_dereference.9] line 15 dereference failure: deallocated dynamic object in this->VALUE: SUCCESS
+[operator().pointer_dereference.10] line 15 dereference failure: dead object in this->VALUE: SUCCESS
+[operator().pointer_dereference.11] line 15 dereference failure: pointer outside object bounds in this->VALUE: SUCCESS
+[operator().pointer_dereference.12] line 15 dereference failure: invalid integer address in this->VALUE: SUCCESS
+[operator().pointer_dereference.13] line 15 dereference failure: pointer NULL in this->PREVVALUE: SUCCESS
+[operator().pointer_dereference.14] line 15 dereference failure: pointer invalid in this->PREVVALUE: SUCCESS
+[operator().pointer_dereference.15] line 15 dereference failure: deallocated dynamic object in this->PREVVALUE: SUCCESS
+[operator().pointer_dereference.16] line 15 dereference failure: dead object in this->PREVVALUE: SUCCESS
+[operator().pointer_dereference.17] line 15 dereference failure: pointer outside object bounds in this->PREVVALUE: SUCCESS
+[operator().pointer_dereference.18] line 15 dereference failure: invalid integer address in this->PREVVALUE: SUCCESS
+[operator().pointer_dereference.19] line 16 dereference failure: pointer NULL in this->FALLINGBITS: SUCCESS
+[operator().pointer_dereference.20] line 16 dereference failure: pointer invalid in this->FALLINGBITS: SUCCESS
+[operator().pointer_dereference.21] line 16 dereference failure: deallocated dynamic object in this->FALLINGBITS: SUCCESS
+[operator().pointer_dereference.22] line 16 dereference failure: dead object in this->FALLINGBITS: SUCCESS
+[operator().pointer_dereference.23] line 16 dereference failure: pointer outside object bounds in this->FALLINGBITS: SUCCESS
+[operator().pointer_dereference.24] line 16 dereference failure: invalid integer address in this->FALLINGBITS: SUCCESS
+[operator().pointer_dereference.25] line 16 dereference failure: pointer NULL in this->PREVVALUE: SUCCESS
+[operator().pointer_dereference.26] line 16 dereference failure: pointer invalid in this->PREVVALUE: SUCCESS
+[operator().pointer_dereference.27] line 16 dereference failure: deallocated dynamic object in this->PREVVALUE: SUCCESS
+[operator().pointer_dereference.28] line 16 dereference failure: dead object in this->PREVVALUE: SUCCESS
+[operator().pointer_dereference.29] line 16 dereference failure: pointer outside object bounds in this->PREVVALUE: SUCCESS
+[operator().pointer_dereference.30] line 16 dereference failure: invalid integer address in this->PREVVALUE: SUCCESS
+[operator().pointer_dereference.31] line 16 dereference failure: pointer NULL in this->VALUE: SUCCESS
+[operator().pointer_dereference.32] line 16 dereference failure: pointer invalid in this->VALUE: SUCCESS
+[operator().pointer_dereference.33] line 16 dereference failure: deallocated dynamic object in this->VALUE: SUCCESS
+[operator().pointer_dereference.34] line 16 dereference failure: dead object in this->VALUE: SUCCESS
+[operator().pointer_dereference.35] line 16 dereference failure: pointer outside object bounds in this->VALUE: SUCCESS
+[operator().pointer_dereference.36] line 16 dereference failure: invalid integer address in this->VALUE: SUCCESS
+[operator().pointer_dereference.37] line 17 dereference failure: pointer NULL in this->HASCHANGED: SUCCESS
+[operator().pointer_dereference.38] line 17 dereference failure: pointer invalid in this->HASCHANGED: SUCCESS
+[operator().pointer_dereference.39] line 17 dereference failure: deallocated dynamic object in this->HASCHANGED: SUCCESS
+[operator().pointer_dereference.40] line 17 dereference failure: dead object in this->HASCHANGED: SUCCESS
+[operator().pointer_dereference.41] line 17 dereference failure: pointer outside object bounds in this->HASCHANGED: SUCCESS
+[operator().pointer_dereference.42] line 17 dereference failure: invalid integer address in this->HASCHANGED: SUCCESS
+[operator().pointer_dereference.43] line 17 dereference failure: pointer NULL in this->VALUE: SUCCESS
+[operator().pointer_dereference.44] line 17 dereference failure: pointer invalid in this->VALUE: SUCCESS
+[operator().pointer_dereference.45] line 17 dereference failure: deallocated dynamic object in this->VALUE: SUCCESS
+[operator().pointer_dereference.46] line 17 dereference failure: dead object in this->VALUE: SUCCESS
+[operator().pointer_dereference.47] line 17 dereference failure: pointer outside object bounds in this->VALUE: SUCCESS
+[operator().pointer_dereference.48] line 17 dereference failure: invalid integer address in this->VALUE: SUCCESS
+[operator().pointer_dereference.49] line 17 dereference failure: pointer NULL in this->PREVVALUE: SUCCESS
+[operator().pointer_dereference.50] line 17 dereference failure: pointer invalid in this->PREVVALUE: SUCCESS
+[operator().pointer_dereference.51] line 17 dereference failure: deallocated dynamic object in this->PREVVALUE: SUCCESS
+[operator().pointer_dereference.52] line 17 dereference failure: dead object in this->PREVVALUE: SUCCESS
+[operator().pointer_dereference.53] line 17 dereference failure: pointer outside object bounds in this->PREVVALUE: SUCCESS
+[operator().pointer_dereference.54] line 17 dereference failure: invalid integer address in this->PREVVALUE: SUCCESS
+[operator().pointer_dereference.55] line 18 dereference failure: pointer NULL in this->HASRISINGEDGES: SUCCESS
+[operator().pointer_dereference.56] line 18 dereference failure: pointer invalid in this->HASRISINGEDGES: SUCCESS
+[operator().pointer_dereference.57] line 18 dereference failure: deallocated dynamic object in this->HASRISINGEDGES: SUCCESS
+[operator().pointer_dereference.58] line 18 dereference failure: dead object in this->HASRISINGEDGES: SUCCESS
+[operator().pointer_dereference.59] line 18 dereference failure: pointer outside object bounds in this->HASRISINGEDGES: SUCCESS
+[operator().pointer_dereference.60] line 18 dereference failure: invalid integer address in this->HASRISINGEDGES: SUCCESS
+[operator().pointer_dereference.61] line 18 dereference failure: pointer NULL in this->RISINGBITS: SUCCESS
+[operator().pointer_dereference.62] line 18 dereference failure: pointer invalid in this->RISINGBITS: SUCCESS
+[operator().pointer_dereference.63] line 18 dereference failure: deallocated dynamic object in this->RISINGBITS: SUCCESS
+[operator().pointer_dereference.64] line 18 dereference failure: dead object in this->RISINGBITS: SUCCESS
+[operator().pointer_dereference.65] line 18 dereference failure: pointer outside object bounds in this->RISINGBITS: SUCCESS
+[operator().pointer_dereference.66] line 18 dereference failure: invalid integer address in this->RISINGBITS: SUCCESS
+[operator().pointer_dereference.67] line 19 dereference failure: pointer NULL in this->HASFALLINGEDGES: SUCCESS
+[operator().pointer_dereference.68] line 19 dereference failure: pointer invalid in this->HASFALLINGEDGES: SUCCESS
+[operator().pointer_dereference.69] line 19 dereference failure: deallocated dynamic object in this->HASFALLINGEDGES: SUCCESS
+[operator().pointer_dereference.70] line 19 dereference failure: dead object in this->HASFALLINGEDGES: SUCCESS
+[operator().pointer_dereference.71] line 19 dereference failure: pointer outside object bounds in this->HASFALLINGEDGES: SUCCESS
+[operator().pointer_dereference.72] line 19 dereference failure: invalid integer address in this->HASFALLINGEDGES: SUCCESS
+[operator().pointer_dereference.73] line 19 dereference failure: pointer NULL in this->FALLINGBITS: SUCCESS
+[operator().pointer_dereference.74] line 19 dereference failure: pointer invalid in this->FALLINGBITS: SUCCESS
+[operator().pointer_dereference.75] line 19 dereference failure: deallocated dynamic object in this->FALLINGBITS: SUCCESS
+[operator().pointer_dereference.76] line 19 dereference failure: dead object in this->FALLINGBITS: SUCCESS
+[operator().pointer_dereference.77] line 19 dereference failure: pointer outside object bounds in this->FALLINGBITS: SUCCESS
+[operator().pointer_dereference.78] line 19 dereference failure: invalid integer address in this->FALLINGBITS: SUCCESS
+[operator().pointer_dereference.79] line 20 dereference failure: pointer NULL in this->RISINGBITS: SUCCESS
+[operator().pointer_dereference.80] line 20 dereference failure: pointer invalid in this->RISINGBITS: SUCCESS
+[operator().pointer_dereference.81] line 20 dereference failure: deallocated dynamic object in this->RISINGBITS: SUCCESS
+[operator().pointer_dereference.82] line 20 dereference failure: dead object in this->RISINGBITS: SUCCESS
+[operator().pointer_dereference.83] line 20 dereference failure: pointer outside object bounds in this->RISINGBITS: SUCCESS
+[operator().pointer_dereference.84] line 20 dereference failure: invalid integer address in this->RISINGBITS: SUCCESS
+[operator().pointer_dereference.85] line 20 dereference failure: pointer NULL in this->NOOFRISINGBITS: SUCCESS
+[operator().pointer_dereference.86] line 20 dereference failure: pointer invalid in this->NOOFRISINGBITS: SUCCESS
+[operator().pointer_dereference.87] line 20 dereference failure: deallocated dynamic object in this->NOOFRISINGBITS: SUCCESS
+[operator().pointer_dereference.88] line 20 dereference failure: dead object in this->NOOFRISINGBITS: SUCCESS
+[operator().pointer_dereference.89] line 20 dereference failure: pointer outside object bounds in this->NOOFRISINGBITS: SUCCESS
+[operator().pointer_dereference.90] line 20 dereference failure: invalid integer address in this->NOOFRISINGBITS: SUCCESS
+[operator().pointer_dereference.91] line 21 dereference failure: pointer NULL in this->FALLINGBITS: SUCCESS
+[operator().pointer_dereference.92] line 21 dereference failure: pointer invalid in this->FALLINGBITS: SUCCESS
+[operator().pointer_dereference.93] line 21 dereference failure: deallocated dynamic object in this->FALLINGBITS: SUCCESS
+[operator().pointer_dereference.94] line 21 dereference failure: dead object in this->FALLINGBITS: SUCCESS
+[operator().pointer_dereference.95] line 21 dereference failure: pointer outside object bounds in this->FALLINGBITS: SUCCESS
+[operator().pointer_dereference.96] line 21 dereference failure: invalid integer address in this->FALLINGBITS: SUCCESS
+[operator().pointer_dereference.97] line 21 dereference failure: pointer NULL in this->NOOFFALLINGBITS: SUCCESS
+[operator().pointer_dereference.98] line 21 dereference failure: pointer invalid in this->NOOFFALLINGBITS: SUCCESS
+[operator().pointer_dereference.99] line 21 dereference failure: deallocated dynamic object in this->NOOFFALLINGBITS: SUCCESS
+[operator().pointer_dereference.100] line 21 dereference failure: dead object in this->NOOFFALLINGBITS: SUCCESS
+[operator().pointer_dereference.101] line 21 dereference failure: pointer outside object bounds in this->NOOFFALLINGBITS: SUCCESS
+[operator().pointer_dereference.102] line 21 dereference failure: invalid integer address in this->NOOFFALLINGBITS: SUCCESS
+[operator().pointer_dereference.103] line 22 dereference failure: pointer NULL in this->PREVVALUE: SUCCESS
+[operator().pointer_dereference.104] line 22 dereference failure: pointer invalid in this->PREVVALUE: SUCCESS
+[operator().pointer_dereference.105] line 22 dereference failure: deallocated dynamic object in this->PREVVALUE: SUCCESS
+[operator().pointer_dereference.106] line 22 dereference failure: dead object in this->PREVVALUE: SUCCESS
+[operator().pointer_dereference.107] line 22 dereference failure: pointer outside object bounds in this->PREVVALUE: SUCCESS
+[operator().pointer_dereference.108] line 22 dereference failure: invalid integer address in this->PREVVALUE: SUCCESS
+[operator().pointer_dereference.109] line 22 dereference failure: pointer NULL in this->VALUE: SUCCESS
+[operator().pointer_dereference.110] line 22 dereference failure: pointer invalid in this->VALUE: SUCCESS
+[operator().pointer_dereference.111] line 22 dereference failure: deallocated dynamic object in this->VALUE: SUCCESS
+[operator().pointer_dereference.112] line 22 dereference failure: dead object in this->VALUE: SUCCESS
+[operator().pointer_dereference.113] line 22 dereference failure: pointer outside object bounds in this->VALUE: SUCCESS
+[operator().pointer_dereference.114] line 22 dereference failure: invalid integer address in this->VALUE: SUCCESS
+
+/mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp function check_transition
+[check_transition.pointer_dereference.1] line 19 dereference failure: pointer NULL in fb->VALUE: SUCCESS
+[check_transition.pointer_dereference.2] line 19 dereference failure: pointer invalid in fb->VALUE: SUCCESS
+[check_transition.pointer_dereference.3] line 19 dereference failure: deallocated dynamic object in fb->VALUE: SUCCESS
+[check_transition.pointer_dereference.4] line 19 dereference failure: dead object in fb->VALUE: SUCCESS
+[check_transition.pointer_dereference.5] line 19 dereference failure: pointer outside object bounds in fb->VALUE: SUCCESS
+[check_transition.pointer_dereference.6] line 19 dereference failure: invalid integer address in fb->VALUE: SUCCESS
+[check_transition.assertion.1] line 24 fb.RISINGBITS == rising: SUCCESS
+[check_transition.pointer_dereference.7] line 24 dereference failure: pointer NULL in fb->RISINGBITS: SUCCESS
+[check_transition.pointer_dereference.8] line 24 dereference failure: pointer invalid in fb->RISINGBITS: SUCCESS
+[check_transition.pointer_dereference.9] line 24 dereference failure: deallocated dynamic object in fb->RISINGBITS: SUCCESS
+[check_transition.pointer_dereference.10] line 24 dereference failure: dead object in fb->RISINGBITS: SUCCESS
+[check_transition.pointer_dereference.11] line 24 dereference failure: pointer outside object bounds in fb->RISINGBITS: SUCCESS
+[check_transition.pointer_dereference.12] line 24 dereference failure: invalid integer address in fb->RISINGBITS: SUCCESS
+[check_transition.assertion.2] line 25 fb.FALLINGBITS == falling: SUCCESS
+[check_transition.pointer_dereference.13] line 25 dereference failure: pointer NULL in fb->FALLINGBITS: SUCCESS
+[check_transition.pointer_dereference.14] line 25 dereference failure: pointer invalid in fb->FALLINGBITS: SUCCESS
+[check_transition.pointer_dereference.15] line 25 dereference failure: deallocated dynamic object in fb->FALLINGBITS: SUCCESS
+[check_transition.pointer_dereference.16] line 25 dereference failure: dead object in fb->FALLINGBITS: SUCCESS
+[check_transition.pointer_dereference.17] line 25 dereference failure: pointer outside object bounds in fb->FALLINGBITS: SUCCESS
+[check_transition.pointer_dereference.18] line 25 dereference failure: invalid integer address in fb->FALLINGBITS: SUCCESS
+[check_transition.assertion.3] line 26 fb.HASCHANGED == (current != previous): SUCCESS
+[check_transition.pointer_dereference.19] line 26 dereference failure: pointer NULL in fb->HASCHANGED: SUCCESS
+[check_transition.pointer_dereference.20] line 26 dereference failure: pointer invalid in fb->HASCHANGED: SUCCESS
+[check_transition.pointer_dereference.21] line 26 dereference failure: deallocated dynamic object in fb->HASCHANGED: SUCCESS
+[check_transition.pointer_dereference.22] line 26 dereference failure: dead object in fb->HASCHANGED: SUCCESS
+[check_transition.pointer_dereference.23] line 26 dereference failure: pointer outside object bounds in fb->HASCHANGED: SUCCESS
+[check_transition.pointer_dereference.24] line 26 dereference failure: invalid integer address in fb->HASCHANGED: SUCCESS
+[check_transition.assertion.4] line 27 fb.HASRISINGEDGES == (rising != 0U): SUCCESS
+[check_transition.pointer_dereference.25] line 27 dereference failure: pointer NULL in fb->HASRISINGEDGES: SUCCESS
+[check_transition.pointer_dereference.26] line 27 dereference failure: pointer invalid in fb->HASRISINGEDGES: SUCCESS
+[check_transition.pointer_dereference.27] line 27 dereference failure: deallocated dynamic object in fb->HASRISINGEDGES: SUCCESS
+[check_transition.pointer_dereference.28] line 27 dereference failure: dead object in fb->HASRISINGEDGES: SUCCESS
+[check_transition.pointer_dereference.29] line 27 dereference failure: pointer outside object bounds in fb->HASRISINGEDGES: SUCCESS
+[check_transition.pointer_dereference.30] line 27 dereference failure: invalid integer address in fb->HASRISINGEDGES: SUCCESS
+[check_transition.assertion.5] line 28 fb.HASFALLINGEDGES == (falling != 0U): SUCCESS
+[check_transition.pointer_dereference.31] line 28 dereference failure: pointer NULL in fb->HASFALLINGEDGES: SUCCESS
+[check_transition.pointer_dereference.32] line 28 dereference failure: pointer invalid in fb->HASFALLINGEDGES: SUCCESS
+[check_transition.pointer_dereference.33] line 28 dereference failure: deallocated dynamic object in fb->HASFALLINGEDGES: SUCCESS
+[check_transition.pointer_dereference.34] line 28 dereference failure: dead object in fb->HASFALLINGEDGES: SUCCESS
+[check_transition.pointer_dereference.35] line 28 dereference failure: pointer outside object bounds in fb->HASFALLINGEDGES: SUCCESS
+[check_transition.pointer_dereference.36] line 28 dereference failure: invalid integer address in fb->HASFALLINGEDGES: SUCCESS
+[check_transition.assertion.6] line 29 fb.NOOFRISINGBITS == popcount32(rising): SUCCESS
+[check_transition.pointer_dereference.37] line 29 dereference failure: pointer NULL in fb->NOOFRISINGBITS: SUCCESS
+[check_transition.pointer_dereference.38] line 29 dereference failure: pointer invalid in fb->NOOFRISINGBITS: SUCCESS
+[check_transition.pointer_dereference.39] line 29 dereference failure: deallocated dynamic object in fb->NOOFRISINGBITS: SUCCESS
+[check_transition.pointer_dereference.40] line 29 dereference failure: dead object in fb->NOOFRISINGBITS: SUCCESS
+[check_transition.pointer_dereference.41] line 29 dereference failure: pointer outside object bounds in fb->NOOFRISINGBITS: SUCCESS
+[check_transition.pointer_dereference.42] line 29 dereference failure: invalid integer address in fb->NOOFRISINGBITS: SUCCESS
+[check_transition.assertion.7] line 30 fb.NOOFFALLINGBITS == popcount32(falling): SUCCESS
+[check_transition.pointer_dereference.43] line 30 dereference failure: pointer NULL in fb->NOOFFALLINGBITS: SUCCESS
+[check_transition.pointer_dereference.44] line 30 dereference failure: pointer invalid in fb->NOOFFALLINGBITS: SUCCESS
+[check_transition.pointer_dereference.45] line 30 dereference failure: deallocated dynamic object in fb->NOOFFALLINGBITS: SUCCESS
+[check_transition.pointer_dereference.46] line 30 dereference failure: dead object in fb->NOOFFALLINGBITS: SUCCESS
+[check_transition.pointer_dereference.47] line 30 dereference failure: pointer outside object bounds in fb->NOOFFALLINGBITS: SUCCESS
+[check_transition.pointer_dereference.48] line 30 dereference failure: invalid integer address in fb->NOOFFALLINGBITS: SUCCESS
+[check_transition.assertion.8] line 31 fb.PREVVALUE == current: SUCCESS
+[check_transition.pointer_dereference.49] line 31 dereference failure: pointer NULL in fb->PREVVALUE: SUCCESS
+[check_transition.pointer_dereference.50] line 31 dereference failure: pointer invalid in fb->PREVVALUE: SUCCESS
+[check_transition.pointer_dereference.51] line 31 dereference failure: deallocated dynamic object in fb->PREVVALUE: SUCCESS
+[check_transition.pointer_dereference.52] line 31 dereference failure: dead object in fb->PREVVALUE: SUCCESS
+[check_transition.pointer_dereference.53] line 31 dereference failure: pointer outside object bounds in fb->PREVVALUE: SUCCESS
+[check_transition.pointer_dereference.54] line 31 dereference failure: invalid integer address in fb->PREVVALUE: SUCCESS
+
+/mnt/i/genai/submission/experiments/formal_verification/P02_self_deepseek/harness.cpp function popcount32
+[popcount32.undefined-shift.1] line 12 shift distance too large in value >> bit: SUCCESS
+
+** 0 of 185 failed (1 iterations)
+VERIFICATION SUCCESSFUL
+w s l :   �hKm0R  l o c a l h o s t   �NtM�n�FO*g\��P0R  W S L 0N A T   !j_N�v  W S L   
+N/ec  l o c a l h o s t   �Nt0
+ 
+ **** WARNING: no body for function __CPROVER_nondet_uint

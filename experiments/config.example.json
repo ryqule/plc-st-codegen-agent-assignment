@@ -1,0 +1,40 @@
+{
+  "models": {
+    "gpt": {
+      "label": "GPT-6.1 Sol (DMXAPI model ID)",
+      "model_id": "gpt-6.1-sol",
+      "base_url": "https://www.dmxapi.cn/v1",
+      "api_key_env": "DMXAPI_API_KEY",
+      "temperature": 0,
+      "reasoning": true,
+      "max_tokens": 4096,
+      "timeout_seconds": 180
+    },
+    "deepseek": {
+      "label": "DeepSeek V4.1 Flash 1017 (DMXAPI model ID)",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "base_url": "https://www.dmxapi.cn/v1",
+      "api_key_env": "DMXAPI_API_KEY",
+      "temperature": 0,
+      "reasoning": false,
+      "sampling_params": {"thinking": {"type": "disabled"}},
+      "request_params": {"thinking": {"type": "disabled"}},
+      "max_tokens": 4096,
+      "timeout_seconds": 180
+    }
+  },
+  "baseline": {
+    "name": "Pi coding-agent",
+    "package": "@earendil-works/pi-coding-agent",
+    "version": "1.5.0",
+    "entry": "node_modules/@earendil-works/pi-coding-agent/dist/bundle/cli.js",
+    "command_note": "The runner invokes the pinned Pi CLI with tools disabled and the same system prompt; set the package entry if you install Pi elsewhere.",
+    "timeout_seconds": 900
+  },
+  "compiler": {
+    "command": ["{python}", "{repo_root}/tools/codesys_compile.py", "--source", "{source}", "--task-id", "{task_id}", "--output", "{output}"],
+    "command_note": "Uses the installed CODESYS profile and Control Win x64 device. Set CODESYS_EXE or CODESYS_PROFILE to override discovery. The adapter writes full compiler diagnostics to the output path.",
+    "target": "CODESYS V3.5 SP22 Patch 4 / Control Win x64"
+  },
+  "experiment": {"seed": 20261108, "temperature": 0, "repair_limit": 2, "pilot_max_tokens": 768, "task_file": "../dataset/tasks.json"}
+}

@@ -1,0 +1,37 @@
+{
+  "status": "FAIL",
+  "task_id": "S05",
+  "source": "I:\\genai\\submission\\st\\runs\\self\\gpt\\S05_attempt3.st",
+  "compiler": "C:\\Program Files\\CODESYS 3.5.22.40\\CODESYS\\Common\\CODESYS.exe",
+  "profile": "CODESYS V3.5 SP22 Patch 4",
+  "version": "3.5.22.40",
+  "return_code": 1,
+  "elapsed_ms": 47294,
+  "pou": {
+    "kind": "PROGRAM",
+    "device_id": "0000 0004",
+    "device_name": "CODESYS Control Win V3 x64",
+    "device_version": "3.5.22.40",
+    "name": "S05"
+  },
+  "errors": [
+    {
+      "severity": "Error",
+      "number": "190",
+      "text": "应该采用';' 取代end of POU",
+      "category": "编译",
+      "prefix": "C"
+    },
+    {
+      "severity": "Error",
+      "number": "7",
+      "text": "应该用表达式代替 ''",
+      "category": "编译",
+      "prefix": "C"
+    }
+  ],
+  "warnings": [],
+  "error": null,
+  "stdout": "{\"status\": \"FAIL\", \"warnings\": [], \"errors\": [{\"severity\": \"Error\", \"number\": \"190\", \"text\": \"\\u5e94\\u8be5\\u91c7\\u7528';' \\u53d6\\u4ee3end of POU\", \"category\": \"\\u7f16\\u8bd1\", \"prefix\": \"C\"}, {\"severity\": \"Error\", \"number\": \"7\", \"text\": \"\\u5e94\\u8be5\\u7528\\u8868\\u8fbe\\u5f0f\\u4ee3\\u66ff ''\", \"category\": \"\\u7f16\\u8bd1\", \"prefix\": \"C\"}], \"pou\": {\"kind\": \"PROGRAM\", \"device_id\": \"0000 0004\", \"device_name\": \"CODESYS Control Win V3 x64\", \"device_version\": \"3.5.22.40\", \"name\": \"S05\"}}\n",
+  "stderr": "编译: Text: C0: ------ 开始构建应用程序 Device.Application -------\n编译: Text: C0: 代码典型化...\n编译: Error: C190: 应该采用';' 取代end of POU\n编译: Error: C7: 应该用表达式代替 ''\n附加代码检查: Text: SA0: 其他代码检查...\n附加代码检查: Text: SA0: 其他代码检查完成-0 个错误\n编译: Text: C0: 编译完成--2错误,0警告\n"
+}

@@ -1,0 +1,4 @@
+```st
+PROGRAM P12
+VAR_INPUT
+    THICKNESS_FAULT        : BOOL;

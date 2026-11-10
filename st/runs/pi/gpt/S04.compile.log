@@ -1,0 +1,51 @@
+{
+  "status": "FAIL",
+  "task_id": "S04",
+  "source": "I:\\genai\\submission\\st\\runs\\pi\\gpt\\S04.st",
+  "compiler": "C:\\Program Files\\CODESYS 3.5.22.40\\CODESYS\\Common\\CODESYS.exe",
+  "profile": "CODESYS V3.5 SP22 Patch 4",
+  "version": "3.5.22.40",
+  "return_code": 1,
+  "elapsed_ms": 31907,
+  "pou": {
+    "kind": "PROGRAM",
+    "device_id": "0000 0004",
+    "device_name": "CODESYS Control Win V3 x64",
+    "device_version": "3.5.22.40",
+    "name": "S04"
+  },
+  "errors": [
+    {
+      "severity": "Error",
+      "number": "8",
+      "text": "发现不正确的文件结束标记: 应该是'ELSIF', 'ELSE' 或 'END_IF' ",
+      "category": "编译",
+      "prefix": "C"
+    },
+    {
+      "severity": "Error",
+      "number": "6",
+      "text": "应该采用'THEN' 取代''",
+      "category": "编译",
+      "prefix": "C"
+    },
+    {
+      "severity": "Error",
+      "number": "8",
+      "text": "发现不正确的文件结束标记: 应该是'ELSIF', 'ELSE' 或 'END_IF' ",
+      "category": "编译",
+      "prefix": "C"
+    },
+    {
+      "severity": "Error",
+      "number": "13",
+      "text": "应输入至少一条语句",
+      "category": "编译",
+      "prefix": "C"
+    }
+  ],
+  "warnings": [],
+  "error": null,
+  "stdout": "{\"status\": \"FAIL\", \"warnings\": [], \"errors\": [{\"severity\": \"Error\", \"number\": \"8\", \"text\": \"\\u53d1\\u73b0\\u4e0d\\u6b63\\u786e\\u7684\\u6587\\u4ef6\\u7ed3\\u675f\\u6807\\u8bb0: \\u5e94\\u8be5\\u662f'ELSIF', 'ELSE' \\u6216 'END_IF' \", \"category\": \"\\u7f16\\u8bd1\", \"prefix\": \"C\"}, {\"severity\": \"Error\", \"number\": \"6\", \"text\": \"\\u5e94\\u8be5\\u91c7\\u7528'THEN' \\u53d6\\u4ee3''\", \"category\": \"\\u7f16\\u8bd1\", \"prefix\": \"C\"}, {\"severity\": \"Error\", \"number\": \"8\", \"text\": \"\\u53d1\\u73b0\\u4e0d\\u6b63\\u786e\\u7684\\u6587\\u4ef6\\u7ed3\\u675f\\u6807\\u8bb0: \\u5e94\\u8be5\\u662f'ELSIF', 'ELSE' \\u6216 'END_IF' \", \"category\": \"\\u7f16\\u8bd1\", \"prefix\": \"C\"}, {\"severity\": \"Error\", \"number\": \"13\", \"text\": \"\\u5e94\\u8f93\\u5165\\u81f3\\u5c11\\u4e00\\u6761\\u8bed\\u53e5\", \"category\": \"\\u7f16\\u8bd1\", \"prefix\": \"C\"}], \"pou\": {\"kind\": \"PROGRAM\", \"device_id\": \"0000 0004\", \"device_name\": \"CODESYS Control Win V3 x64\", \"device_version\": \"3.5.22.40\", \"name\": \"S04\"}}\n",
+  "stderr": "编译: Text: C0: ------ 开始构建应用程序 Device.Application -------\n编译: Text: C0: 代码典型化...\n编译: Error: C8: 发现不正确的文件结束标记: 应该是'ELSIF', 'ELSE' 或 'END_IF' \n编译: Error: C6: 应该采用'THEN' 取代''\n编译: Error: C8: 发现不正确的文件结束标记: 应该是'ELSIF', 'ELSE' 或 'END_IF' \n编译: Error: C13: 应输入至少一条语句\n附加代码检查: Text: SA0: 其他代码检查...\n附加代码检查: Text: SA0: 其他代码检查完成-0 个错误\n编译: Text: C0: 编译完成--4错误,0警告\n"
+}

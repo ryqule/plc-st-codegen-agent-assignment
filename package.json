@@ -1,0 +1,10 @@
+{
+  "name": "plc-st-agent-benchmark",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Existing Pi coding-agent baseline for the PLC ST coursework benchmark",
+  "engines": {"node": ">=22.19.0"},
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "1.5.0"
+  }
+}

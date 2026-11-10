@@ -1,0 +1,107 @@
+{
+  "status": "FAIL",
+  "task_id": "P05",
+  "source": "I:\\genai\\submission\\st\\runs\\self\\gpt\\P05_attempt1.st",
+  "compiler": "C:\\Program Files\\CODESYS 3.5.22.40\\CODESYS\\Common\\CODESYS.exe",
+  "profile": "CODESYS V3.5 SP22 Patch 4",
+  "version": "3.5.22.40",
+  "return_code": 1,
+  "elapsed_ms": 29699,
+  "pou": {
+    "kind": "PROGRAM",
+    "device_id": "0000 0004",
+    "device_name": "CODESYS Control Win V3 x64",
+    "device_version": "3.5.22.40",
+    "name": "P05"
+  },
+  "errors": [
+    {
+      "severity": "Error",
+      "number": "77",
+      "text": "未知的类型: 'TON'",
+      "category": "编译",
+      "prefix": "C"
+    },
+    {
+      "severity": "Error",
+      "number": "77",
+      "text": "未知的类型: 'TON'",
+      "category": "编译",
+      "prefix": "C"
+    },
+    {
+      "severity": "Error",
+      "number": "35",
+      "text": "需要程序名、函数或功能块实例替代 'InitializationTimer'",
+      "category": "编译",
+      "prefix": "C"
+    },
+    {
+      "severity": "Error",
+      "number": "32",
+      "text": "不能将类型 '未知的类型: 'NOT(InitializationTimer.Q)'' 转换为类型'BOOL'",
+      "category": "编译",
+      "prefix": "C"
+    },
+    {
+      "severity": "Error",
+      "number": "77",
+      "text": "未知的类型: 'InitializationTimer.Q'",
+      "category": "编译",
+      "prefix": "C"
+    },
+    {
+      "severity": "Error",
+      "number": "77",
+      "text": "未知的类型: 'TON'",
+      "category": "编译",
+      "prefix": "C"
+    },
+    {
+      "severity": "Error",
+      "number": "35",
+      "text": "需要程序名、函数或功能块实例替代 'GapDebounceTimer'",
+      "category": "编译",
+      "prefix": "C"
+    },
+    {
+      "severity": "Error",
+      "number": "32",
+      "text": "不能将类型 '未知的类型: 'GapDebounceTimer.ET'' 转换为类型'TIME'",
+      "category": "编译",
+      "prefix": "C"
+    },
+    {
+      "severity": "Error",
+      "number": "77",
+      "text": "未知的类型: 'TON'",
+      "category": "编译",
+      "prefix": "C"
+    },
+    {
+      "severity": "Error",
+      "number": "32",
+      "text": "不能将类型 '未知的类型: '(((NOT(initActive) AND Weld_E_Stop_NC) AND Gap_Exceeded) AND GapDebounceTimer.Q)'' 转换为类型'BOOL'",
+      "category": "编译",
+      "prefix": "C"
+    },
+    {
+      "severity": "Error",
+      "number": "77",
+      "text": "未知的类型: 'GapDebounceTimer.Q'",
+      "category": "编译",
+      "prefix": "C"
+    },
+    {
+      "severity": "Error",
+      "number": "77",
+      "text": "未知的类型: 'TON'",
+      "category": "编译",
+      "prefix": "C"
+    }
+  ],
+  "warnings": [],
+  "error": null,
+  "stdout": "{\"status\": \"FAIL\", \"warnings\": [], \"errors\": [{\"severity\": \"Error\", \"number\": \"77\", \"text\": \"\\u672a\\u77e5\\u7684\\u7c7b\\u578b: 'TON'\", \"category\": \"\\u7f16\\u8bd1\", \"prefix\": \"C\"}, {\"severity\": \"Error\", \"number\": \"77\", \"text\": \"\\u672a\\u77e5\\u7684\\u7c7b\\u578b: 'TON'\", \"category\": \"\\u7f16\\u8bd1\", \"prefix\": \"C\"}, {\"severity\": \"Error\", \"number\": \"35\", \"text\": \"\\u9700\\u8981\\u7a0b\\u5e8f\\u540d\\u3001\\u51fd\\u6570\\u6216\\u529f\\u80fd\\u5757\\u5b9e\\u4f8b\\u66ff\\u4ee3 'InitializationTimer'\", \"category\": \"\\u7f16\\u8bd1\", \"prefix\": \"C\"}, {\"severity\": \"Error\", \"number\": \"32\", \"text\": \"\\u4e0d\\u80fd\\u5c06\\u7c7b\\u578b '\\u672a\\u77e5\\u7684\\u7c7b\\u578b: 'NOT(InitializationTimer.Q)'' \\u8f6c\\u6362\\u4e3a\\u7c7b\\u578b'BOOL'\", \"category\": \"\\u7f16\\u8bd1\", \"prefix\": \"C\"}, {\"severity\": \"Error\", \"number\": \"77\", \"text\": \"\\u672a\\u77e5\\u7684\\u7c7b\\u578b: 'InitializationTimer.Q'\", \"category\": \"\\u7f16\\u8bd1\", \"prefix\": \"C\"}, {\"severity\": \"Error\", \"number\": \"77\", \"text\": \"\\u672a\\u77e5\\u7684\\u7c7b\\u578b: 'TON'\", \"category\": \"\\u7f16\\u8bd1\", \"prefix\": \"C\"}, {\"severity\": \"Error\", \"number\": \"35\", \"text\": \"\\u9700\\u8981\\u7a0b\\u5e8f\\u540d\\u3001\\u51fd\\u6570\\u6216\\u529f\\u80fd\\u5757\\u5b9e\\u4f8b\\u66ff\\u4ee3 'GapDebounceTimer'\", \"category\": \"\\u7f16\\u8bd1\", \"prefix\": \"C\"}, {\"severity\": \"Error\", \"number\": \"32\", \"text\": \"\\u4e0d\\u80fd\\u5c06\\u7c7b\\u578b '\\u672a\\u77e5\\u7684\\u7c7b\\u578b: 'GapDebounceTimer.ET'' \\u8f6c\\u6362\\u4e3a\\u7c7b\\u578b'TIME'\", \"category\": \"\\u7f16\\u8bd1\", \"prefix\": \"C\"}, {\"severity\": \"Error\", \"number\": \"77\", \"text\": \"\\u672a\\u77e5\\u7684\\u7c7b\\u578b: 'TON'\", \"category\": \"\\u7f16\\u8bd1\", \"prefix\": \"C\"}, {\"severity\": \"Error\", \"number\": \"32\", \"text\": \"\\u4e0d\\u80fd\\u5c06\\u7c7b\\u578b '\\u672a\\u77e5\\u7684\\u7c7b\\u578b: '(((NOT(initActive) AND Weld_E_Stop_NC) AND Gap_Exceeded) AND GapDebounceTimer.Q)'' \\u8f6c\\u6362\\u4e3a\\u7c7b\\u578b'BOOL'\", \"category\": \"\\u7f16\\u8bd1\", \"prefix\": \"C\"}, {\"severity\": \"Error\", \"number\": \"77\", \"text\": \"\\u672a\\u77e5\\u7684\\u7c7b\\u578b: 'GapDebounceTimer.Q'\", \"category\": \"\\u7f16\\u8bd1\", \"prefix\": \"C\"}, {\"severity\": \"Error\", \"number\": \"77\", \"text\": \"\\u672a\\u77e5\\u7684\\u7c7b\\u578b: 'TON'\", \"category\": \"\\u7f16\\u8bd1\", \"prefix\": \"C\"}], \"pou\": {\"kind\": \"PROGRAM\", \"device_id\": \"0000 0004\", \"device_name\": \"CODESYS Control Win V3 x64\", \"device_version\": \"3.5.22.40\", \"name\": \"P05\"}}\n",
+  "stderr": "编译: Text: C0: ------ 开始构建应用程序 Device.Application -------\n编译: Text: C0: 代码典型化...\n编译: Error: C77: 未知的类型: 'TON'\n编译: Error: C77: 未知的类型: 'TON'\n编译: Error: C35: 需要程序名、函数或功能块实例替代 'InitializationTimer'\n编译: Information: C181: 相关位置\n编译: Error: C32: 不能将类型 '未知的类型: 'NOT(InitializationTimer.Q)'' 转换为类型'BOOL'\n编译: Error: C77: 未知的类型: 'InitializationTimer.Q'\n编译: Error: C77: 未知的类型: 'TON'\n编译: Error: C35: 需要程序名、函数或功能块实例替代 'GapDebounceTimer'\n编译: Information: C181: 相关位置\n编译: Error: C32: 不能将类型 '未知的类型: 'GapDebounceTimer.ET'' 转换为类型'TIME'\n编译: Error: C77: 未知的类型: 'TON'\n编译: Error: C32: 不能将类型 '未知的类型: '(((NOT(initActive) AND Weld_E_Stop_NC) AND Gap_Exceeded) AND GapDebounceTimer.Q)'' 转换为类型'BOOL'\n编译: Error: C77: 未知的类型: 'GapDebounceTimer.Q'\n编译: Error: C77: 未知的类型: 'TON'\n附加代码检查: Text: SA0: 其他代码检查...\n附加代码检查: Text: SA0: 其他代码检查完成-0 个错误\n编译: Text: C0: 编译完成--12错误,0警告\n"
+}

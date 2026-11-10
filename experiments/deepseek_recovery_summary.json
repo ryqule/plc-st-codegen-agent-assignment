@@ -1,0 +1,13 @@
+{
+  "run_rows": 60,
+  "cost_cny": 0.476336,
+  "budget_accounted_cny": 0.476336,
+  "budget_limit_cny": 2.0,
+  "pilot": false,
+  "dataset_total": 30,
+  "planned_cells": 120,
+  "results_csv": "submission\\experiments\\deepseek_recovery.csv",
+  "usage_log": "submission\\experiments\\deepseek_recovery_usage_20261109_155416.jsonl",
+  "resumed": false,
+  "run_status": "INCOMPLETE"
+}

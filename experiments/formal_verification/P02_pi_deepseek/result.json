@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "task_id": "P02",
+  "scope": "two arbitrary consecutive 32-bit transitions of the generated POU",
+  "source": "I:\\genai\\submission\\st\\runs\\pi\\deepseek\\P02.st",
+  "source_sha256": "c22e3ccf2ddca8399a7b744faf85f906d356b1b1ff854bf06017a3e0bb70e9eb",
+  "execution_source_sha256": "a12c019433a7a534b7312f1a0eb9abf9c5894d7564979a3da7c343a5909cc6d1",
+  "source_normalizations": [
+    {
+      "rule": "SHR-and-1 bit test rewritten as AND with a one-bit SHL mask",
+      "replacements": 2
+    }
+  ],
+  "pou_name": "FB_DUALWORDEDGEDETECTION",
+  "strucpp": "I:\\genai\\_qa_tools\\strucpp-0.7.0\\strucpp\\strucpp.exe",
+  "strucpp_version": "STruC++ version 0.7.0",
+  "cbmc": "5.95.1 (Ubuntu 24.04 WSL)",
+  "generated_cpp_sha256": "a40359200451e0861586cfbd4dfdafb0831dd033dd16d124f0e564efbb4ee456",
+  "generated_header_sha256": "2bcd22627c9b92a2fdd52ebd5e3dbccf1ad1c764cf4369279183586df8f7ef46",
+  "checked_cpp_sha256": "bc3506f1adc333e76d3fe5267ce4d7a309e56e847902b524d6a5e0c20fd7a2de",
+  "checked_stub_sha256": "ec751009fb3f0041fc0ef2e93addf2f186e67e59e364bce3454ff9913b7b3e7a",
+  "checked_harness_sha256": "bc82bc245baed3a5622305076d5b6e0ba7137f55524e7f9089fdb21dfdd06253",
+  "header_adapter": "generated class fields retained; standard-library header replaced by IEC type aliases and SHL",
+  "cbmc_args": [
+    "-I",
+    "/mnt/i/genai/submission/experiments/formal_verification/P02_pi_deepseek",
+    "--cpp11",
+    "--function",
+    "main",
+    "--unwind",
+    "40",
+    "--unwinding-assertions",
+    "--bounds-check",
+    "--pointer-check",
+    "--signed-overflow-check",
+    "--undefined-shift-check"
+  ],
+  "exit_code": 0,
+  "verified_properties": 261,
+  "failed_properties": 0,
+  "cbmc_log": "cbmc.log",
+  "cbmc_log_sha256": "1578bc3260e07c84b2e2329280d1abdefbb644fac2c7ad8058a455ebbd67fdc0",
+  "output": "** 0 of 261 failed (1 iterations)\nVERIFICATION SUCCESSFUL",
+  "cprover_nondet_note": "CBMC's no-body warning for __CPROVER_nondet_uint is expected; the function is a symbolic input primitive."
+}

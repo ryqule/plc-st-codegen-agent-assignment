@@ -1,0 +1,241 @@
+{
+  "run_rows": 120,
+  "dataset_total": 30,
+  "planned_cells": 120,
+  "results_csv": "experiments/results.csv",
+  "run_status": "COMPLETE",
+  "executed_cells": 120,
+  "budget_stopped_cells": 0,
+  "fully_covered_tasks": 30,
+  "partially_covered_tasks": 0,
+  "unstarted_tasks": 0,
+  "executed_cells_by_model": {
+    "gpt-6.1-sol": 60,
+    "deepseek-v4.1-flash-1017": 60
+  },
+  "executed_cells_by_framework": {
+    "Pi coding-agent single-shot": 60,
+    "Self-developed harness": 60
+  },
+  "cell_status_counts": {
+    "COMPILE_PASS": 90,
+    "COMPILE_FAIL": 30
+  },
+  "condition_summary": {
+    "Pi coding-agent single-shot + gpt-6.1-sol": {
+      "attempted": 30,
+      "first_compile_submitted": 30,
+      "first_compile_passed": 14,
+      "final_compile_submitted": 30,
+      "final_compile_passed": 14,
+      "empty_response": 0,
+      "compile_fail": 16,
+      "compile_pass": 14,
+      "first_compile_rate_over_all_attempts": 0.4666666667,
+      "final_compile_rate_over_all_attempts": 0.4666666667,
+      "first_compile_rate_on_submitted": 0.4666666667,
+      "final_compile_rate_on_submitted": 0.4666666667,
+      "first_compile_wilson95_over_all_attempts": [
+        0.3023238891,
+        0.6385770038
+      ],
+      "final_compile_wilson95_over_all_attempts": [
+        0.3023238891,
+        0.6385770038
+      ]
+    },
+    "Self-developed harness + gpt-6.1-sol": {
+      "attempted": 30,
+      "first_compile_submitted": 30,
+      "first_compile_passed": 11,
+      "final_compile_submitted": 30,
+      "final_compile_passed": 20,
+      "empty_response": 0,
+      "compile_fail": 10,
+      "compile_pass": 20,
+      "first_compile_rate_over_all_attempts": 0.3666666667,
+      "final_compile_rate_over_all_attempts": 0.6666666667,
+      "first_compile_rate_on_submitted": 0.3666666667,
+      "final_compile_rate_on_submitted": 0.6666666667,
+      "first_compile_wilson95_over_all_attempts": [
+        0.2187392081,
+        0.5448643635
+      ],
+      "final_compile_wilson95_over_all_attempts": [
+        0.4878005164,
+        0.8076950192
+      ]
+    },
+    "Pi coding-agent single-shot + deepseek-v4.1-flash-1017": {
+      "attempted": 30,
+      "first_compile_submitted": 30,
+      "first_compile_passed": 26,
+      "final_compile_submitted": 30,
+      "final_compile_passed": 28,
+      "empty_response": 0,
+      "compile_fail": 2,
+      "compile_pass": 28,
+      "first_compile_rate_over_all_attempts": 0.8666666667,
+      "final_compile_rate_over_all_attempts": 0.9333333333,
+      "first_compile_rate_on_submitted": 0.8666666667,
+      "final_compile_rate_on_submitted": 0.9333333333,
+      "first_compile_wilson95_over_all_attempts": [
+        0.7031867332,
+        0.9469034452
+      ],
+      "final_compile_wilson95_over_all_attempts": [
+        0.7867654164,
+        0.9815229762
+      ]
+    },
+    "Self-developed harness + deepseek-v4.1-flash-1017": {
+      "attempted": 30,
+      "first_compile_submitted": 30,
+      "first_compile_passed": 26,
+      "final_compile_submitted": 30,
+      "final_compile_passed": 28,
+      "empty_response": 0,
+      "compile_fail": 2,
+      "compile_pass": 28,
+      "first_compile_rate_over_all_attempts": 0.8666666667,
+      "final_compile_rate_over_all_attempts": 0.9333333333,
+      "first_compile_rate_on_submitted": 0.8666666667,
+      "final_compile_rate_on_submitted": 0.9333333333,
+      "first_compile_wilson95_over_all_attempts": [
+        0.7031867332,
+        0.9469034452
+      ],
+      "final_compile_wilson95_over_all_attempts": [
+        0.7867654164,
+        0.9815229762
+      ]
+    }
+  },
+  "codesys_timeout_retries": {
+    "115-P15-deepseek-pi": {
+      "status": "PASS",
+      "elapsed_ms": 80126,
+      "evidence": "experiments/codesys_validation/deepseek_timeout_retries/115-P15-deepseek-pi.json",
+      "error_count": 0
+    },
+    "116-P15-deepseek-self": {
+      "status": "PASS",
+      "elapsed_ms": 69313,
+      "evidence": "experiments/codesys_validation/deepseek_timeout_retries/116-P15-deepseek-self.json",
+      "error_count": 0
+    },
+    "119-P11-deepseek-pi": {
+      "status": "PASS",
+      "elapsed_ms": 63056,
+      "evidence": "experiments/codesys_validation/deepseek_timeout_retries/119-P11-deepseek-pi.json",
+      "error_count": 0
+    },
+    "120-P11-deepseek-self": {
+      "status": "FAIL",
+      "elapsed_ms": 63944,
+      "evidence": "experiments/codesys_validation/deepseek_timeout_retries/120-P11-deepseek-self.json",
+      "error_count": 9
+    }
+  },
+  "first_compile": {
+    "submitted": 120,
+    "passed": 77,
+    "failed": 39,
+    "timed_out": 4
+  },
+  "final_compile": {
+    "submitted": 120,
+    "passed": 90,
+    "failed": 30,
+    "timed_out": 0
+  },
+  "repaired_cells": 21,
+  "successful_repair_requests": 37,
+  "first_compile_pass_over_all_attempts": {
+    "passed": 77,
+    "attempted": 120,
+    "rate": 0.6416666667,
+    "wilson95": [
+      0.55270536,
+      0.7218392095
+    ]
+  },
+  "final_compile_pass_over_all_attempts": {
+    "passed": 90,
+    "attempted": 120,
+    "rate": 0.75,
+    "wilson95": [
+      0.6655886334,
+      0.8189017834
+    ]
+  },
+  "test_cases_defined": 112,
+  "codesys_runtime_test_scenarios_executed": 0,
+  "independent_st_test_engine": "STruC++ 0.7.0",
+  "independent_st_tests_p02": {
+    "outputs": 4,
+    "passed": 20,
+    "total": 20,
+    "failed": 0
+  },
+  "plcverif_tasks": 0,
+  "cbmc_formal_p02": {
+    "outputs": 4,
+    "properties_checked": 918,
+    "failed_properties": 0,
+    "statuses": {
+      "PASS": 4
+    },
+    "engine": "CBMC 5.95.1 over STruC++ 0.7.0 translations; P02 only"
+  },
+  "matrix_usage_cost_cny": 5.880938,
+  "project_usage_cost_cny": 6.099742,
+  "project_authorized_budget_cny": 18.0,
+  "remaining_authorized_budget_cny": 11.900258,
+  "api_usage_records_all_logs": 234,
+  "model_cost_cny_all_project_usage": {
+    "deepseek-v4.1-flash-1017": 0.841214,
+    "gpt-6.1-sol": 5.258528
+  },
+  "model_matrix_cost_cny": {
+    "deepseek-v4.1-flash-1017": 0.8012,
+    "gpt-6.1-sol": 5.079738
+  },
+  "model_debug_and_pilot_cost_cny": {
+    "deepseek-v4.1-flash-1017": 0.040014,
+    "gpt-6.1-sol": 0.17879
+  },
+  "model_tokens_all_project_usage": {
+    "deepseek-v4.1-flash-1017": {
+      "prompt_tokens": 229268,
+      "completion_tokens": 100646
+    },
+    "gpt-6.1-sol": {
+      "prompt_tokens": 206138,
+      "completion_tokens": 70800
+    }
+  },
+  "model_median_latency_ms_all_project_usage": {
+    "deepseek-v4.1-flash-1017": 6979.0,
+    "gpt-6.1-sol": 12443
+  },
+  "input_tokens_all_project_usage": 435406,
+  "completion_tokens_all_project_usage": 171446,
+  "http_status_counts_all_usage_logs": {
+    "200": 233,
+    "429": 1
+  },
+  "usage_logs": [
+    "experiments/deepseek_diagnostic_usage_20261109_154820.jsonl",
+    "experiments/deepseek_fixed_smoke_usage_20261109_155144.jsonl",
+    "experiments/deepseek_probe_usage.jsonl",
+    "experiments/deepseek_recovery_usage_20261109_155416.jsonl",
+    "experiments/pilot_results_usage.jsonl",
+    "experiments/results_usage_20261109_131027.jsonl",
+    "experiments/results_usage_20261109_132124.jsonl",
+    "experiments/results_usage_20261109_140452.jsonl",
+    "experiments/results_usage_20261109_143435.jsonl"
+  ],
+  "runtime_service_status": "STOPPED",
+  "formal_verification_scope_note": "Custom CBMC proof covers P02 outputs only, over the STruC++ translation; PLCVerif and the other 29 tasks remain unverified."
+}

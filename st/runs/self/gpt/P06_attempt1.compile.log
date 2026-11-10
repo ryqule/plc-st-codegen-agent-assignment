@@ -1,0 +1,6 @@
+{
+  "status": "UNAVAILABLE",
+  "task_id": "P06",
+  "elapsed_ms": 3,
+  "error": "No PROGRAM, FUNCTION_BLOCK, or FUNCTION declaration found"
+}
