@@ -56,10 +56,3 @@ npm ci
 
 `experiments/README.md` 解释正式证据、诊断记录和本地新运行的区别。
 `experiments/*usage*.jsonl` 保存正式矩阵、pilot 和诊断调用的 usage 审计日志。
-
-## 协作约定
-
-- 正式证据文件是只读基线。新实验写到 `experiments/local_runs/`；默认被 Git 忽略，不会覆盖正式 `results.csv` 或 `st/runs/`。
-- 需要调用模型 API 时先确认个人预算上限。密钥只通过当前进程环境变量 `DMXAPI_API_KEY` 提供，绝不提交到 Git、配置文件或日志。
-- 每次报告结果时都标明实验分母、测试覆盖范围，以及离线编译和 PLC runtime 的区别。
-- 建议从功能分支提交并发 PR；操作步骤见 [`CONTRIBUTING.md`](CONTRIBUTING.md)。
