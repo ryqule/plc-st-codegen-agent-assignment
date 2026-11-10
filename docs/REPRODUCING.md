@@ -150,3 +150,13 @@ $zip = Join-Path (Split-Path -Parent (Get-Location).Path) 'PLC_ST_Agent_Submissi
 - `NOT_RUN`、`UNAVAILABLE`：没有取得通过证据，绝不能计作 PASS。
 - `experiments/results.csv` 是原始矩阵；`experiments/posthoc_repair/recheck.csv` 是修正项目适配器后对原始失败单元的单独复测。两者分开报告。
 - 所有已提交的 `st/runs/` 文件均是模型输出或其有限修复尝试；除报告明确列出的 P02 加分项外，数据集 112 个 runtime 场景并没有逐题执行。
+
+## 9. 重算汇总
+
+`tools/finalize_matrix.py` 不调用模型 API。默认读取归档矩阵、DeepSeek 60 格恢复、四个超时重试和归档 usage 日志，并将重算结果写到 `experiments/local_runs/finalized_matrix/`：
+
+```powershell
+py tools/finalize_matrix.py
+```
+
+脚本**不会**把 post-hoc 30 格 CODESYS 复测合并进 120 格正式矩阵。只有明确想替换归档结果并已核对输入及 Git diff 时，才运行 `py tools/finalize_matrix.py --write-archive`；该选项会重写 `experiments/results.csv` 与 `experiments/results_summary.json`。

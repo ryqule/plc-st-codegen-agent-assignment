@@ -15,9 +15,10 @@
 
 ## 重要口径
 
-- 原始正式矩阵：120 格，90 PASS、30 FAIL、0 TIMEOUT。
+- 正式矩阵共 120 格。首次编译为 77 PASS、39 FAIL、4 TIMEOUT；四个首次超时独立复编译后，最终矩阵状态为 **90 PASS、30 FAIL、0 个未结清 TIMEOUT**（3 个重试通过、1 个重试失败）。
 - 修正适配器后的 30/30 PASS 属于单独复测；不能改写或合并成新版 adapter 的 120/120 单次矩阵结果。
 - `PASS` 均需结合所在文件的编译器和验证范围解释。CODESYS 离线编译不是 runtime；112 个 PLC runtime 场景尚未执行。
-- API 费用汇总由 `tools/finalize_matrix.py` 读取所有归档 usage JSONL。该脚本还会重写正式 `results.csv` 和 `results_summary.json`；只有在更新实验前、核对输入文件后才运行它。
+- `tools/finalize_matrix.py` 读取归档 120 行矩阵、60 行 DeepSeek 恢复、4 个超时重试和所有归档 usage JSONL。它不读取 post-hoc 的 30 行复测表；两套结果仍分开。
+- 费用汇总脚本默认把重算后的 CSV 和 summary 写到 `experiments/local_runs/finalized_matrix/`，不覆盖正式结果。只有明确传入 `--write-archive` 才会重写正式 `results.csv` 和 `results_summary.json`；运行前应检查归档输入及 Git diff。
 
 完整运行说明见 [`../docs/REPRODUCING.md`](../docs/REPRODUCING.md)，实验设计见 [`protocol.md`](protocol.md)。

@@ -1,6 +1,7 @@
 """Merge DeepSeek recovery and refresh the auditable experiment summary."""
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 import math
@@ -48,6 +49,29 @@ def wilson95(passed: int, total: int) -> list[float] | None:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--output-dir", type=Path, default=None,
+        help="write regenerated CSV and summary under experiments/local_runs/ (the default)",
+    )
+    parser.add_argument(
+        "--write-archive", action="store_true",
+        help="overwrite experiments/results.csv and results_summary.json intentionally",
+    )
+    args = parser.parse_args()
+    if args.write_archive and args.output_dir is not None:
+        parser.error("--write-archive cannot be combined with --output-dir")
+    if args.write_archive:
+        output_dir = EXPERIMENTS
+    else:
+        output_dir = (args.output_dir or (EXPERIMENTS / "local_runs" / "finalized_matrix")).resolve()
+        local_runs = (EXPERIMENTS / "local_runs").resolve()
+        try:
+            output_dir.relative_to(local_runs)
+        except ValueError:
+            parser.error("--output-dir must be inside experiments/local_runs/")
+    output_dir.mkdir(parents=True, exist_ok=True)
+
     original = read_csv(EXPERIMENTS / "results.csv")
     recovery = read_csv(EXPERIMENTS / "diagnostics" / "deepseek" / "recovery.csv")
     if len(original) != 120:
@@ -125,7 +149,7 @@ def main() -> None:
             "Functional tests and PLCVerif remain unconfigured.",
             "CODESYS runtime scenarios and PLCVerif remain unrun; see the P02 bonus artifacts.")
 
-    results_path = EXPERIMENTS / "results.csv"
+    results_path = output_dir / "results.csv"
     with results_path.open("w", encoding="utf-8-sig", newline="") as stream:
         writer = csv.DictWriter(stream, fieldnames=list(merged[0].keys()))
         writer.writeheader()
@@ -199,7 +223,7 @@ def main() -> None:
         "run_rows": len(merged),
         "dataset_total": dataset["task_count"],
         "planned_cells": 120,
-        "results_csv": "experiments/results.csv",
+        "results_csv": results_path.relative_to(ROOT).as_posix(),
         "run_status": "COMPLETE",
         "executed_cells": len(merged),
         "budget_stopped_cells": 0,
@@ -256,7 +280,7 @@ def main() -> None:
         "runtime_service_status": "STOPPED",
         "formal_verification_scope_note": "Custom CBMC proof covers P02 outputs only, over the STruC++ translation; PLCVerif and the other 29 tasks remain unverified.",
     }
-    (EXPERIMENTS / "results_summary.json").write_text(
+    (output_dir / "results_summary.json").write_text(
         json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({
         "matrix_rows": len(merged), "statuses": dict(status_counts),

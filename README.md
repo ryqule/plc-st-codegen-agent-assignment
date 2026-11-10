@@ -5,7 +5,7 @@
 ## 当前结果与范围
 
 - 数据集共 30 题：20 道给定题、10 道原创题；包含接口、假设、201 条 scan-level LTL 规约和 112 个测试场景。
-- 正式矩阵为 30 题 × 2 个模型 × 2 种 Agent，共 120 格。原始矩阵最终为 **90 PASS、30 FAIL、0 TIMEOUT**；见 [`experiments/results.csv`](experiments/results.csv) 和 [`experiments/results_summary.json`](experiments/results_summary.json)。
+- 正式矩阵为 30 题 × 2 个模型 × 2 种 Agent，共 120 格。首次编译为 77 PASS、39 FAIL、4 TIMEOUT；四个首次超时独立重试后，矩阵最终状态为 **90 PASS、30 FAIL、0 个未结清 TIMEOUT**（3 个重试通过、1 个重试失败）。见 [`experiments/results.csv`](experiments/results.csv) 和 [`experiments/results_summary.json`](experiments/results_summary.json)。
 - 对原始 30 个 FAIL 源码使用修正后的 CODESYS 项目适配器复编译，结果为 **30/30 PASS**，且源码哈希不变。合并证据表示 120 份源码都至少有一次离线编译通过记录；这不是新版适配器对全部 120 格的一次统一重跑。详见 [`experiments/posthoc_repair/README.md`](experiments/posthoc_repair/README.md)。
 - P02 的四种输出通过 STruC++ 测试 **20/20**；相应翻译代码通过 CBMC **918 项性质**。两项只覆盖 P02。
 - **CODESYS PLC runtime 场景执行数为 0/112。**离线编译、STruC++ 和 CBMC 结果都不能写成完整 PLC runtime 验收通过；其他 29 题的功能测试和全部 LTL 形式验证也没有完成。

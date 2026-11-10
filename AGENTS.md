@@ -6,6 +6,7 @@ This repository is a coursework benchmark with audited experimental evidence. Re
 
 - Treat `experiments/results.csv`, `experiments/results_summary.json`, `st/runs/`, `experiments/codesys_validation/`, `experiments/posthoc_repair/`, `experiments/functional_tests/`, and `experiments/formal_verification/` as historical evidence. Do not regenerate them in place.
 - Put any new run output under `experiments/local_runs/`; Git ignores that directory. `experiments/run_matrix.py` defaults output CSVs and ST/compiler artifacts there. `tools/posthoc_recheck_failures.py` defaults to an ignored local output directory.
+- `tools/finalize_matrix.py` also defaults to `experiments/local_runs/finalized_matrix/`. Do not pass `--write-archive` unless the user explicitly asks to replace the official CSV and summary after reviewing the inputs.
 - Keep the original matrix and post-hoc recheck as separate populations. Never report their combined count as a uniform run with one adapter.
 - An offline CODESYS compile PASS is not PLC runtime, scan-cycle, or LTL verification. Runtime coverage remains 0/112 in this submission.
 
