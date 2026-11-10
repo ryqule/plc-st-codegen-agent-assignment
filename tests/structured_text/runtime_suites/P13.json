@@ -1,0 +1,72 @@
+{
+  "task_id": "P13",
+  "cases": [
+    {
+      "id": "P13-T1",
+      "steps": [
+        {
+          "set": {
+            "OCCUPANCY_DETECTED": true,
+            "ENERGY_SAVING_MODE": false,
+            "HVAC_MODE_SELECTOR": 0
+          },
+          "cycles": 20,
+          "expect": {
+            "TEMP_SETPOINT_ADJUST": 0,
+            "SUPPLY_FAN_RUN": false
+          }
+        },
+        {
+          "set": {},
+          "cycles": 580,
+          "expect": {
+            "SUPPLY_FAN_RUN": true
+          }
+        }
+      ],
+      "scenario": "Occupied in Auto: adjustment 0; fan waits 30 s then runs."
+    },
+    {
+      "id": "P13-T2",
+      "steps": [
+        {
+          "set": {
+            "OCCUPANCY_DETECTED": false,
+            "ENERGY_SAVING_MODE": true,
+            "HVAC_MODE_SELECTOR": 0
+          },
+          "cycles": 1,
+          "expect": {
+            "TEMP_SETPOINT_ADJUST": 3
+          }
+        },
+        {
+          "set": {
+            "ENERGY_SAVING_MODE": false
+          },
+          "cycles": 1,
+          "expect": {
+            "TEMP_SETPOINT_ADJUST": 2
+          }
+        }
+      ],
+      "scenario": "Unoccupied Auto, energy-save: +3 C; standard: +2 C."
+    },
+    {
+      "id": "P13-T3",
+      "steps": [
+        {
+          "set": {
+            "HVAC_MODE_SELECTOR": 3
+          },
+          "cycles": 1,
+          "expect": {
+            "TEMP_SETPOINT_ADJUST": 4,
+            "SUPPLY_FAN_RUN": false
+          }
+        }
+      ],
+      "scenario": "Night mode: +4 C and fan off regardless of occupancy."
+    }
+  ]
+}

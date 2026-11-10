@@ -6,7 +6,7 @@
 |---|---|---|
 | `results.csv`、`results_summary.json` | 本次冻结的四条件 120 格正式结果和汇总 | 是，归档基线 |
 | `diagnostics/deepseek/` | DeepSeek 空输出的受控诊断、smoke、恢复和对应 usage | 否，诊断证据 |
-| `codesys_validation/` | 正式矩阵四个首次超时的编译重试 | 对应原始结果行 |
+| `codesys_validation/` | 四个矩阵超时重试、P02 runtime 冒烟和自研 Agent 两模型 runtime 场景结果 | 矩阵重试对应原始结果行；runtime 单独报告 |
 | `posthoc_repair/` | 修正编译适配器后重编译原始 FAIL 的逐格证据 | 否，单独的事后复测 |
 | `functional_tests/`、`formal_verification/` | P02 的 STruC++ 测试和 CBMC 检查归档 | 加分验证，仅 P02 |
 | `local_runs/` | 新的临时矩阵、源码、日志和复测结果 | 否，默认被 Git 忽略 |
@@ -17,7 +17,7 @@
 
 - 正式矩阵共 120 格。首次编译为 77 PASS、39 FAIL、4 TIMEOUT；四个首次超时独立复编译后，最终矩阵状态为 **90 PASS、30 FAIL、0 个未结清 TIMEOUT**（3 个重试通过、1 个重试失败）。
 - 修正适配器后的 30/30 PASS 属于单独复测；不能改写或合并成新版 adapter 的 120/120 单次矩阵结果。
-- `PASS` 均需结合所在文件的编译器和验证范围解释。CODESYS 离线编译不是 runtime；112 个 PLC runtime 场景尚未执行。
+- `PASS` 均需结合所在文件的编译器和验证范围解释。CODESYS 离线编译不是 runtime；自研 Agent runtime 部分执行了 88/224 个模型-场景组合，覆盖 56/112 个场景 ID，仍有 136 个组合未执行，详见 `codesys_validation/self_agent_runtime_20261110.md`。
 - `tools/finalize_matrix.py` 读取归档 120 行矩阵、60 行 DeepSeek 恢复、4 个超时重试和所有归档 usage JSONL。它不读取 post-hoc 的 30 行复测表；两套结果仍分开。
 - 费用汇总脚本默认把重算后的 CSV 和 summary 写到 `experiments/local_runs/finalized_matrix/`，不覆盖正式结果。只有明确传入 `--write-archive` 才会重写正式 `results.csv` 和 `results_summary.json`；运行前应检查归档输入及 Git diff。
 

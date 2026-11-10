@@ -1,0 +1,62 @@
+{
+  "task_id": "P10",
+  "cases": [
+    {
+      "id": "P10-T1",
+      "steps": [
+        {
+          "set": {
+            "TemperatureSensorInput": 20.0,
+            "SetTemperature": 30.0
+          },
+          "cycles": 1,
+          "expect": {
+            "HeaterOutput": true
+          }
+        }
+      ],
+      "scenario": "Valid temperature below setpoint: heater on."
+    },
+    {
+      "id": "P10-T2",
+      "steps": [
+        {
+          "set": {
+            "TemperatureSensorInput": 20.0,
+            "SetTemperature": 30.0
+          },
+          "cycles": 120,
+          "expect": {
+            "OverheatProtection": true,
+            "HeaterOutput": false
+          }
+        }
+      ],
+      "scenario": "Continuous heater on beyond 5 s: overheat protection on and heater off."
+    },
+    {
+      "id": "P10-T3",
+      "steps": [
+        {
+          "set": {
+            "TemperatureSensorInput": -1.0
+          },
+          "cycles": 1,
+          "expect": {
+            "HeaterOutput": false
+          }
+        },
+        {
+          "set": {
+            "TemperatureSensorInput": 20.0
+          },
+          "cycles": 60,
+          "expect": {
+            "OverheatProtection": false
+          }
+        }
+      ],
+      "scenario": "Sensor below 0 or above 100: heater and status off; protection clears only after 3 s cooldown."
+    }
+  ]
+}

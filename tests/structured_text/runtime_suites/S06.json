@@ -1,0 +1,131 @@
+{
+  "task_id": "S06",
+  "cases": [
+    {
+      "id": "S06-T1",
+      "steps": [
+        {
+          "set": {
+            "Demand": true,
+            "PressureLow": true,
+            "Compressor1Fault": false,
+            "Compressor2Fault": false
+          },
+          "cycles": 1,
+          "expect": {
+            "Compressor1Run": true,
+            "Compressor2Run": false,
+            "LeadIs1": true
+          }
+        },
+        {
+          "set": {
+            "PressureLow": false
+          },
+          "cycles": 1,
+          "expect": {
+            "LeadIs1": false
+          }
+        }
+      ],
+      "scenario": "Initial demand with both healthy starts compressor 1; a completed cycle toggles LeadIs1."
+    },
+    {
+      "id": "S06-T2",
+      "steps": [
+        {
+          "set": {
+            "PressureLow": true,
+            "Demand": true,
+            "Compressor1Fault": true
+          },
+          "cycles": 1,
+          "expect": {
+            "Compressor1Run": false,
+            "Compressor2Run": true
+          }
+        }
+      ],
+      "scenario": "Compressor 1 fault during demand: compressor 2 takes over in the same scan."
+    },
+    {
+      "id": "S06-T3",
+      "steps": [
+        {
+          "set": {
+            "Compressor2Fault": true
+          },
+          "cycles": 1,
+          "expect": {
+            "Compressor1Run": false,
+            "Compressor2Run": false,
+            "Fault": true
+          }
+        }
+      ],
+      "scenario": "Both faults: outputs off and fault latched."
+    },
+    {
+      "id": "S06-T4",
+      "steps": [
+        {
+          "set": {
+            "Reset": true,
+            "Demand": true
+          },
+          "cycles": 1,
+          "expect": {
+            "Fault": true
+          }
+        },
+        {
+          "set": {
+            "Reset": false,
+            "Demand": false,
+            "PressureLow": false
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "Reset": true,
+            "Compressor1Fault": false,
+            "Compressor2Fault": false
+          },
+          "cycles": 1,
+          "expect": {
+            "Fault": false
+          }
+        }
+      ],
+      "scenario": "Reset while demand active or either fault remains is ignored; safe reset clears fault."
+    },
+    {
+      "id": "S06-T5",
+      "steps": [
+        {
+          "set": {
+            "Reset": false,
+            "Demand": true,
+            "PressureLow": true,
+            "Compressor1Fault": false
+          },
+          "cycles": 1,
+          "expect": {
+            "Compressor1Run": true
+          }
+        },
+        {
+          "set": {
+            "PressureLow": false
+          },
+          "cycles": 1,
+          "expect": {
+            "Compressor1Run": false
+          }
+        }
+      ],
+      "scenario": "PressureLow FALSE stops both outputs and completes the lead-lag cycle."
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "task_id": "P20",
+  "cases": [
+    {
+      "id": "P20-T1",
+      "steps": [
+        {
+          "set": {
+            "Mode": false,
+            "ForwardButton": true,
+            "ReverseButton": true
+          },
+          "cycles": 1,
+          "expect": {
+            "MotorForward": false,
+            "MotorReverse": false
+          }
+        }
+      ],
+      "scenario": "Manual forward and reverse both pressed: both outputs off."
+    },
+    {
+      "id": "P20-T2",
+      "steps": [
+        {
+          "set": {
+            "ForwardButton": false,
+            "ReverseButton": false,
+            "weight": 100.0
+          },
+          "cycles": 1,
+          "expect": {
+            "firingTemp": 500.0
+          }
+        },
+        {
+          "set": {
+            "weight": 150.0
+          },
+          "cycles": 1,
+          "expect": {
+            "firingTemp": 525.0
+          }
+        },
+        {
+          "set": {
+            "weight": 200.0
+          },
+          "cycles": 1,
+          "expect": {
+            "firingTemp": 550.0
+          }
+        }
+      ],
+      "scenario": "Weight 100 -> temp 500; weight 150 -> 525; weight 200 -> 550."
+    },
+    {
+      "id": "P20-T3",
+      "steps": [
+        {
+          "set": {
+            "Mode": true,
+            "SensorWeight": true,
+            "weight": 99.0,
+            "weightComplete": true
+          },
+          "cycles": 1,
+          "expect": {
+            "kick": true
+          }
+        },
+        {
+          "set": {
+            "SensorWeight": false,
+            "weight": 201.0
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "SensorWeight": true,
+            "weight": 201.0,
+            "weightComplete": true
+          },
+          "cycles": 1,
+          "expect": {
+            "kick": true
+          }
+        }
+      ],
+      "scenario": "Weight 99 after weighing: kick on; weight 201 also rejected."
+    }
+  ]
+}

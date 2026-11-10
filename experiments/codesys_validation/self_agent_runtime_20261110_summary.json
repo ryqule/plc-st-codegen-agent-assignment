@@ -1,0 +1,3213 @@
+{
+  "schema_version": 1,
+  "title": "Self-developed ST Agent CODESYS runtime scenario results",
+  "date": "2026-11-10",
+  "runtime_target": {
+    "name": "CODESYS Control Win V3 x64",
+    "version": "3.5.22.40"
+  },
+  "scope": {
+    "agent": "Self-developed harness",
+    "models": [
+      "deepseek-v4.1-flash-1017",
+      "gpt-6.1-sol"
+    ],
+    "tasks": 30,
+    "scenario_catalog_entries": 112,
+    "planned_candidate_scenarios": 224,
+    "physical_io": "not mapped; software-only Control Win project",
+    "unique_scenario_ids_executed": 56,
+    "unique_scenario_id_coverage": 0.5
+  },
+  "counts": {
+    "candidate_outputs": 60,
+    "runtime_pass_outputs": 20,
+    "runtime_assertion_fail_outputs": 3,
+    "runtime_project_compile_fail_outputs": 25,
+    "not_run_official_compile_fail_outputs": 12,
+    "scenarios_planned": 224,
+    "scenarios_executed": 88,
+    "scenarios_passed": 82,
+    "scenarios_failed": 6,
+    "scenarios_blocked": 136
+  },
+  "interpretation": {
+    "runtime_pass_outputs": "Every scenario for this model-task output executed and passed.",
+    "runtime_assertion_fail_outputs": "At least one executed runtime assertion failed.",
+    "runtime_project_compile_fail_outputs": "Official offline matrix marked the output COMPILE_PASS, but the integrated runtime test project did not compile; its scenarios were blocked.",
+    "not_run_official_compile_fail_outputs": "Skipped because the unchanged official offline matrix marked the output COMPILE_FAIL.",
+    "scenario_pass_rate_among_executed": 0.931818,
+    "scenario_coverage": 0.392857,
+    "unique_scenario_id_coverage": "At least one candidate output executed each of these distinct scenario IDs."
+  },
+  "provenance": {
+    "formal_matrix": "experiments/results.csv (read-only input; not rewritten)",
+    "scenario_builder": "tools/build_runtime_suites.py",
+    "runtime_runner": "tools/run_codesys_runtime_suite.py",
+    "batch_runner": "tools/run_self_runtime_batch.py",
+    "source_matrix_batch": "self_runtime_20261110_180102",
+    "rechecks": [
+      "self_runtime_20261110_182613",
+      "self_runtime_20261110_183704",
+      "self_runtime_20261110_183934",
+      "self_runtime_20261110_191941"
+    ],
+    "api_calls_made_for_runtime_test": 0,
+    "notes": [
+      "P06 timing vector and S10 stateful case order were corrected and re-run; latest results replace their first-run outcomes in this summary.",
+      "The formal 120-cell offline compile matrix remains separate. Offline COMPILE_PASS does not imply integrated project compile or functional runtime pass.",
+      "Detailed result.json artifacts referenced per record are local files under experiments/local_runs/ and are ignored by Git; this summary embeds executed case assertions and values."
+    ]
+  },
+  "records": [
+    {
+      "task_id": "P01",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PROJECT_COMPILE_FAIL",
+      "source": "st/runs/self/deepseek/P01_attempt1.st",
+      "source_sha256": "42ca12d38b3450b9b87be65d4f8a8c962de6f9e1547cf32413075f0920fdcbb5",
+      "suite": "tests/structured_text/runtime_suites/P01.json",
+      "suite_sha256": "180d3fd60a3474878082af02909c704b61993400dbafd7db6cdd50ed45952972",
+      "scenario_total": 4,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 4,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P01_deepseek_20261110_180103/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 3,
+      "compiler_warning_count": 0,
+      "case_results": []
+    },
+    {
+      "task_id": "P01",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PASS",
+      "source": "st/runs/self/gpt/P01_attempt2.st",
+      "source_sha256": "37ba119458c541343fd2d077309241fdcea4b2b7a2ba07c8d34163fcff5d7dbc",
+      "suite": "tests/structured_text/runtime_suites/P01.json",
+      "suite_sha256": "180d3fd60a3474878082af02909c704b61993400dbafd7db6cdd50ed45952972",
+      "scenario_total": 4,
+      "scenario_executed": 4,
+      "scenario_passed": 4,
+      "scenario_failed": 0,
+      "scenario_blocked": 0,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P01_gpt_20261110_172749/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 0,
+      "compiler_warning_count": 0,
+      "case_results": [
+        {
+          "id": "P01-T1",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.Pump_Motor",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        },
+        {
+          "id": "P01-T2",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.Pump_Motor",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.Filling_Valve",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        },
+        {
+          "id": "P01-T3",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 3,
+              "expression": "dut.Completion_Light",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        },
+        {
+          "id": "P01-T4",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.Pump_Motor",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.Filling_Valve",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.Capping_Machine",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.Packing_Machine",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.Completion_Light",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "P02",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PASS",
+      "source": "st/runs/self/deepseek/P02_attempt1.st",
+      "source_sha256": "9c9ceb2941c0804f519bcd96a23cee242bf0d7d0282419090b403bfff42a64da",
+      "suite": "tests/structured_text/runtime_suites/P02.json",
+      "suite_sha256": "6c5a3a5bed2cf59da73f921e76168edfbedfb08d17d55eb5e9cbc1790b26bf86",
+      "scenario_total": 3,
+      "scenario_executed": 3,
+      "scenario_passed": 3,
+      "scenario_failed": 0,
+      "scenario_blocked": 0,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P02_deepseek_20261110_172834/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 0,
+      "compiler_warning_count": 0,
+      "case_results": [
+        {
+          "id": "P02-T1",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.hasChanged",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.noOfRisingBits",
+              "expected": 0,
+              "observed": "USINT#0"
+            },
+            {
+              "step": 1,
+              "expression": "dut.noOfFallingBits",
+              "expected": 0,
+              "observed": "USINT#0"
+            }
+          ]
+        },
+        {
+          "id": "P02-T2",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 2,
+              "expression": "dut.risingBits",
+              "expected": 16,
+              "observed": "DWORD#16"
+            },
+            {
+              "step": 2,
+              "expression": "dut.fallingBits",
+              "expected": 12,
+              "observed": "DWORD#12"
+            },
+            {
+              "step": 2,
+              "expression": "dut.noOfRisingBits",
+              "expected": 1,
+              "observed": "USINT#1"
+            },
+            {
+              "step": 2,
+              "expression": "dut.noOfFallingBits",
+              "expected": 2,
+              "observed": "USINT#2"
+            }
+          ]
+        },
+        {
+          "id": "P02-T3",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 2,
+              "expression": "dut.hasChanged",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.risingBits",
+              "expected": 0,
+              "observed": "DWORD#0"
+            },
+            {
+              "step": 2,
+              "expression": "dut.fallingBits",
+              "expected": 0,
+              "observed": "DWORD#0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "P02",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PASS",
+      "source": "st/runs/self/gpt/P02_attempt1.st",
+      "source_sha256": "2c874bdd38df12e0f5e774d17e558ed1e67dd9867bf16d80c23c91601c7f60d8",
+      "suite": "tests/structured_text/runtime_suites/P02.json",
+      "suite_sha256": "6c5a3a5bed2cf59da73f921e76168edfbedfb08d17d55eb5e9cbc1790b26bf86",
+      "scenario_total": 3,
+      "scenario_executed": 3,
+      "scenario_passed": 3,
+      "scenario_failed": 0,
+      "scenario_blocked": 0,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P02_gpt_20261110_172919/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 0,
+      "compiler_warning_count": 0,
+      "case_results": [
+        {
+          "id": "P02-T1",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.hasChanged",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.noOfRisingBits",
+              "expected": 0,
+              "observed": "USINT#0"
+            },
+            {
+              "step": 1,
+              "expression": "dut.noOfFallingBits",
+              "expected": 0,
+              "observed": "USINT#0"
+            }
+          ]
+        },
+        {
+          "id": "P02-T2",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 2,
+              "expression": "dut.risingBits",
+              "expected": 16,
+              "observed": "DWORD#16"
+            },
+            {
+              "step": 2,
+              "expression": "dut.fallingBits",
+              "expected": 12,
+              "observed": "DWORD#12"
+            },
+            {
+              "step": 2,
+              "expression": "dut.noOfRisingBits",
+              "expected": 1,
+              "observed": "USINT#1"
+            },
+            {
+              "step": 2,
+              "expression": "dut.noOfFallingBits",
+              "expected": 2,
+              "observed": "USINT#2"
+            }
+          ]
+        },
+        {
+          "id": "P02-T3",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 2,
+              "expression": "dut.hasChanged",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.risingBits",
+              "expected": 0,
+              "observed": "DWORD#0"
+            },
+            {
+              "step": 2,
+              "expression": "dut.fallingBits",
+              "expected": 0,
+              "observed": "DWORD#0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "P03",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PASS",
+      "source": "st/runs/self/deepseek/P03_attempt1.st",
+      "source_sha256": "821503da477c2b129a224e3a6aef07ef23017835b39deeb32c8fff9f372bdef4",
+      "suite": "tests/structured_text/runtime_suites/P03.json",
+      "suite_sha256": "f7e88c827db0f4b3184c19d55dee59ccd718712ef299a3ebca6dda88f8a38167",
+      "scenario_total": 3,
+      "scenario_executed": 3,
+      "scenario_passed": 3,
+      "scenario_failed": 0,
+      "scenario_blocked": 0,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P03_deepseek_20261110_173005/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 0,
+      "compiler_warning_count": 0,
+      "case_results": [
+        {
+          "id": "P03-T1",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.hiAlarm",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        },
+        {
+          "id": "P03-T2",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.hiAlarm",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.hiAlarm",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "P03-T3",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.error",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.status",
+              "expected": 32769,
+              "observed": "WORD#32769"
+            },
+            {
+              "step": 1,
+              "expression": "dut.hiAlarm",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.loAlarm",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "P03",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PASS",
+      "source": "st/runs/self/gpt/P03_attempt1.st",
+      "source_sha256": "cb4c4c4de7591758449a150267e7240ff773a452efa751ad900f89314ee56b9a",
+      "suite": "tests/structured_text/runtime_suites/P03.json",
+      "suite_sha256": "f7e88c827db0f4b3184c19d55dee59ccd718712ef299a3ebca6dda88f8a38167",
+      "scenario_total": 3,
+      "scenario_executed": 3,
+      "scenario_passed": 3,
+      "scenario_failed": 0,
+      "scenario_blocked": 0,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P03_gpt_20261110_173054/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 0,
+      "compiler_warning_count": 0,
+      "case_results": [
+        {
+          "id": "P03-T1",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.hiAlarm",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        },
+        {
+          "id": "P03-T2",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.hiAlarm",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.hiAlarm",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "P03-T3",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.error",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.status",
+              "expected": 32769,
+              "observed": "WORD#32769"
+            },
+            {
+              "step": 1,
+              "expression": "dut.hiAlarm",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.loAlarm",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "P04",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PROJECT_COMPILE_FAIL",
+      "source": "st/runs/self/deepseek/P04_attempt1.st",
+      "source_sha256": "213e514bcdf0beb62f9e0de78fe552960ea7b485f8e5149638f73cccedc60ca3",
+      "suite": "tests/structured_text/runtime_suites/P04.json",
+      "suite_sha256": "4c9a9500d1adc666cd4d672a23586dd7d71618d2396d83926adbc95fe84b3c2c",
+      "scenario_total": 3,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 3,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P04_deepseek_20261110_180140/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 96,
+      "compiler_warning_count": 0,
+      "case_results": []
+    },
+    {
+      "task_id": "P04",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PASS",
+      "source": "st/runs/self/gpt/P04_attempt2.st",
+      "source_sha256": "600c110d27756c1b15a8427ec2934a19a939fd77df2eddbb84c37bf1a2747583",
+      "suite": "tests/structured_text/runtime_suites/P04.json",
+      "suite_sha256": "4c9a9500d1adc666cd4d672a23586dd7d71618d2396d83926adbc95fe84b3c2c",
+      "scenario_total": 3,
+      "scenario_executed": 3,
+      "scenario_passed": 3,
+      "scenario_failed": 0,
+      "scenario_blocked": 0,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P04_gpt_20261110_173222/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 0,
+      "compiler_warning_count": 0,
+      "case_results": [
+        {
+          "id": "P04-T1",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.VFD_RUN",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.PUMP_RUNTIME_ACC",
+              "expected": "LTIME#0ns",
+              "observed": "LTIME#0ns"
+            },
+            {
+              "step": 1,
+              "expression": "dut.PUMP_MAINT_DUE",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "P04-T2",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.VFD_RUN",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "P04-T3",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.VFD_RUN",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.VFD_RUN",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "P05",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PROJECT_COMPILE_FAIL",
+      "source": "st/runs/self/deepseek/P05_attempt1.st",
+      "source_sha256": "869500b45fe1de46d357f5ae7ae78e2925e0f36fe6e60431516e580db9b11b87",
+      "suite": "tests/structured_text/runtime_suites/P05.json",
+      "suite_sha256": "1783077db24865329bc5a87f0d8fe492100d48e9668e489b314fa94312cde48c",
+      "scenario_total": 3,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 3,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P05_deepseek_20261110_180214/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 3,
+      "compiler_warning_count": 0,
+      "case_results": []
+    },
+    {
+      "task_id": "P05",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PASS",
+      "source": "st/runs/self/gpt/P05_attempt3.st",
+      "source_sha256": "eed772650c1e4ed30e4d8e21a0d5897e3d05a59c3e0f473d8aa67db45ca3ced6",
+      "suite": "tests/structured_text/runtime_suites/P05.json",
+      "suite_sha256": "1783077db24865329bc5a87f0d8fe492100d48e9668e489b314fa94312cde48c",
+      "scenario_total": 3,
+      "scenario_executed": 3,
+      "scenario_passed": 3,
+      "scenario_failed": 0,
+      "scenario_blocked": 0,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P05_gpt_20261110_173351/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 0,
+      "compiler_warning_count": 0,
+      "case_results": [
+        {
+          "id": "P05-T1",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.Weld_Soft_Start_Active",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.Operator_Alert",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "P05-T2",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.Weld_Soft_Start_Active",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.Operator_Alert",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        },
+        {
+          "id": "P05-T3",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.Operator_Alert",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.Operator_Alert",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "P06",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PASS",
+      "source": "st/runs/self/deepseek/P06_attempt1.st",
+      "source_sha256": "34d73b13cf2fa7cd5cc90060a93a04a5b3049ef292d1c500fe44d70f38f77e1a",
+      "suite": "tests/structured_text/runtime_suites/P06.json",
+      "suite_sha256": "e6c9270c89561a7edefc9d6d078290e1ad631812d4cc2a178c7d53cf0efb60b2",
+      "scenario_total": 3,
+      "scenario_executed": 3,
+      "scenario_passed": 3,
+      "scenario_failed": 0,
+      "scenario_blocked": 0,
+      "batch_source": "self_runtime_20261110_191941_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P06_deepseek_20261110_191941/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 0,
+      "compiler_warning_count": 0,
+      "case_results": [
+        {
+          "id": "P06-T1",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.BLOWER_RUN",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.BLOWER_RUN",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "P06-T2",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.BLOWER_RUN",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.AERATION_BLOWER_CYCLE_COUNT",
+              "expected": 1,
+              "observed": "UINT#1"
+            }
+          ]
+        },
+        {
+          "id": "P06-T3",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.BLOWER_RUN",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.BLOWER_RUN",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 3,
+              "expression": "dut.BLOWER_RUN",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "P06",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PASS",
+      "source": "st/runs/self/gpt/P06_attempt3.st",
+      "source_sha256": "b19bcb76e9e3de319b6088d5059b4c7c15cddbb74c02374f508fed115be9248b",
+      "suite": "tests/structured_text/runtime_suites/P06.json",
+      "suite_sha256": "e6c9270c89561a7edefc9d6d078290e1ad631812d4cc2a178c7d53cf0efb60b2",
+      "scenario_total": 3,
+      "scenario_executed": 3,
+      "scenario_passed": 3,
+      "scenario_failed": 0,
+      "scenario_blocked": 0,
+      "batch_source": "self_runtime_20261110_191941_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P06_gpt_20261110_192033/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 0,
+      "compiler_warning_count": 0,
+      "case_results": [
+        {
+          "id": "P06-T1",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.BLOWER_RUN",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.BLOWER_RUN",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "P06-T2",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.BLOWER_RUN",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.AERATION_BLOWER_CYCLE_COUNT",
+              "expected": 1,
+              "observed": "UINT#1"
+            }
+          ]
+        },
+        {
+          "id": "P06-T3",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.BLOWER_RUN",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.BLOWER_RUN",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 3,
+              "expression": "dut.BLOWER_RUN",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "P07",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_FAIL",
+      "status": "NOT_RUN_OFFICIAL_COMPILE_FAIL",
+      "source": "st/runs/self/deepseek/P07_attempt3.st",
+      "source_sha256": "0521a9c790b5f7cc64c7831c453cafe4f1d4ef840e8b9963a7ba828ef14cd691",
+      "suite": "tests/structured_text/runtime_suites/P07.json",
+      "suite_sha256": "1d799969e574a7dd454d5c3f8225418fd1617c5b23afc601797cd4efc4279be8",
+      "scenario_total": 3,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 3,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "case_results": []
+    },
+    {
+      "task_id": "P07",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_FAIL",
+      "status": "NOT_RUN_OFFICIAL_COMPILE_FAIL",
+      "source": "st/runs/self/gpt/P07_attempt3.st",
+      "source_sha256": "ef9d720e80ea6390eb3feccf4a1fd49cae53549035484b41d94e92c1e2affd9c",
+      "suite": "tests/structured_text/runtime_suites/P07.json",
+      "suite_sha256": "1d799969e574a7dd454d5c3f8225418fd1617c5b23afc601797cd4efc4279be8",
+      "scenario_total": 3,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 3,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "case_results": []
+    },
+    {
+      "task_id": "P08",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PROJECT_COMPILE_FAIL",
+      "source": "st/runs/self/deepseek/P08_attempt2.st",
+      "source_sha256": "7391d333f9a06735038033b1be59f19deca792ae94b0194aaf0b1ee84312cdea",
+      "suite": "tests/structured_text/runtime_suites/P08.json",
+      "suite_sha256": "66f48f843d1bdb31697207f9cb3a7e5c7a15b05b569fc0bb530c2e538c21e7fe",
+      "scenario_total": 3,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 3,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P08_deepseek_20261110_180334/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 12,
+      "compiler_warning_count": 0,
+      "case_results": []
+    },
+    {
+      "task_id": "P08",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PROJECT_COMPILE_FAIL",
+      "source": "st/runs/self/gpt/P08_attempt1.st",
+      "source_sha256": "b05ed75e76f969b3fd612f1d8b98d997153fdfdd2089ab73a4fc24a058286c25",
+      "suite": "tests/structured_text/runtime_suites/P08.json",
+      "suite_sha256": "66f48f843d1bdb31697207f9cb3a7e5c7a15b05b569fc0bb530c2e538c21e7fe",
+      "scenario_total": 3,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 3,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P08_gpt_20261110_180408/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 6,
+      "compiler_warning_count": 0,
+      "case_results": []
+    },
+    {
+      "task_id": "P09",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PASS",
+      "source": "st/runs/self/deepseek/P09_attempt1.st",
+      "source_sha256": "4550e40591c16d34419d68b3dc0db70dbe5a6016cd3b612af4c3394a869a2727",
+      "suite": "tests/structured_text/runtime_suites/P09.json",
+      "suite_sha256": "29662032e7b325784452e15ea2201efe4acf86ee5b98a8c49b6bd8f611f01219",
+      "scenario_total": 3,
+      "scenario_executed": 3,
+      "scenario_passed": 3,
+      "scenario_failed": 0,
+      "scenario_blocked": 0,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P09_deepseek_20261110_173743/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 0,
+      "compiler_warning_count": 0,
+      "case_results": [
+        {
+          "id": "P09-T1",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 3,
+              "expression": "dut.average",
+              "expected": 2.0,
+              "observed": "LREAL#2"
+            },
+            {
+              "step": 3,
+              "expression": "dut.windowSizeReached",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        },
+        {
+          "id": "P09-T2",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.average",
+              "expected": 4.0,
+              "observed": "LREAL#4"
+            }
+          ]
+        },
+        {
+          "id": "P09-T3",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.average",
+              "expected": 0.0,
+              "observed": "LREAL#0"
+            },
+            {
+              "step": 1,
+              "expression": "dut.windowSizeReached",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.error",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.status",
+              "expected": 33280,
+              "observed": "WORD#33280"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "P09",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_ASSERTION_FAIL",
+      "source": "st/runs/self/gpt/P09_attempt1.st",
+      "source_sha256": "d81b5f40347eb8df4ea479b8d1c21124b1a363e5944ab188fd54bcf9bc240d01",
+      "suite": "tests/structured_text/runtime_suites/P09.json",
+      "suite_sha256": "29662032e7b325784452e15ea2201efe4acf86ee5b98a8c49b6bd8f611f01219",
+      "scenario_total": 3,
+      "scenario_executed": 3,
+      "scenario_passed": 1,
+      "scenario_failed": 2,
+      "scenario_blocked": 0,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P09_gpt_20261110_173835/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 0,
+      "compiler_warning_count": 0,
+      "case_results": [
+        {
+          "id": "P09-T1",
+          "pass": false,
+          "assertions": [
+            {
+              "step": 3,
+              "expression": "dut.average",
+              "expected": 2.0,
+              "observed": "LREAL#0"
+            },
+            {
+              "step": 3,
+              "expression": "dut.windowSizeReached",
+              "expected": true,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "P09-T2",
+          "pass": false,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.average",
+              "expected": 4.0,
+              "observed": "LREAL#0"
+            }
+          ]
+        },
+        {
+          "id": "P09-T3",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.average",
+              "expected": 0.0,
+              "observed": "LREAL#0"
+            },
+            {
+              "step": 1,
+              "expression": "dut.windowSizeReached",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.error",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.status",
+              "expected": 33280,
+              "observed": "WORD#33280"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "P10",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PROJECT_COMPILE_FAIL",
+      "source": "st/runs/self/deepseek/P10_attempt1.st",
+      "source_sha256": "597987d036b5be99598428649c7f713b90f8aee38061ec5dbb6f479e39ac8eb7",
+      "suite": "tests/structured_text/runtime_suites/P10.json",
+      "suite_sha256": "f9f929f82104ac4aeadac3ea8d3d240659b9329d22b67774aff640685117ee34",
+      "scenario_total": 3,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 3,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P10_deepseek_20261110_180441/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 3,
+      "compiler_warning_count": 0,
+      "case_results": []
+    },
+    {
+      "task_id": "P10",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PROJECT_COMPILE_FAIL",
+      "source": "st/runs/self/gpt/P10_attempt1.st",
+      "source_sha256": "357b26894d995ac0e4cf055a5864620f7b9cb3a7a6b387a7a5c43b93e8370288",
+      "suite": "tests/structured_text/runtime_suites/P10.json",
+      "suite_sha256": "f9f929f82104ac4aeadac3ea8d3d240659b9329d22b67774aff640685117ee34",
+      "scenario_total": 3,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 3,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P10_gpt_20261110_180515/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 2,
+      "compiler_warning_count": 0,
+      "case_results": []
+    },
+    {
+      "task_id": "P11",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_FAIL",
+      "status": "NOT_RUN_OFFICIAL_COMPILE_FAIL",
+      "source": "st/runs/self/deepseek/P11_attempt1.st",
+      "source_sha256": "b8b3d1a27f268ae5e5d908952cab994d1d099dfb0ae2b39ff8c681852a21a33c",
+      "suite": "tests/structured_text/runtime_suites/P11.json",
+      "suite_sha256": "948576d1b8e37c2838fe094e1b48adac61fb4ec92789f921d4fa7acec49dcad5",
+      "scenario_total": 3,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 3,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "case_results": []
+    },
+    {
+      "task_id": "P11",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_FAIL",
+      "status": "NOT_RUN_OFFICIAL_COMPILE_FAIL",
+      "source": "st/runs/self/gpt/P11_attempt3.st",
+      "source_sha256": "553f42cb449c1a6269c5f56fed619007b68d984969cd8d265ebfaa7e49a028cb",
+      "suite": "tests/structured_text/runtime_suites/P11.json",
+      "suite_sha256": "948576d1b8e37c2838fe094e1b48adac61fb4ec92789f921d4fa7acec49dcad5",
+      "scenario_total": 3,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 3,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "case_results": []
+    },
+    {
+      "task_id": "P12",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PROJECT_COMPILE_FAIL",
+      "source": "st/runs/self/deepseek/P12_attempt1.st",
+      "source_sha256": "3dba409fe22002ad442faec453683fa86ec4e7ce6c62f2427ebe59e23d2eb820",
+      "suite": "tests/structured_text/runtime_suites/P12.json",
+      "suite_sha256": "811a0a85fdb6887b6ab06946b31f0b8901525d4f089cacdf75491fcc9c9be4e7",
+      "scenario_total": 3,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 3,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P12_deepseek_20261110_180548/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 3,
+      "compiler_warning_count": 0,
+      "case_results": []
+    },
+    {
+      "task_id": "P12",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_FAIL",
+      "status": "NOT_RUN_OFFICIAL_COMPILE_FAIL",
+      "source": "st/runs/self/gpt/P12_attempt3.st",
+      "source_sha256": "881cdce3536a222edc861b07b0e448f34a83a8a98eae9b9fe7acc5d7b2a79507",
+      "suite": "tests/structured_text/runtime_suites/P12.json",
+      "suite_sha256": "811a0a85fdb6887b6ab06946b31f0b8901525d4f089cacdf75491fcc9c9be4e7",
+      "scenario_total": 3,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 3,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "case_results": []
+    },
+    {
+      "task_id": "P13",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PROJECT_COMPILE_FAIL",
+      "source": "st/runs/self/deepseek/P13_attempt1.st",
+      "source_sha256": "ae856c943b1e1bef3c5d205f6793d8a6549dd6cca871462695ac7da864792cde",
+      "suite": "tests/structured_text/runtime_suites/P13.json",
+      "suite_sha256": "cef24a49e4c1774509b3dd348eab7184278b3040ef27ecc066c0d7b0943997fa",
+      "scenario_total": 3,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 3,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P13_deepseek_20261110_180621/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 2,
+      "compiler_warning_count": 0,
+      "case_results": []
+    },
+    {
+      "task_id": "P13",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PASS",
+      "source": "st/runs/self/gpt/P13_attempt3.st",
+      "source_sha256": "b7fa26caa4dd7eaf3c56b2ae79fe5fb682e37d2aeb2d7ec44ee6194a857b23e3",
+      "suite": "tests/structured_text/runtime_suites/P13.json",
+      "suite_sha256": "cef24a49e4c1774509b3dd348eab7184278b3040ef27ecc066c0d7b0943997fa",
+      "scenario_total": 3,
+      "scenario_executed": 3,
+      "scenario_passed": 3,
+      "scenario_failed": 0,
+      "scenario_blocked": 0,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P13_gpt_20261110_174213/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 0,
+      "compiler_warning_count": 0,
+      "case_results": [
+        {
+          "id": "P13-T1",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.TEMP_SETPOINT_ADJUST",
+              "expected": 0,
+              "observed": "INT#0"
+            },
+            {
+              "step": 1,
+              "expression": "dut.SUPPLY_FAN_RUN",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.SUPPLY_FAN_RUN",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        },
+        {
+          "id": "P13-T2",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.TEMP_SETPOINT_ADJUST",
+              "expected": 3,
+              "observed": "INT#3"
+            },
+            {
+              "step": 2,
+              "expression": "dut.TEMP_SETPOINT_ADJUST",
+              "expected": 2,
+              "observed": "INT#2"
+            }
+          ]
+        },
+        {
+          "id": "P13-T3",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.TEMP_SETPOINT_ADJUST",
+              "expected": 4,
+              "observed": "INT#4"
+            },
+            {
+              "step": 1,
+              "expression": "dut.SUPPLY_FAN_RUN",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "P14",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PROJECT_COMPILE_FAIL",
+      "source": "st/runs/self/deepseek/P14_attempt1.st",
+      "source_sha256": "53176a472562508f0e0e0caef782d284d883a0202f5aec1b66fe19eb218cd337",
+      "suite": "tests/structured_text/runtime_suites/P14.json",
+      "suite_sha256": "350ab28d44c4a5db8c4982a53e6369e4afa1ae9b839fe7d32f3ea9e199cacafd",
+      "scenario_total": 3,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 3,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P14_deepseek_20261110_180655/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 5,
+      "compiler_warning_count": 0,
+      "case_results": []
+    },
+    {
+      "task_id": "P14",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_ASSERTION_FAIL",
+      "source": "st/runs/self/gpt/P14_attempt3.st",
+      "source_sha256": "180ad2d63bffd5b0771d7206560355579b503d12ecf796bf547a3d68470d1256",
+      "suite": "tests/structured_text/runtime_suites/P14.json",
+      "suite_sha256": "350ab28d44c4a5db8c4982a53e6369e4afa1ae9b839fe7d32f3ea9e199cacafd",
+      "scenario_total": 3,
+      "scenario_executed": 3,
+      "scenario_passed": 1,
+      "scenario_failed": 2,
+      "scenario_blocked": 0,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P14_gpt_20261110_174418/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 0,
+      "compiler_warning_count": 0,
+      "case_results": [
+        {
+          "id": "P14-T1",
+          "pass": false,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.ipValue",
+              "expected": 3232235786,
+              "observed": "UDINT#1554514186"
+            }
+          ]
+        },
+        {
+          "id": "P14-T2",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.ipValue",
+              "expected": 0,
+              "observed": "UDINT#0"
+            }
+          ]
+        },
+        {
+          "id": "P14-T3",
+          "pass": false,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.ipValue",
+              "expected": 0,
+              "observed": "UDINT#939589889"
+            },
+            {
+              "step": 2,
+              "expression": "dut.ipValue",
+              "expected": 0,
+              "observed": "UDINT#0"
+            },
+            {
+              "step": 3,
+              "expression": "dut.ipValue",
+              "expected": 0,
+              "observed": "UDINT#0"
+            },
+            {
+              "step": 4,
+              "expression": "dut.ipValue",
+              "expected": 0,
+              "observed": "UDINT#0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "P15",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PROJECT_COMPILE_FAIL",
+      "source": "st/runs/self/deepseek/P15_attempt1.st",
+      "source_sha256": "1dacf44b51c2cfc9e31e295bd20df756fb6565e3433d47b6de75ce02d95d031a",
+      "suite": "tests/structured_text/runtime_suites/P15.json",
+      "suite_sha256": "5604f859da71c79d47d3e1299ccf56f329defe7892f06bf3ffc907a34284e4a3",
+      "scenario_total": 3,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 3,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P15_deepseek_20261110_180728/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 2,
+      "compiler_warning_count": 0,
+      "case_results": []
+    },
+    {
+      "task_id": "P15",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_FAIL",
+      "status": "NOT_RUN_OFFICIAL_COMPILE_FAIL",
+      "source": "st/runs/self/gpt/P15_attempt3.st",
+      "source_sha256": "350e6cef6e7b339aa616be76997ab0da83e12b08b64bc2e0a94d8c36acd792c2",
+      "suite": "tests/structured_text/runtime_suites/P15.json",
+      "suite_sha256": "5604f859da71c79d47d3e1299ccf56f329defe7892f06bf3ffc907a34284e4a3",
+      "scenario_total": 3,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 3,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "case_results": []
+    },
+    {
+      "task_id": "P16",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PROJECT_COMPILE_FAIL",
+      "source": "st/runs/self/deepseek/P16_attempt1.st",
+      "source_sha256": "5c917db4521cfee7d4c6aa581a1302a561712dd93b7c53c7bb3811a6e71d458d",
+      "suite": "tests/structured_text/runtime_suites/P16.json",
+      "suite_sha256": "780618e295436b3659ba8d4f6025c5290b98f4c36bd3182c448f246b4debcc5d",
+      "scenario_total": 3,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 3,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P16_deepseek_20261110_180802/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 5,
+      "compiler_warning_count": 0,
+      "case_results": []
+    },
+    {
+      "task_id": "P16",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_ASSERTION_FAIL",
+      "source": "st/runs/self/gpt/P16_attempt1.st",
+      "source_sha256": "dbd8ec42d971bf9a62b7fe28481184ba8eea672878e8d960e59b7805f335138b",
+      "suite": "tests/structured_text/runtime_suites/P16.json",
+      "suite_sha256": "780618e295436b3659ba8d4f6025c5290b98f4c36bd3182c448f246b4debcc5d",
+      "scenario_total": 3,
+      "scenario_executed": 3,
+      "scenario_passed": 1,
+      "scenario_failed": 2,
+      "scenario_blocked": 0,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P16_gpt_20261110_174627/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 0,
+      "compiler_warning_count": 0,
+      "case_results": [
+        {
+          "id": "P16-T1",
+          "pass": false,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.conveyorRight",
+              "expected": true,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "P16-T2",
+          "pass": false,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.conveyorRight",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.conveyorLeft",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.conveyorLeft",
+              "expected": true,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "P16-T3",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 2,
+              "expression": "dut.conveyorLeft",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.conveyorRight",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "P17",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PROJECT_COMPILE_FAIL",
+      "source": "st/runs/self/deepseek/P17_attempt1.st",
+      "source_sha256": "c440e1c348c4bc1915e43f0e9fb3250a0cd6f4f195fb5db32da52eb9e5f655a9",
+      "suite": "tests/structured_text/runtime_suites/P17.json",
+      "suite_sha256": "781976687adf11b3ef9e5fc57ee55695e626ad8f720d9b439e8ff5404ccc8cab",
+      "scenario_total": 3,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 3,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P17_deepseek_20261110_180835/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 4,
+      "compiler_warning_count": 0,
+      "case_results": []
+    },
+    {
+      "task_id": "P17",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_FAIL",
+      "status": "NOT_RUN_OFFICIAL_COMPILE_FAIL",
+      "source": "st/runs/self/gpt/P17_attempt3.st",
+      "source_sha256": "2a240286a0455c4994eec882e50c812bd9c206e2a4350be87f005e909c43e833",
+      "suite": "tests/structured_text/runtime_suites/P17.json",
+      "suite_sha256": "781976687adf11b3ef9e5fc57ee55695e626ad8f720d9b439e8ff5404ccc8cab",
+      "scenario_total": 3,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 3,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "case_results": []
+    },
+    {
+      "task_id": "P18",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PROJECT_COMPILE_FAIL",
+      "source": "st/runs/self/deepseek/P18_attempt1.st",
+      "source_sha256": "21aa6a69f3f8b00ac2c9cdaf1ec5cc5db6bf17c4c14025c09b5df43cfba25b87",
+      "suite": "tests/structured_text/runtime_suites/P18.json",
+      "suite_sha256": "b62f3fbc68db968fcb52c3d19f182b6b102cdd88bf0672286bb30a761a0388e8",
+      "scenario_total": 3,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 3,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P18_deepseek_20261110_180907/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 8,
+      "compiler_warning_count": 1,
+      "case_results": []
+    },
+    {
+      "task_id": "P18",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PROJECT_COMPILE_FAIL",
+      "source": "st/runs/self/gpt/P18_attempt1.st",
+      "source_sha256": "23dafe511435964c416a1b4cdeedbb7251c4f11b514be9bc29d9ff5de705a373",
+      "suite": "tests/structured_text/runtime_suites/P18.json",
+      "suite_sha256": "b62f3fbc68db968fcb52c3d19f182b6b102cdd88bf0672286bb30a761a0388e8",
+      "scenario_total": 3,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 3,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P18_gpt_20261110_180940/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 1,
+      "compiler_warning_count": 0,
+      "case_results": []
+    },
+    {
+      "task_id": "P19",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PROJECT_COMPILE_FAIL",
+      "source": "st/runs/self/deepseek/P19_attempt1.st",
+      "source_sha256": "85bb8b9a0b0da68f4cb5f456206440eefb24ef43878231ad8c4483db7baafd24",
+      "suite": "tests/structured_text/runtime_suites/P19.json",
+      "suite_sha256": "f2d07c0cef79d475e79d2b0a15355b5e7d97cba3386c2adb3482f59116991cad",
+      "scenario_total": 3,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 3,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P19_deepseek_20261110_181014/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 1,
+      "compiler_warning_count": 1,
+      "case_results": []
+    },
+    {
+      "task_id": "P19",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_FAIL",
+      "status": "NOT_RUN_OFFICIAL_COMPILE_FAIL",
+      "source": "st/runs/self/gpt/P19_attempt3.st",
+      "source_sha256": "9b9272b8b8d7c8bd8e0e79fd3d5d6c821e149050593af6b46104e9034d91c4c8",
+      "suite": "tests/structured_text/runtime_suites/P19.json",
+      "suite_sha256": "f2d07c0cef79d475e79d2b0a15355b5e7d97cba3386c2adb3482f59116991cad",
+      "scenario_total": 3,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 3,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "case_results": []
+    },
+    {
+      "task_id": "P20",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PROJECT_COMPILE_FAIL",
+      "source": "st/runs/self/deepseek/P20_attempt1.st",
+      "source_sha256": "8643ea63bafa5bf2142219bd9852df6c31edef573dec756652590e56ad3ad11c",
+      "suite": "tests/structured_text/runtime_suites/P20.json",
+      "suite_sha256": "fb1fb3b4a35bba1741450c87e405b5cf41f5e5652616ee0f98d4d59cfdb17273",
+      "scenario_total": 3,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 3,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/P20_deepseek_20261110_181047/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 3,
+      "compiler_warning_count": 1,
+      "case_results": []
+    },
+    {
+      "task_id": "P20",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_FAIL",
+      "status": "NOT_RUN_OFFICIAL_COMPILE_FAIL",
+      "source": "st/runs/self/gpt/P20_attempt3.st",
+      "source_sha256": "9f154d92e5417b183483a4e2eeaf9df196f77ce38d29ab205bcdb0c7024fd7eb",
+      "suite": "tests/structured_text/runtime_suites/P20.json",
+      "suite_sha256": "fb1fb3b4a35bba1741450c87e405b5cf41f5e5652616ee0f98d4d59cfdb17273",
+      "scenario_total": 3,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 3,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "case_results": []
+    },
+    {
+      "task_id": "S01",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PROJECT_COMPILE_FAIL",
+      "source": "st/runs/self/deepseek/S01_attempt1.st",
+      "source_sha256": "39d53d9b0f7dd45a2c82d41e401db3a3e08054baa1c96f32cf1af0dea58c49ac",
+      "suite": "tests/structured_text/runtime_suites/S01.json",
+      "suite_sha256": "914dec2307fb3f4fdd11bf1c85c20c67c46262f47c2d98a37156a5bb23d84bce",
+      "scenario_total": 6,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 6,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/S01_deepseek_20261110_181120/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 3,
+      "compiler_warning_count": 0,
+      "case_results": []
+    },
+    {
+      "task_id": "S01",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_FAIL",
+      "status": "NOT_RUN_OFFICIAL_COMPILE_FAIL",
+      "source": "st/runs/self/gpt/S01_attempt3.st",
+      "source_sha256": "96489db32e2768b43d1c9cd03a65bb3b0d532ceab6ad25ad06cf591d200bdf23",
+      "suite": "tests/structured_text/runtime_suites/S01.json",
+      "suite_sha256": "914dec2307fb3f4fdd11bf1c85c20c67c46262f47c2d98a37156a5bb23d84bce",
+      "scenario_total": 6,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 6,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "case_results": []
+    },
+    {
+      "task_id": "S02",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PROJECT_COMPILE_FAIL",
+      "source": "st/runs/self/deepseek/S02_attempt1.st",
+      "source_sha256": "f7c7396778dd537f18a4ab20cf72a8c297cdb99f2bda4f05f1168bd45d532bb3",
+      "suite": "tests/structured_text/runtime_suites/S02.json",
+      "suite_sha256": "68265fe815afa9ade3367fb3655558f1c4c5b55474a1c81a22de759468dbe5b6",
+      "scenario_total": 5,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 5,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/S02_deepseek_20261110_181153/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 4,
+      "compiler_warning_count": 0,
+      "case_results": []
+    },
+    {
+      "task_id": "S02",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PROJECT_COMPILE_FAIL",
+      "source": "st/runs/self/gpt/S02_attempt3.st",
+      "source_sha256": "185404e2f2c99129bbf5569ce31661f6afadec07f1c1a55e41b587f7bbe3adef",
+      "suite": "tests/structured_text/runtime_suites/S02.json",
+      "suite_sha256": "68265fe815afa9ade3367fb3655558f1c4c5b55474a1c81a22de759468dbe5b6",
+      "scenario_total": 5,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 5,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/S02_gpt_20261110_181226/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 1,
+      "compiler_warning_count": 0,
+      "case_results": []
+    },
+    {
+      "task_id": "S03",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PASS",
+      "source": "st/runs/self/deepseek/S03_attempt1.st",
+      "source_sha256": "ed2098870d807d7fb479ed0c8bcf18c7e19204e446a7e7253c7a5d49d71e3604",
+      "suite": "tests/structured_text/runtime_suites/S03.json",
+      "suite_sha256": "182f662061f06f95d8b5d04329114eda11180e05056d88444eec82425d37241d",
+      "scenario_total": 5,
+      "scenario_executed": 5,
+      "scenario_passed": 5,
+      "scenario_failed": 0,
+      "scenario_blocked": 0,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/S03_deepseek_20261110_181259/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 0,
+      "compiler_warning_count": 0,
+      "case_results": [
+        {
+          "id": "S03-T1",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.InletValve",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.InletValve",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        },
+        {
+          "id": "S03-T2",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.InletValve",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "S03-T3",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.InletValve",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.HighLevelAlarm",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.HighLevelAlarm",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "S03-T4",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.InletValve",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "S03-T5",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.InletValve",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.HighLevelAlarm",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.InletValve",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.HighLevelAlarm",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "S03",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PASS",
+      "source": "st/runs/self/gpt/S03_attempt1.st",
+      "source_sha256": "049f4a4bbb8eff6db99b80275d1a80c307df0ffef704e5daf6325f8ca6c2d89c",
+      "suite": "tests/structured_text/runtime_suites/S03.json",
+      "suite_sha256": "182f662061f06f95d8b5d04329114eda11180e05056d88444eec82425d37241d",
+      "scenario_total": 5,
+      "scenario_executed": 5,
+      "scenario_passed": 5,
+      "scenario_failed": 0,
+      "scenario_blocked": 0,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/S03_gpt_20261110_181338/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 0,
+      "compiler_warning_count": 0,
+      "case_results": [
+        {
+          "id": "S03-T1",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.InletValve",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.InletValve",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        },
+        {
+          "id": "S03-T2",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.InletValve",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "S03-T3",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.InletValve",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.HighLevelAlarm",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.HighLevelAlarm",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "S03-T4",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.InletValve",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "S03-T5",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.InletValve",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.HighLevelAlarm",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.InletValve",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.HighLevelAlarm",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "S04",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PROJECT_COMPILE_FAIL",
+      "source": "st/runs/self/deepseek/S04_attempt1.st",
+      "source_sha256": "b0ff0530b5acf8560937866efd613c8a665c198d70ef22730cb53a54ed760da0",
+      "suite": "tests/structured_text/runtime_suites/S04.json",
+      "suite_sha256": "7309ca0a7ac5836443b73ea84f521a48906bf7d47a92992aecc1b4b88b13e949",
+      "scenario_total": 5,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 5,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/S04_deepseek_20261110_181419/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 3,
+      "compiler_warning_count": 1,
+      "case_results": []
+    },
+    {
+      "task_id": "S04",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_FAIL",
+      "status": "NOT_RUN_OFFICIAL_COMPILE_FAIL",
+      "source": "st/runs/self/gpt/S04_attempt3.st",
+      "source_sha256": "096e74e854db51c2269700639562075fd3357423a543f9c0b7eb5f14601060a4",
+      "suite": "tests/structured_text/runtime_suites/S04.json",
+      "suite_sha256": "7309ca0a7ac5836443b73ea84f521a48906bf7d47a92992aecc1b4b88b13e949",
+      "scenario_total": 5,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 5,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "case_results": []
+    },
+    {
+      "task_id": "S05",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PROJECT_COMPILE_FAIL",
+      "source": "st/runs/self/deepseek/S05_attempt1.st",
+      "source_sha256": "7bdf9eec80b099c819e30341ae8700285fa5b7c4526a11e2806ab51d6fe040e2",
+      "suite": "tests/structured_text/runtime_suites/S05.json",
+      "suite_sha256": "26f2f9547e62cd9057054f869e1c86afe42c446946ed2fa10cd04c416c41e147",
+      "scenario_total": 5,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 5,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/S05_deepseek_20261110_181452/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 4,
+      "compiler_warning_count": 0,
+      "case_results": []
+    },
+    {
+      "task_id": "S05",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_FAIL",
+      "status": "NOT_RUN_OFFICIAL_COMPILE_FAIL",
+      "source": "st/runs/self/gpt/S05_attempt3.st",
+      "source_sha256": "de0bd2d96d0916ebeaed9f2b74f04f5079c5dbc24d72bf20221f8877a6a1c07a",
+      "suite": "tests/structured_text/runtime_suites/S05.json",
+      "suite_sha256": "26f2f9547e62cd9057054f869e1c86afe42c446946ed2fa10cd04c416c41e147",
+      "scenario_total": 5,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 5,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "case_results": []
+    },
+    {
+      "task_id": "S06",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PASS",
+      "source": "st/runs/self/deepseek/S06_attempt1.st",
+      "source_sha256": "bbe7e8b78337f2f95566408bd715781b77f51baac1fa803c309187344f8da4b3",
+      "suite": "tests/structured_text/runtime_suites/S06.json",
+      "suite_sha256": "9b1cb573869ca0c5aee1b17929760926b806ca705420fd0fc3976e09d3610cf8",
+      "scenario_total": 5,
+      "scenario_executed": 5,
+      "scenario_passed": 5,
+      "scenario_failed": 0,
+      "scenario_blocked": 0,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/S06_deepseek_20261110_181526/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 0,
+      "compiler_warning_count": 0,
+      "case_results": [
+        {
+          "id": "S06-T1",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.Compressor1Run",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.Compressor2Run",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.LeadIs1",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.LeadIs1",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "S06-T2",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.Compressor1Run",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.Compressor2Run",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        },
+        {
+          "id": "S06-T3",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.Compressor1Run",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.Compressor2Run",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.Fault",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        },
+        {
+          "id": "S06-T4",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.Fault",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 3,
+              "expression": "dut.Fault",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "S06-T5",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.Compressor1Run",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.Compressor1Run",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "S06",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PASS",
+      "source": "st/runs/self/gpt/S06_attempt1.st",
+      "source_sha256": "e6da7c1fc7d716cb829e97224661c5b48edab47d10d4bb829727a0db2b30bf80",
+      "suite": "tests/structured_text/runtime_suites/S06.json",
+      "suite_sha256": "9b1cb573869ca0c5aee1b17929760926b806ca705420fd0fc3976e09d3610cf8",
+      "scenario_total": 5,
+      "scenario_executed": 5,
+      "scenario_passed": 5,
+      "scenario_failed": 0,
+      "scenario_blocked": 0,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/S06_gpt_20261110_181607/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 0,
+      "compiler_warning_count": 0,
+      "case_results": [
+        {
+          "id": "S06-T1",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.Compressor1Run",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.Compressor2Run",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.LeadIs1",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.LeadIs1",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "S06-T2",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.Compressor1Run",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.Compressor2Run",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        },
+        {
+          "id": "S06-T3",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.Compressor1Run",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.Compressor2Run",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.Fault",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        },
+        {
+          "id": "S06-T4",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.Fault",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 3,
+              "expression": "dut.Fault",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "S06-T5",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.Compressor1Run",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.Compressor1Run",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "S07",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PASS",
+      "source": "st/runs/self/deepseek/S07_attempt1.st",
+      "source_sha256": "15c6a33b334db80d726f7bcaa4eaa4efe22d62b506299dcae77aa12f94421900",
+      "suite": "tests/structured_text/runtime_suites/S07.json",
+      "suite_sha256": "129661cdc40351888ecec9e14ce81e4648132f8358bbab37ce684ab4646c0036",
+      "scenario_total": 5,
+      "scenario_executed": 5,
+      "scenario_passed": 5,
+      "scenario_failed": 0,
+      "scenario_blocked": 0,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/S07_deepseek_20261110_181648/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 0,
+      "compiler_warning_count": 0,
+      "case_results": [
+        {
+          "id": "S07-T1",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.SafetyRelay",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.TripLatched",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        },
+        {
+          "id": "S07-T2",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.TripLatched",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.SafetyRelay",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "S07-T3",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.SafetyRelay",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        },
+        {
+          "id": "S07-T4",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.SafetyRelay",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.TripLatched",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        },
+        {
+          "id": "S07-T5",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.TripLatched",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.TripLatched",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 3,
+              "expression": "dut.TripLatched",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "S07",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PASS",
+      "source": "st/runs/self/gpt/S07_attempt1.st",
+      "source_sha256": "de8b938be7d99f38b9bad4507a4f3a25b9181bb68a579d20191335c6809a6e2e",
+      "suite": "tests/structured_text/runtime_suites/S07.json",
+      "suite_sha256": "129661cdc40351888ecec9e14ce81e4648132f8358bbab37ce684ab4646c0036",
+      "scenario_total": 5,
+      "scenario_executed": 5,
+      "scenario_passed": 5,
+      "scenario_failed": 0,
+      "scenario_blocked": 0,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/S07_gpt_20261110_181727/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 0,
+      "compiler_warning_count": 0,
+      "case_results": [
+        {
+          "id": "S07-T1",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.SafetyRelay",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.TripLatched",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        },
+        {
+          "id": "S07-T2",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.TripLatched",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.SafetyRelay",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "S07-T3",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.SafetyRelay",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        },
+        {
+          "id": "S07-T4",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.SafetyRelay",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.TripLatched",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        },
+        {
+          "id": "S07-T5",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.TripLatched",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.TripLatched",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 3,
+              "expression": "dut.TripLatched",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "S08",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PROJECT_COMPILE_FAIL",
+      "source": "st/runs/self/deepseek/S08_attempt1.st",
+      "source_sha256": "4e42ab274749347c27467652a31eb43723762f8dafb9afc0e96103ecebe98eba",
+      "suite": "tests/structured_text/runtime_suites/S08.json",
+      "suite_sha256": "bebdf42d6246b8165f035888ea24656ad4e3068bce86858b6a97cf96080fc4b0",
+      "scenario_total": 5,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 5,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/S08_deepseek_20261110_181807/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 1,
+      "compiler_warning_count": 0,
+      "case_results": []
+    },
+    {
+      "task_id": "S08",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PROJECT_COMPILE_FAIL",
+      "source": "st/runs/self/gpt/S08_attempt2.st",
+      "source_sha256": "b082e20bf7104c7e998ddc538b12cfffc85c2412e28a5307dcbb0564090f5c13",
+      "suite": "tests/structured_text/runtime_suites/S08.json",
+      "suite_sha256": "bebdf42d6246b8165f035888ea24656ad4e3068bce86858b6a97cf96080fc4b0",
+      "scenario_total": 5,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 5,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/S08_gpt_20261110_181842/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 1,
+      "compiler_warning_count": 0,
+      "case_results": []
+    },
+    {
+      "task_id": "S09",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PASS",
+      "source": "st/runs/self/deepseek/S09_attempt1.st",
+      "source_sha256": "f149ca904c8a958069c03ce0c8a225313edca291158e3071112fde285ddd53a9",
+      "suite": "tests/structured_text/runtime_suites/S09.json",
+      "suite_sha256": "9aec12e6ff315f3e6541e3024d52528affa6f39eaa8194e4d7363222933d5a6f",
+      "scenario_total": 5,
+      "scenario_executed": 5,
+      "scenario_passed": 5,
+      "scenario_failed": 0,
+      "scenario_blocked": 0,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/S09_deepseek_20261110_181916/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 0,
+      "compiler_warning_count": 0,
+      "case_results": [
+        {
+          "id": "S09-T1",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.TransferPump",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        },
+        {
+          "id": "S09-T2",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.TransferPump",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.TransferPump",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "S09-T3",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.TransferPump",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.DestinationHighAlarm",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.TransferPump",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.SourceLowAlarm",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        },
+        {
+          "id": "S09-T4",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.TransferPump",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "S09-T5",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.SourceLowAlarm",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.DestinationHighAlarm",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "S09",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PASS",
+      "source": "st/runs/self/gpt/S09_attempt1.st",
+      "source_sha256": "60b34490b6b82f927d77838c5b173aaa2785c2628ddf566bf7aa6b2c11771aaf",
+      "suite": "tests/structured_text/runtime_suites/S09.json",
+      "suite_sha256": "9aec12e6ff315f3e6541e3024d52528affa6f39eaa8194e4d7363222933d5a6f",
+      "scenario_total": 5,
+      "scenario_executed": 5,
+      "scenario_passed": 5,
+      "scenario_failed": 0,
+      "scenario_blocked": 0,
+      "batch_source": "self_runtime_20261110_180102_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/S09_gpt_20261110_181954/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 0,
+      "compiler_warning_count": 0,
+      "case_results": [
+        {
+          "id": "S09-T1",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.TransferPump",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        },
+        {
+          "id": "S09-T2",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.TransferPump",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.TransferPump",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "S09-T3",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.TransferPump",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.DestinationHighAlarm",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.TransferPump",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.SourceLowAlarm",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        },
+        {
+          "id": "S09-T4",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.TransferPump",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "S09-T5",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.SourceLowAlarm",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.DestinationHighAlarm",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "S10",
+      "model_id": "deepseek-v4.1-flash-1017",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PROJECT_COMPILE_FAIL",
+      "source": "st/runs/self/deepseek/S10_attempt1.st",
+      "source_sha256": "1ff5b9022be547a1fdf72c39d4f79dac297a1282f2f81e007685d6f74792a521",
+      "suite": "tests/structured_text/runtime_suites/S10.json",
+      "suite_sha256": "4c250bbb73ed916fdc4b354c697252a81085610688f9ca18c344dec32a8b6c5a",
+      "scenario_total": 5,
+      "scenario_executed": 0,
+      "scenario_passed": 0,
+      "scenario_failed": 0,
+      "scenario_blocked": 5,
+      "batch_source": "self_runtime_20261110_183934_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/S10_deepseek_20261110_183934/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 3,
+      "compiler_warning_count": 0,
+      "case_results": []
+    },
+    {
+      "task_id": "S10",
+      "model_id": "gpt-6.1-sol",
+      "official_offline_compile_status": "COMPILE_PASS",
+      "status": "RUNTIME_PASS",
+      "source": "st/runs/self/gpt/S10_attempt2.st",
+      "source_sha256": "ebb2b4982749f4eb620e53c0fd38bbd4bf10c0430abd37eb78a7bb0dcf00e581",
+      "suite": "tests/structured_text/runtime_suites/S10.json",
+      "suite_sha256": "4c250bbb73ed916fdc4b354c697252a81085610688f9ca18c344dec32a8b6c5a",
+      "scenario_total": 5,
+      "scenario_executed": 5,
+      "scenario_passed": 5,
+      "scenario_failed": 0,
+      "scenario_blocked": 0,
+      "batch_source": "self_runtime_20261110_183704_summary.json",
+      "local_result_artifact": "experiments/local_runs/codesys_runtime_suite/S10_gpt_20261110_183704/result.json",
+      "runtime_target": {
+        "name": "CODESYS Control Win V3 x64",
+        "id": "0000 0004",
+        "version": "3.5.22.40"
+      },
+      "compiler_error_count": 0,
+      "compiler_warning_count": 0,
+      "case_results": [
+        {
+          "id": "S10-T5",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.Heater",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.SensorFault",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        },
+        {
+          "id": "S10-T4",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.SensorFault",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.SensorFault",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "S10-T1",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.Heater",
+              "expected": true,
+              "observed": "TRUE"
+            },
+            {
+              "step": 2,
+              "expression": "dut.Heater",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        },
+        {
+          "id": "S10-T2",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.Heater",
+              "expected": false,
+              "observed": "FALSE"
+            }
+          ]
+        },
+        {
+          "id": "S10-T3",
+          "pass": true,
+          "assertions": [
+            {
+              "step": 1,
+              "expression": "dut.Heater",
+              "expected": false,
+              "observed": "FALSE"
+            },
+            {
+              "step": 1,
+              "expression": "dut.SensorFault",
+              "expected": true,
+              "observed": "TRUE"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

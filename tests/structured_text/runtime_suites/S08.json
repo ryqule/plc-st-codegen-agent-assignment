@@ -1,0 +1,135 @@
+{
+  "task_id": "S08",
+  "cases": [
+    {
+      "id": "S08-T1",
+      "steps": [
+        {
+          "set": {
+            "PartPresent": true,
+            "Defect": false,
+            "ConveyorRunning": true,
+            "CycleTime": "T#50ms",
+            "Reset": false
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "Defect": true
+          },
+          "cycles": 1,
+          "expect": {
+            "RejectSolenoid": true,
+            "RejectCount": 1
+          }
+        }
+      ],
+      "scenario": "Defect rising with part present and conveyor running: count increments once and a 300 ms pulse starts."
+    },
+    {
+      "id": "S08-T2",
+      "steps": [
+        {
+          "set": {},
+          "cycles": 2,
+          "expect": {
+            "RejectCount": 1
+          }
+        }
+      ],
+      "scenario": "Defect remains high over scans: count does not increment again."
+    },
+    {
+      "id": "S08-T3",
+      "steps": [
+        {
+          "set": {
+            "Defect": false,
+            "PartPresent": false
+          },
+          "cycles": 1,
+          "expect": {
+            "RejectCount": 1
+          }
+        },
+        {
+          "set": {
+            "Defect": true
+          },
+          "cycles": 1,
+          "expect": {
+            "RejectSolenoid": false,
+            "RejectCount": 1
+          }
+        }
+      ],
+      "scenario": "Defect edge without a part or with conveyor stopped: no pulse and no count increment."
+    },
+    {
+      "id": "S08-T4",
+      "steps": [
+        {
+          "set": {
+            "Defect": false,
+            "PartPresent": true,
+            "ConveyorRunning": true
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "Defect": true
+          },
+          "cycles": 1,
+          "expect": {
+            "RejectSolenoid": true,
+            "RejectCount": 2
+          }
+        },
+        {
+          "set": {
+            "Reset": true
+          },
+          "cycles": 1,
+          "expect": {
+            "RejectCount": 0,
+            "RejectSolenoid": true
+          }
+        },
+        {
+          "set": {
+            "Reset": false
+          },
+          "cycles": 6,
+          "expect": {
+            "RejectSolenoid": false
+          }
+        }
+      ],
+      "scenario": "Reset clears count but an already active reject pulse runs to completion."
+    },
+    {
+      "id": "S08-T5",
+      "steps": [
+        {
+          "set": {
+            "RejectCount": 4294967295,
+            "Defect": false
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "Defect": true
+          },
+          "cycles": 1,
+          "expect": {
+            "RejectCount": 4294967295
+          }
+        }
+      ],
+      "scenario": "At UDINT maximum, another valid defect leaves the count saturated without wraparound."
+    }
+  ]
+}

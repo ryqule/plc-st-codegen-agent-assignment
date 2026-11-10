@@ -1,0 +1,69 @@
+{
+  "task_id": "P02",
+  "cases": [
+    {
+      "id": "P02-T1",
+      "steps": [
+        {
+          "set": {
+            "value": 0
+          },
+          "cycles": 1,
+          "expect": {
+            "hasChanged": false,
+            "noOfRisingBits": 0,
+            "noOfFallingBits": 0
+          }
+        }
+      ],
+      "scenario": "First invocation with value=0: no edges and counts zero."
+    },
+    {
+      "id": "P02-T2",
+      "steps": [
+        {
+          "set": {
+            "value": 15
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "value": 19
+          },
+          "cycles": 1,
+          "expect": {
+            "risingBits": 16,
+            "fallingBits": 12,
+            "noOfRisingBits": 1,
+            "noOfFallingBits": 2
+          }
+        }
+      ],
+      "scenario": "prev=16#0000000F, value=16#00000013: risingBits=16#10; fallingBits=16#0C; counts 1 and 2."
+    },
+    {
+      "id": "P02-T3",
+      "steps": [
+        {
+          "set": {
+            "value": 21
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "value": 21
+          },
+          "cycles": 1,
+          "expect": {
+            "hasChanged": false,
+            "risingBits": 0,
+            "fallingBits": 0
+          }
+        }
+      ],
+      "scenario": "Same value on consecutive scans: hasChanged=FALSE and both edge masks zero."
+    }
+  ]
+}

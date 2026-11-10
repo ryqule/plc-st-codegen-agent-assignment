@@ -1,0 +1,113 @@
+{
+  "task_id": "S09",
+  "cases": [
+    {
+      "id": "S09-T1",
+      "steps": [
+        {
+          "set": {
+            "SourceLevel": 25.0,
+            "DestinationLevel": 50.0,
+            "TransferEnable": true,
+            "SourceLow": false,
+            "DestinationHighHigh": false,
+            "PumpFault": false
+          },
+          "cycles": 1,
+          "expect": {
+            "TransferPump": true
+          }
+        }
+      ],
+      "scenario": "Source 25%, destination 50%, enabled and no stop inputs: pump runs."
+    },
+    {
+      "id": "S09-T2",
+      "steps": [
+        {
+          "set": {
+            "SourceLevel": 20.0
+          },
+          "cycles": 1,
+          "expect": {
+            "TransferPump": false
+          }
+        },
+        {
+          "set": {
+            "SourceLevel": 25.0,
+            "DestinationLevel": 80.0
+          },
+          "cycles": 1,
+          "expect": {
+            "TransferPump": false
+          }
+        }
+      ],
+      "scenario": "Source level at or below 20% or destination at or above 80% prevents starting."
+    },
+    {
+      "id": "S09-T3",
+      "steps": [
+        {
+          "set": {
+            "DestinationLevel": 50.0,
+            "DestinationHighHigh": true
+          },
+          "cycles": 1,
+          "expect": {
+            "TransferPump": false,
+            "DestinationHighAlarm": true
+          }
+        },
+        {
+          "set": {
+            "DestinationHighHigh": false,
+            "SourceLow": true
+          },
+          "cycles": 1,
+          "expect": {
+            "TransferPump": false,
+            "SourceLowAlarm": true
+          }
+        }
+      ],
+      "scenario": "Destination high-high or SourceLow: pump stops immediately and the corresponding alarm latches."
+    },
+    {
+      "id": "S09-T4",
+      "steps": [
+        {
+          "set": {
+            "SourceLow": false,
+            "PumpFault": true
+          },
+          "cycles": 1,
+          "expect": {
+            "TransferPump": false
+          }
+        }
+      ],
+      "scenario": "Pump fault: pump remains off; it does not create a separate alarm output."
+    },
+    {
+      "id": "S09-T5",
+      "steps": [
+        {
+          "set": {
+            "PumpFault": false,
+            "SourceLow": false,
+            "DestinationHighHigh": false,
+            "Reset": true
+          },
+          "cycles": 1,
+          "expect": {
+            "SourceLowAlarm": false,
+            "DestinationHighAlarm": false
+          }
+        }
+      ],
+      "scenario": "Safe Reset rising edge clears each level alarm independently after its input clears."
+    }
+  ]
+}

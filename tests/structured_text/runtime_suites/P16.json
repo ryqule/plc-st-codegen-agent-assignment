@@ -1,0 +1,79 @@
+{
+  "task_id": "P16",
+  "cases": [
+    {
+      "id": "P16-T1",
+      "steps": [
+        {
+          "set": {
+            "processLength": 3,
+            "processSequence[1]": 3,
+            "processSequence[2]": 2,
+            "processSequence[3]": 5,
+            "sensor1": true,
+            "station1Start": true
+          },
+          "cycles": 1,
+          "expect": {
+            "conveyorRight": true
+          }
+        }
+      ],
+      "scenario": "Start at station1 with sequence [3,2,5]: conveyor moves toward 3, stops at sensor3."
+    },
+    {
+      "id": "P16-T2",
+      "steps": [
+        {
+          "set": {
+            "station1Start": false,
+            "sensor1": false,
+            "sensor3": true
+          },
+          "cycles": 1,
+          "expect": {
+            "conveyorRight": false,
+            "conveyorLeft": false
+          }
+        },
+        {
+          "set": {
+            "station3Complete": true
+          },
+          "cycles": 1,
+          "expect": {
+            "conveyorLeft": true
+          }
+        }
+      ],
+      "scenario": "At station3, no completion: remain stopped; after station3Complete, route to station2."
+    },
+    {
+      "id": "P16-T3",
+      "steps": [
+        {
+          "set": {
+            "station3Complete": false,
+            "sensor3": false,
+            "sensor2": true,
+            "station2Complete": true
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "station2Complete": false,
+            "sensor2": false,
+            "sensor5": true
+          },
+          "cycles": 1,
+          "expect": {
+            "conveyorLeft": false,
+            "conveyorRight": false
+          }
+        }
+      ],
+      "scenario": "At final station5 sensor: stop; no further sequence read."
+    }
+  ]
+}

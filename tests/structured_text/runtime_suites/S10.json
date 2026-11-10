@@ -1,0 +1,104 @@
+{
+  "task_id": "S10",
+  "cases": [
+    {
+      "id": "S10-T5",
+      "steps": [
+        {
+          "set": {
+            "Enable": false
+          },
+          "cycles": 1,
+          "expect": {
+            "Heater": false,
+            "SensorFault": true
+          }
+        }
+      ],
+      "scenario": "Power-up: heater off and fault on until the validation interval completes."
+    },
+    {
+      "id": "S10-T4",
+      "steps": [
+        {
+          "set": {
+            "SensorValid": true,
+            "Temperature": 20.0,
+            "CycleTime": "T#50ms"
+          },
+          "cycles": 20,
+          "expect": {
+            "SensorFault": true
+          }
+        },
+        {
+          "set": {},
+          "cycles": 20,
+          "expect": {
+            "SensorFault": false
+          }
+        }
+      ],
+      "scenario": "Valid sensor and in-range temperature/setpoint for 2 s: fault clears."
+    },
+    {
+      "id": "S10-T1",
+      "steps": [
+        {
+          "set": {
+            "Temperature": 20.0,
+            "Setpoint": 22.0,
+            "SensorValid": true,
+            "Enable": true,
+            "CycleTime": "T#50ms"
+          },
+          "cycles": 1,
+          "expect": {
+            "Heater": true
+          }
+        },
+        {
+          "set": {
+            "Temperature": 21.5
+          },
+          "cycles": 1,
+          "expect": {
+            "Heater": true
+          }
+        }
+      ],
+      "scenario": "Below Setpoint-1 C with valid inputs: heater starts; in the deadband it retains its prior state."
+    },
+    {
+      "id": "S10-T2",
+      "steps": [
+        {
+          "set": {
+            "Temperature": 22.0
+          },
+          "cycles": 1,
+          "expect": {
+            "Heater": false
+          }
+        }
+      ],
+      "scenario": "At or above Setpoint: heater turns off."
+    },
+    {
+      "id": "S10-T3",
+      "steps": [
+        {
+          "set": {
+            "SensorValid": false
+          },
+          "cycles": 1,
+          "expect": {
+            "Heater": false,
+            "SensorFault": true
+          }
+        }
+      ],
+      "scenario": "Invalid sensor, temperature, or setpoint: heater off and fault on."
+    }
+  ]
+}

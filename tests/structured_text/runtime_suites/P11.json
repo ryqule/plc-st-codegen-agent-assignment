@@ -1,0 +1,72 @@
+{
+  "task_id": "P11",
+  "cases": [
+    {
+      "id": "P11-T1",
+      "steps": [
+        {
+          "set": {
+            "Mode": false,
+            "ForwardButton": true,
+            "ReverseButton": true
+          },
+          "cycles": 1,
+          "expect": {
+            "MotorForward": false,
+            "MotorReverse": false
+          }
+        }
+      ],
+      "scenario": "Manual both buttons TRUE: both motor directions FALSE."
+    },
+    {
+      "id": "P11-T2",
+      "steps": [
+        {
+          "set": {
+            "Mode": true,
+            "SensorA": true,
+            "ButtonA": true
+          },
+          "cycles": 1,
+          "expect": {
+            "MotorForward": true,
+            "MotorReverse": false
+          }
+        }
+      ],
+      "scenario": "SensorA and ButtonA completion: automatic conveyor advances toward B."
+    },
+    {
+      "id": "P11-T3",
+      "steps": [
+        {
+          "set": {
+            "SensorA": false,
+            "SensorB": false,
+            "SensorC": true,
+            "ButtonA": false,
+            "ButtonC": true
+          },
+          "cycles": 1,
+          "expect": {
+            "MotorForward": false,
+            "MotorReverse": false,
+            "CompletionLight": true
+          }
+        },
+        {
+          "set": {
+            "SensorC": false,
+            "ButtonC": false
+          },
+          "cycles": 1,
+          "expect": {
+            "CompletionLight": false
+          }
+        }
+      ],
+      "scenario": "At C after ButtonC completion: conveyor stopped and light TRUE; product removal clears light."
+    }
+  ]
+}

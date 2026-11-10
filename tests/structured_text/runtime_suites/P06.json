@@ -1,0 +1,81 @@
+{
+  "task_id": "P06",
+  "cases": [
+    {
+      "id": "P06-T1",
+      "steps": [
+        {
+          "set": {
+            "DO_LOW": true,
+            "AERATION_E_STOP_NC": true
+          },
+          "cycles": 40,
+          "expect": {
+            "BLOWER_RUN": false
+          }
+        },
+        {
+          "set": {
+            "DO_LOW": false
+          },
+          "cycles": 1,
+          "expect": {
+            "BLOWER_RUN": false
+          }
+        }
+      ],
+      "scenario": "Demand true for less than 5 s: blower remains off."
+    },
+    {
+      "id": "P06-T2",
+      "steps": [
+        {
+          "set": {
+            "DO_LOW": true,
+            "AERATION_E_STOP_NC": true
+          },
+          "cycles": 105,
+          "expect": {
+            "BLOWER_RUN": true,
+            "AERATION_BLOWER_CYCLE_COUNT": 1
+          }
+        }
+      ],
+      "scenario": "Demand and permissive stay true for 5 s: blower starts and count increments once."
+    },
+    {
+      "id": "P06-T3",
+      "steps": [
+        {
+          "set": {
+            "DO_LOW": false
+          },
+          "cycles": 1,
+          "expect": {
+            "BLOWER_RUN": false
+          }
+        },
+        {
+          "set": {
+            "DO_LOW": true,
+            "AERATION_E_STOP_NC": false
+          },
+          "cycles": 1,
+          "expect": {
+            "BLOWER_RUN": false
+          }
+        },
+        {
+          "set": {
+            "AERATION_E_STOP_NC": true
+          },
+          "cycles": 1,
+          "expect": {
+            "BLOWER_RUN": false
+          }
+        }
+      ],
+      "scenario": "Demand drops or E-stop opens: blower stops; renewed demand waits a full 5 s."
+    }
+  ]
+}

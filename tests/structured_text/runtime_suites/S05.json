@@ -1,0 +1,136 @@
+{
+  "task_id": "S05",
+  "cases": [
+    {
+      "id": "S05-T1",
+      "steps": [
+        {
+          "set": {
+            "Enable": true,
+            "Temperature": 35.0,
+            "Fan1Fault": false,
+            "Fan2Fault": false,
+            "CycleTime": "T#50ms"
+          },
+          "cycles": 1,
+          "expect": {
+            "Fan1": true,
+            "Fan2": false
+          }
+        },
+        {
+          "set": {
+            "Temperature": 45.0
+          },
+          "cycles": 1,
+          "expect": {
+            "Fan1": true,
+            "Fan2": true
+          }
+        }
+      ],
+      "scenario": "Temperature 35 C from off requests one healthy fan; at 45 C requests the second."
+    },
+    {
+      "id": "S05-T2",
+      "steps": [
+        {
+          "set": {
+            "Temperature": 43.0
+          },
+          "cycles": 1,
+          "expect": {
+            "Fan1": true,
+            "Fan2": true
+          }
+        },
+        {
+          "set": {
+            "Temperature": 41.0
+          },
+          "cycles": 200,
+          "expect": {
+            "Fan1": true,
+            "Fan2": true
+          }
+        },
+        {
+          "set": {},
+          "cycles": 1,
+          "expect": {
+            "Fan1": true,
+            "Fan2": false
+          }
+        }
+      ],
+      "scenario": "After two-fan operation, 43 C keeps two fans; below 42 C reduces to one only after the second fan's 10 s minimum-on time."
+    },
+    {
+      "id": "S05-T3",
+      "steps": [
+        {
+          "set": {
+            "Temperature": 45.0
+          },
+          "cycles": 1,
+          "expect": {
+            "Fan2": false
+          }
+        },
+        {
+          "set": {},
+          "cycles": 200,
+          "expect": {
+            "Fan2": true
+          }
+        }
+      ],
+      "scenario": "A fan that has just stopped cannot restart until its 10 s minimum-off time expires."
+    },
+    {
+      "id": "S05-T4",
+      "steps": [
+        {
+          "set": {
+            "Temperature": 200.0
+          },
+          "cycles": 1,
+          "expect": {
+            "Fan1": false,
+            "Fan2": false
+          }
+        }
+      ],
+      "scenario": "Invalid temperature or Enable FALSE: both fans turn off immediately, overriding dwell."
+    },
+    {
+      "id": "S05-T5",
+      "steps": [
+        {
+          "set": {
+            "Temperature": 45.0,
+            "Fan1Fault": true,
+            "Fan2Fault": false
+          },
+          "cycles": 1,
+          "expect": {
+            "Fan1": false,
+            "Fan2": true
+          }
+        },
+        {
+          "set": {
+            "Fan2Fault": true
+          },
+          "cycles": 1,
+          "expect": {
+            "Fan1": false,
+            "Fan2": false,
+            "CoolingAlarm": true
+          }
+        }
+      ],
+      "scenario": "Fan1 fault with demand selects Fan2 if healthy; both faults raise CoolingAlarm and turn fans off."
+    }
+  ]
+}

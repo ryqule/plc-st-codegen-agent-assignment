@@ -1,0 +1,79 @@
+{
+  "task_id": "P09",
+  "cases": [
+    {
+      "id": "P09-T1",
+      "steps": [
+        {
+          "set": {
+            "cyclicExecution": true,
+            "trigger": false,
+            "windowSize": 3,
+            "value": 1.0,
+            "reset": false
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "value": 2.0
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "value": 3.0
+          },
+          "cycles": 1,
+          "expect": {
+            "average": 2.0,
+            "windowSizeReached": true
+          }
+        }
+      ],
+      "scenario": "window=3, samples 1,2,3: average=2; windowSizeReached TRUE."
+    },
+    {
+      "id": "P09-T2",
+      "steps": [
+        {
+          "set": {
+            "value": 7.0
+          },
+          "cycles": 1,
+          "expect": {
+            "average": 4.0
+          }
+        }
+      ],
+      "scenario": "Next sample 7: oldest 1 evicted; average=4."
+    },
+    {
+      "id": "P09-T3",
+      "steps": [
+        {
+          "set": {
+            "reset": true
+          },
+          "cycles": 1,
+          "expect": {
+            "average": 0.0,
+            "windowSizeReached": false
+          }
+        },
+        {
+          "set": {
+            "reset": false,
+            "windowSize": 0
+          },
+          "cycles": 1,
+          "expect": {
+            "error": true,
+            "status": 33280
+          }
+        }
+      ],
+      "scenario": "reset TRUE: average=0 and occupancy resets; invalid window reports 16#8200."
+    }
+  ]
+}

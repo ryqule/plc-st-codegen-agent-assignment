@@ -1,0 +1,122 @@
+{
+  "task_id": "P19",
+  "cases": [
+    {
+      "id": "P19-T1",
+      "steps": [
+        {
+          "set": {
+            "ManualMode": true,
+            "EmergencyStop": false,
+            "DownButton": true,
+            "Start": true
+          },
+          "cycles": 1,
+          "expect": {
+            "MoveDown": false,
+            "MoveUp": false,
+            "MoveLeft": false,
+            "MoveRight": false,
+            "ActivateGrip": false,
+            "ActivateRelease": false
+          }
+        }
+      ],
+      "scenario": "E-stop FALSE during any command: all six outputs off in that scan."
+    },
+    {
+      "id": "P19-T2",
+      "steps": [
+        {
+          "set": {
+            "EmergencyStop": true,
+            "DownLimitSwitch": true,
+            "DownButton": true
+          },
+          "cycles": 1,
+          "expect": {
+            "MoveDown": false
+          }
+        }
+      ],
+      "scenario": "Manual DownButton held at DownLimitSwitch: MoveDown stays off."
+    },
+    {
+      "id": "P19-T3",
+      "steps": [
+        {
+          "set": {
+            "ManualMode": false,
+            "SingleCycleMode": true,
+            "Start": true,
+            "DownLimitSwitch": false
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "Start": false,
+            "DownLimitSwitch": true
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "DownLimitSwitch": false,
+            "GripLimitSwitch": true
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "GripLimitSwitch": false,
+            "UpLimitSwitch": true
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "UpLimitSwitch": false,
+            "RightLimitSwitch": true
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "RightLimitSwitch": false,
+            "DownLimitSwitch": true
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "DownLimitSwitch": false,
+            "ReleaseLimitSwitch": true
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "ReleaseLimitSwitch": false,
+            "UpLimitSwitch": true
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "UpLimitSwitch": false,
+            "LeftLimitSwitch": true
+          },
+          "cycles": 1,
+          "expect": {
+            "MoveDown": false,
+            "MoveUp": false,
+            "MoveLeft": false,
+            "MoveRight": false
+          }
+        }
+      ],
+      "scenario": "Single cycle start: ordered eight operations finish at top-left and stop."
+    }
+  ]
+}

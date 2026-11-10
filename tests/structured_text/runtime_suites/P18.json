@@ -1,0 +1,112 @@
+{
+  "task_id": "P18",
+  "declarations": [
+    "item : DINT",
+    "buffer : ARRAY[0..2] OF DINT"
+  ],
+  "call": "dut(item := item, buffer := buffer);",
+  "cases": [
+    {
+      "id": "P18-T1",
+      "steps": [
+        {
+          "set": {
+            "@item": 77,
+            "dequeue": true
+          },
+          "cycles": 1,
+          "expect": {
+            "status": 32769,
+            "@item": 77
+          }
+        }
+      ],
+      "scenario": "Empty buffer + dequeue↑: status 16#8001, item unchanged."
+    },
+    {
+      "id": "P18-T2",
+      "steps": [
+        {
+          "set": {
+            "dequeue": false,
+            "reset": true
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "reset": false,
+            "@item": 11,
+            "enqueue": true
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "enqueue": true,
+            "@item": 22
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "enqueue": false,
+            "dequeue": true
+          },
+          "cycles": 1,
+          "expect": {
+            "@item": 11,
+            "elementCount": 1
+          }
+        }
+      ],
+      "scenario": "Enqueue values 11,22 then dequeue↑: item=11; count=1."
+    },
+    {
+      "id": "P18-T3",
+      "steps": [
+        {
+          "set": {
+            "dequeue": false,
+            "reset": true
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "reset": false,
+            "@item": 11,
+            "enqueue": true
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "enqueue": true,
+            "@item": 22
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "@item": 33,
+            "enqueue": true
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "enqueue": true,
+            "@item": 44
+          },
+          "cycles": 1,
+          "expect": {
+            "status": 32770,
+            "elementCount": 3
+          }
+        }
+      ],
+      "scenario": "Fill capacity then enqueue↑: status 16#8002; buffer and item unchanged."
+    }
+  ]
+}

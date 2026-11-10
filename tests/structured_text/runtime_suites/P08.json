@@ -1,0 +1,88 @@
+{
+  "task_id": "P08",
+  "declarations": [
+    "analogValues : ARRAY[0..1] OF INT",
+    "channels : ARRAY[0..1] OF ST_AnalogChannel"
+  ],
+  "call": "dut(analogValues := analogValues, channels := channels);",
+  "cases": [
+    {
+      "id": "P08-T1",
+      "steps": [
+        {
+          "set": {
+            "count": 2,
+            "@analogValues[0]": 0,
+            "@analogValues[1]": 27648,
+            "@channels[0].enable": true,
+            "@channels[0].measuringMode": 0,
+            "@channels[0].bipolar": false,
+            "@channels[0].loLIM": 0.0,
+            "@channels[0].hiLIM": 100.0,
+            "@channels[1].enable": true,
+            "@channels[1].measuringMode": 0,
+            "@channels[1].bipolar": false,
+            "@channels[1].loLIM": 0.0,
+            "@channels[1].hiLIM": 100.0
+          },
+          "cycles": 1,
+          "expect": {
+            "@channels[0].outputValue": 0.0,
+            "@channels[1].outputValue": 100.0
+          }
+        }
+      ],
+      "scenario": "Unipolar raw 0 and 27648 map to loLIM and hiLIM."
+    },
+    {
+      "id": "P08-T2",
+      "steps": [
+        {
+          "set": {
+            "count": 2,
+            "@analogValues[0]": -27648,
+            "@analogValues[1]": 27648,
+            "@channels[0].enable": true,
+            "@channels[0].measuringMode": 0,
+            "@channels[0].bipolar": true,
+            "@channels[0].loLIM": 0.0,
+            "@channels[0].hiLIM": 100.0,
+            "@channels[1].enable": true,
+            "@channels[1].measuringMode": 0,
+            "@channels[1].bipolar": true,
+            "@channels[1].loLIM": 0.0,
+            "@channels[1].hiLIM": 100.0
+          },
+          "cycles": 1,
+          "expect": {
+            "@channels[0].outputValue": 0.0,
+            "@channels[1].outputValue": 100.0
+          }
+        }
+      ],
+      "scenario": "Bipolar raw -27648 maps to loLIM and +27648 maps to hiLIM."
+    },
+    {
+      "id": "P08-T3",
+      "steps": [
+        {
+          "set": {
+            "count": 2,
+            "@channels[0].enable": false,
+            "@channels[0].outputValue": 42.0,
+            "@channels[0].retVal": 0,
+            "@channels[1].enable": true,
+            "@channels[1].measuringMode": 9,
+            "@channels[1].retVal": 0
+          },
+          "cycles": 1,
+          "expect": {
+            "@channels[0].outputValue": 42.0,
+            "@channels[1].retVal": 32769
+          }
+        }
+      ],
+      "scenario": "Disabled channel leaves output unchanged; invalid mode returns 16#8001."
+    }
+  ]
+}

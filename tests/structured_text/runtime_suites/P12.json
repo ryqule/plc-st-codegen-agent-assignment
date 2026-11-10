@@ -1,0 +1,65 @@
+{
+  "task_id": "P12",
+  "cases": [
+    {
+      "id": "P12-T1",
+      "steps": [
+        {
+          "set": {
+            "THICKNESS_FAULT": true,
+            "THICKNESS_SIGNAL_VALID": true,
+            "CUTTING_RUN": true,
+            "FaultTimestamp": 123,
+            "CycleTime": "T#50ms"
+          },
+          "cycles": 1,
+          "expect": {
+            "THICKNESS_ALARM": true,
+            "Slab_Fault_Counter": 1,
+            "Slab_Fault_History[0]": 123
+          }
+        }
+      ],
+      "scenario": "Valid fault rising edge: alarm on, count +1, newest timestamp at index 0."
+    },
+    {
+      "id": "P12-T2",
+      "steps": [
+        {
+          "set": {
+            "THICKNESS_FAULT": false
+          },
+          "cycles": 1,
+          "expect": {
+            "THICKNESS_ALARM": true
+          }
+        },
+        {
+          "set": {},
+          "cycles": 10,
+          "expect": {
+            "THICKNESS_ALARM": true
+          }
+        }
+      ],
+      "scenario": "Fault clears before 500 ms: alarm remains on until hold timer completes."
+    },
+    {
+      "id": "P12-T3",
+      "steps": [
+        {
+          "set": {
+            "THICKNESS_SIGNAL_VALID": false,
+            "THICKNESS_FAULT": true
+          },
+          "cycles": 1,
+          "expect": {
+            "THICKNESS_ALARM": false,
+            "Slab_Fault_Counter": 1
+          }
+        }
+      ],
+      "scenario": "Invalid signal: alarm off, no record/runtime update."
+    }
+  ]
+}

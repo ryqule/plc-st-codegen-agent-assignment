@@ -1,0 +1,133 @@
+{
+  "task_id": "S04",
+  "cases": [
+    {
+      "id": "S04-T1",
+      "steps": [
+        {
+          "set": {
+            "EStopOK": true,
+            "TargetA": 10.0,
+            "TargetB": 20.0,
+            "WeightA": 0.0,
+            "WeightB": 0.0,
+            "StartBatch": true
+          },
+          "cycles": 1,
+          "expect": {
+            "ValveA": true
+          }
+        },
+        {
+          "set": {
+            "StartBatch": false,
+            "WeightA": 10.0
+          },
+          "cycles": 1,
+          "expect": {
+            "ValveA": false,
+            "ValveB": true
+          }
+        },
+        {
+          "set": {
+            "WeightB": 20.0
+          },
+          "cycles": 1,
+          "expect": {
+            "ValveB": false,
+            "Mixer": true
+          }
+        }
+      ],
+      "scenario": "Valid start: A fills then B fills; each valve closes at its target."
+    },
+    {
+      "id": "S04-T2",
+      "steps": [
+        {
+          "set": {
+            "StartBatch": false,
+            "MixTime": "T#1s",
+            "CycleTime": "T#50ms",
+            "MixComplete": false
+          },
+          "cycles": 20,
+          "expect": {
+            "Mixer": true,
+            "OutletValve": false
+          }
+        }
+      ],
+      "scenario": "Mix timer incomplete: Mixer remains on and outlet stays closed; at MixTime it stops and waits for MixComplete."
+    },
+    {
+      "id": "S04-T3",
+      "steps": [
+        {
+          "set": {
+            "MixComplete": true,
+            "DischargePermit": false
+          },
+          "cycles": 1,
+          "expect": {
+            "OutletValve": false
+          }
+        },
+        {
+          "set": {
+            "DischargePermit": true
+          },
+          "cycles": 1,
+          "expect": {
+            "OutletValve": true
+          }
+        }
+      ],
+      "scenario": "MixComplete without DischargePermit keeps outlet closed; both conditions open it."
+    },
+    {
+      "id": "S04-T4",
+      "steps": [
+        {
+          "set": {
+            "EStopOK": false,
+            "TargetA": 0.0
+          },
+          "cycles": 1,
+          "expect": {
+            "ValveA": false,
+            "ValveB": false,
+            "Mixer": false,
+            "OutletValve": false,
+            "BatchFault": true
+          }
+        }
+      ],
+      "scenario": "Invalid target or E-stop: all outputs off and fault latched."
+    },
+    {
+      "id": "S04-T5",
+      "steps": [
+        {
+          "set": {
+            "Reset": true
+          },
+          "cycles": 1,
+          "expect": {
+            "BatchFault": true
+          }
+        },
+        {
+          "set": {
+            "EStopOK": true,
+            "Reset": false,
+            "StartBatch": false
+          },
+          "cycles": 1
+        }
+      ],
+      "scenario": "Reset while EStopOK is FALSE or any output is active is ignored; safe reset clears fault."
+    }
+  ]
+}

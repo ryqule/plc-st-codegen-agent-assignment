@@ -1,0 +1,148 @@
+{
+  "task_id": "S01",
+  "cases": [
+    {
+      "id": "S01-T1",
+      "steps": [
+        {
+          "set": {
+            "AutoEnable": false,
+            "LevelHigh": false,
+            "LevelLow": true
+          },
+          "cycles": 1,
+          "expect": {
+            "Pump1Run": false,
+            "Pump2Run": false,
+            "NoAvailablePump": false
+          }
+        }
+      ],
+      "scenario": "Idle: both pumps off, demand clear, lead pump 1."
+    },
+    {
+      "id": "S01-T2",
+      "steps": [
+        {
+          "set": {
+            "AutoEnable": true,
+            "LevelHigh": true,
+            "LevelLow": false,
+            "Pump1Fault": false,
+            "Pump2Fault": false
+          },
+          "cycles": 1,
+          "expect": {
+            "Pump1Run": true,
+            "Pump2Run": false
+          }
+        }
+      ],
+      "scenario": "AutoEnable and LevelHigh: exactly one healthy pump starts and demand latches until LevelLow."
+    },
+    {
+      "id": "S01-T3",
+      "steps": [
+        {
+          "set": {
+            "LevelHigh": false,
+            "LevelLow": true,
+            "CycleTime": "T#50ms"
+          },
+          "cycles": 20,
+          "expect": {
+            "Pump1Run": true
+          }
+        },
+        {
+          "set": {},
+          "cycles": 25,
+          "expect": {
+            "Pump1Run": false
+          }
+        }
+      ],
+      "scenario": "LevelLow before 2 s: the healthy pump remains on until its 2 s timer completes, then stops."
+    },
+    {
+      "id": "S01-T4",
+      "steps": [
+        {
+          "set": {
+            "LevelLow": false,
+            "LevelHigh": true
+          },
+          "cycles": 1,
+          "expect": {
+            "Pump1Run": true
+          }
+        },
+        {
+          "set": {
+            "Pump1Fault": true
+          },
+          "cycles": 1,
+          "expect": {
+            "Pump1Run": false,
+            "Pump2Run": true
+          }
+        }
+      ],
+      "scenario": "Running pump fault: the healthy standby takes over in the same scan, even before minimum-on time."
+    },
+    {
+      "id": "S01-T5",
+      "steps": [
+        {
+          "set": {
+            "Pump2Fault": true
+          },
+          "cycles": 1,
+          "expect": {
+            "Pump1Run": false,
+            "Pump2Run": false,
+            "NoAvailablePump": true
+          }
+        },
+        {
+          "set": {
+            "AutoEnable": false
+          },
+          "cycles": 1,
+          "expect": {
+            "Pump1Run": false,
+            "Pump2Run": false
+          }
+        }
+      ],
+      "scenario": "Both pumps faulted during demand: both off and NoAvailablePump true; AutoEnable FALSE also stops both immediately."
+    },
+    {
+      "id": "S01-T6",
+      "steps": [
+        {
+          "set": {
+            "AutoEnable": true,
+            "Pump1Fault": false,
+            "Pump2Fault": false,
+            "LevelHigh": false,
+            "LevelLow": true
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "LevelHigh": true,
+            "LevelLow": false
+          },
+          "cycles": 1,
+          "expect": {
+            "Pump2Run": true,
+            "Pump1Run": false
+          }
+        }
+      ],
+      "scenario": "After a completed LevelLow demand cycle, the next demand uses the alternate lead."
+    }
+  ]
+}

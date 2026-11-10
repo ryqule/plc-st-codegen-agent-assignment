@@ -1,0 +1,116 @@
+{
+  "task_id": "S03",
+  "cases": [
+    {
+      "id": "S03-T1",
+      "steps": [
+        {
+          "set": {
+            "Level": 25.0,
+            "StartPermit": true,
+            "HighHigh": false
+          },
+          "cycles": 1,
+          "expect": {
+            "InletValve": true
+          }
+        },
+        {
+          "set": {
+            "Level": 50.0
+          },
+          "cycles": 1,
+          "expect": {
+            "InletValve": true
+          }
+        }
+      ],
+      "scenario": "Level 25 with permit and no alarm: valve opens; at level 50 it stays open."
+    },
+    {
+      "id": "S03-T2",
+      "steps": [
+        {
+          "set": {
+            "Level": 70.0
+          },
+          "cycles": 1,
+          "expect": {
+            "InletValve": false
+          }
+        }
+      ],
+      "scenario": "Level 70: valve closes."
+    },
+    {
+      "id": "S03-T3",
+      "steps": [
+        {
+          "set": {
+            "HighHigh": true
+          },
+          "cycles": 1,
+          "expect": {
+            "InletValve": false,
+            "HighLevelAlarm": true
+          }
+        },
+        {
+          "set": {
+            "HighHigh": false,
+            "Level": 60.0,
+            "ResetAlarm": true
+          },
+          "cycles": 1,
+          "expect": {
+            "HighLevelAlarm": false
+          }
+        }
+      ],
+      "scenario": "HighHigh: valve closes and alarm latches; safe ResetAlarm rising edge below 70 clears it."
+    },
+    {
+      "id": "S03-T4",
+      "steps": [
+        {
+          "set": {
+            "ResetAlarm": false,
+            "StartPermit": false
+          },
+          "cycles": 1,
+          "expect": {
+            "InletValve": false
+          }
+        }
+      ],
+      "scenario": "Dropping StartPermit closes the valve immediately."
+    },
+    {
+      "id": "S03-T5",
+      "steps": [
+        {
+          "set": {
+            "StartPermit": true,
+            "Level": -1.0
+          },
+          "cycles": 1,
+          "expect": {
+            "InletValve": false,
+            "HighLevelAlarm": false
+          }
+        },
+        {
+          "set": {
+            "Level": 101.0
+          },
+          "cycles": 1,
+          "expect": {
+            "InletValve": false,
+            "HighLevelAlarm": false
+          }
+        }
+      ],
+      "scenario": "Level -1 or 101: valve closes and alarm does not spuriously latch."
+    }
+  ]
+}

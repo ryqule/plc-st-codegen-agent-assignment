@@ -1,0 +1,105 @@
+{
+  "task_id": "P15",
+  "cases": [
+    {
+      "id": "P15-T1",
+      "steps": [
+        {
+          "set": {
+            "estop": false,
+            "opeMode": false,
+            "valveAStart": true,
+            "valveBStart": true,
+            "valveCStart": true,
+            "valveDStart": true,
+            "mixMotorStart": true
+          },
+          "cycles": 1,
+          "expect": {
+            "valveARun": false,
+            "valveBRun": false,
+            "valveCRun": false,
+            "valveDRun": false,
+            "mixMotorRun": false
+          }
+        }
+      ],
+      "scenario": "E-stop FALSE in any mode: all five outputs off immediately."
+    },
+    {
+      "id": "P15-T2",
+      "steps": [
+        {
+          "set": {
+            "estop": true,
+            "opeMode": true,
+            "processMode": false,
+            "autoStart": true,
+            "levelSensor": 0
+          },
+          "cycles": 1,
+          "expect": {
+            "valveARun": true
+          }
+        },
+        {
+          "set": {
+            "autoStart": false,
+            "levelSensor": 50
+          },
+          "cycles": 1,
+          "expect": {
+            "valveARun": false,
+            "valveBRun": true
+          }
+        },
+        {
+          "set": {
+            "levelSensor": 80
+          },
+          "cycles": 1,
+          "expect": {
+            "valveBRun": false
+          }
+        }
+      ],
+      "scenario": "Auto start at level 0: valve A opens; at 50 cm changes to B; at 80 cm closes B."
+    },
+    {
+      "id": "P15-T3",
+      "steps": [
+        {
+          "set": {
+            "processMode": true,
+            "autoStart": true,
+            "levelSensor": 0
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "autoStart": false,
+            "levelSensor": 100
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "mixMotorComplete": true
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "levelSensor": 100
+          },
+          "cycles": 1,
+          "expect": {
+            "valveDRun": true
+          }
+        }
+      ],
+      "scenario": "Process mode TRUE: fill C to 100 cm, mix until complete, then discharge via D."
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "task_id": "S07",
+  "cases": [
+    {
+      "id": "S07-T1",
+      "steps": [
+        {
+          "set": {
+            "GuardClosed": false,
+            "EStopOK": false,
+            "AutoPermit": false
+          },
+          "cycles": 1,
+          "expect": {
+            "SafetyRelay": false,
+            "TripLatched": true
+          }
+        }
+      ],
+      "scenario": "Power-up: relay off and trip latched."
+    },
+    {
+      "id": "S07-T2",
+      "steps": [
+        {
+          "set": {
+            "GuardClosed": true,
+            "EStopOK": true,
+            "AutoPermit": false,
+            "ResetButton": true
+          },
+          "cycles": 1,
+          "expect": {
+            "TripLatched": false,
+            "SafetyRelay": false
+          }
+        }
+      ],
+      "scenario": "Valid reset while guard closed, EStopOK TRUE, AutoPermit FALSE clears trip; relay remains off."
+    },
+    {
+      "id": "S07-T3",
+      "steps": [
+        {
+          "set": {
+            "ResetButton": false,
+            "AutoPermit": true
+          },
+          "cycles": 1,
+          "expect": {
+            "SafetyRelay": true
+          }
+        }
+      ],
+      "scenario": "After reset, AutoPermit TRUE energizes the relay."
+    },
+    {
+      "id": "S07-T4",
+      "steps": [
+        {
+          "set": {
+            "GuardClosed": false
+          },
+          "cycles": 1,
+          "expect": {
+            "SafetyRelay": false,
+            "TripLatched": true
+          }
+        }
+      ],
+      "scenario": "Open guard or activate E-stop: relay drops in the same scan and trip latches."
+    },
+    {
+      "id": "S07-T5",
+      "steps": [
+        {
+          "set": {
+            "ResetButton": true,
+            "GuardClosed": false
+          },
+          "cycles": 1,
+          "expect": {
+            "TripLatched": true
+          }
+        },
+        {
+          "set": {
+            "GuardClosed": true,
+            "EStopOK": false
+          },
+          "cycles": 1,
+          "expect": {
+            "TripLatched": true
+          }
+        },
+        {
+          "set": {
+            "EStopOK": true,
+            "AutoPermit": true
+          },
+          "cycles": 1,
+          "expect": {
+            "TripLatched": true
+          }
+        }
+      ],
+      "scenario": "Reset while guard open, E-stop active, or AutoPermit TRUE is ignored."
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "task_id": "P17",
+  "declarations": [
+    "recipeDB : ARRAY[1..10] OF ST_Recipe"
+  ],
+  "call": "dut(recipe := recipeDB);",
+  "cases": [
+    {
+      "id": "P17-T1",
+      "steps": [
+        {
+          "set": {
+            "@recipeDB[1].recipeID": 0,
+            "recipeIn.recipeID": 101,
+            "recipeIn.ingredientType": 1,
+            "recipeIn.ingredientRatio": 0.5,
+            "recipeIn.productionTemperature": 80.0,
+            "addRecipe": true
+          },
+          "cycles": 1
+        },
+        {
+          "set": {
+            "addRecipe": false,
+            "queryRecipe": true
+          },
+          "cycles": 1,
+          "expect": {
+            "recipeQueryResult.recipeID": 101,
+            "status": 0
+          }
+        },
+        {
+          "set": {
+            "queryRecipe": true,
+            "recipeIn.recipeID": 999
+          },
+          "cycles": 1,
+          "expect": {
+            "status": 32769
+          }
+        }
+      ],
+      "scenario": "Query existing ID returns the exact record; query missing ID yields 16#8001."
+    },
+    {
+      "id": "P17-T2",
+      "steps": [
+        {
+          "set": {
+            "queryRecipe": false,
+            "recipeIn.recipeID": 101,
+            "addRecipe": true
+          },
+          "cycles": 1,
+          "expect": {
+            "status": 32770
+          }
+        }
+      ],
+      "scenario": "Add duplicate returns 16#8002; full database returns 16#8003."
+    },
+    {
+      "id": "P17-T3",
+      "steps": [
+        {
+          "set": {
+            "addRecipe": false,
+            "queryRecipe": false,
+            "deleteRecipe": true,
+            "recipeIn.recipeID": 101
+          },
+          "cycles": 1,
+          "expect": {
+            "recipeDeleted": true
+          }
+        },
+        {
+          "set": {
+            "deleteRecipe": false,
+            "modifyRecipe": true,
+            "recipeIn.recipeID": 999
+          },
+          "cycles": 1,
+          "expect": {
+            "status": 32773
+          }
+        }
+      ],
+      "scenario": "Delete existing ID clears its slot; modify missing ID returns 16#8005."
+    }
+  ]
+}

@@ -11,6 +11,7 @@
 - `st/runs/`：正式实验生成的 Structured Text 源码和相应编译日志；`attemptN` 文件保留自研 Agent 的修复尝试。
 - `experiments/results.csv`、`experiments/results_summary.json`：正式 120 格矩阵及统计汇总。
 - `experiments/codesys_validation/`、`experiments/posthoc_repair/`：四个矩阵超时重试和修正适配器复测证据；原始逐格编译日志与 ST 在 `st/runs/`。
+- `experiments/codesys_validation/self_agent_runtime_20261110.md`：自研 Agent 两模型在 Control Win 上的 runtime 场景结果；机器可读断言汇总与运行脚本一并提交。
 - `tests/structured_text/`、`experiments/functional_tests/`：P02 STruC++ 测试模板与四份结果。
 - `experiments/formal_verification/`：四份 P02 翻译输入、CBMC harness、日志和结果。
 - `experiments/diagnostics/deepseek/`：DeepSeek 空输出问题的受控诊断和恢复证据；这些不计入原始矩阵的额外格数。
@@ -23,7 +24,7 @@
 
 复核发现旧 CODESYS 项目适配器未剥离 Markdown 围栏、未引用 Standard 库、未导入 P07/P17 的 DUT，并将带 `VAR_IN_OUT` 的程序放入未绑定实参的任务。对原始 30 个 FAIL 源码使用修正适配器复测，结果为 **30/30 离线编译 PASS**，每份源文件哈希前后相同。与原始 90 个 PASS 合并后，120 份源文件均至少有一次离线编译通过证据；这不是同一适配器对 120 格的一次统一重跑。原始实验 CSV 和复测 CSV 分开保留。
 
-P02 的四份输出共通过 20/20 STruC++ 扫描测试，四份 STruC++ 翻译代码共通过 918 项 CBMC 有界性质。它们都只覆盖 P02。**CODESYS runtime 设计场景执行数为 0/112**；PLCVerif 未运行，其他 29 道题未执行同类 ST 功能测试。
+P02 的四份输出共通过 20/20 STruC++ 扫描测试，四份 STruC++ 翻译代码共通过 918 项 CBMC 有界性质。自研 Agent × GPT/DeepSeek 的 112 个场景向量共计划 224 个模型-场景执行，实际在 Control Win 执行 88 项（82 PASS、6 FAIL），覆盖 56 个不同场景 ID。20/60 份候选输出全场景通过，3 份有 runtime 断言失败，37 份未完成 runtime（12 份正式离线编译失败、25 份集成工程编译失败）。PLCVerif 未运行；结果不能表述为全数据集 runtime 通过。
 
 历史项目 API usage 合计 ¥6.099742，低于当时授权上限 ¥18。该费用不是未来运行报价。API key 未包含在提交物中；重跑模型实验需操作者自行设置 `DMXAPI_API_KEY` 并指定预算上限。
 
@@ -43,6 +44,6 @@ Pi 基线还需 Node.js 22.19+ 和 `npm ci`；STruC++、CBMC、CODESYS 编译和
 
 - 原始矩阵指标保持 90/120；post-hoc 的 30/30 是修正工程输入后的离线复测。
 - CODESYS PASS 代表离线项目编译，不代表 PLC 下载、扫描仿真、I/O 映射正确或现场功能通过。
-- 112 个 runtime 测试场景是测试设计数量，不是实测通过数量。
+- runtime 报告区分 112 个场景 ID、224 个模型-场景执行计划、88 个实际执行场景以及 136 个阻塞场景；82/88 是已执行子集的通过率，不是全矩阵通过率。
 - 918 项 CBMC 检查是对 P02 的 STruC++ 翻译代码作有界检查，不是对全部 ST 或全部 LTL 的证明。
 - usage JSONL 记录模型、token、费用、耗时、状态和时间；不保存 key、prompt 或响应正文。

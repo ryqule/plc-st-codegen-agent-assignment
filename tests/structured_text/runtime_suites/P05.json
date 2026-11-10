@@ -1,0 +1,64 @@
+{
+  "task_id": "P05",
+  "cases": [
+    {
+      "id": "P05-T1",
+      "steps": [
+        {
+          "set": {
+            "Gap_Exceeded": true,
+            "Weld_E_Stop_NC": true,
+            "DebounceTime": "T#100ms"
+          },
+          "cycles": 20,
+          "expect": {
+            "Weld_Soft_Start_Active": true,
+            "Operator_Alert": false
+          }
+        }
+      ],
+      "scenario": "Boot before 5 s: soft-start/inhibition TRUE and alert FALSE even if gap signal is high."
+    },
+    {
+      "id": "P05-T2",
+      "steps": [
+        {
+          "set": {
+            "Gap_Exceeded": true
+          },
+          "cycles": 84,
+          "expect": {
+            "Weld_Soft_Start_Active": false,
+            "Operator_Alert": true
+          }
+        }
+      ],
+      "scenario": "After 5 s, continuously high gap reaches DebounceTime: alert TRUE."
+    },
+    {
+      "id": "P05-T3",
+      "steps": [
+        {
+          "set": {
+            "Weld_E_Stop_NC": false
+          },
+          "cycles": 1,
+          "expect": {
+            "Operator_Alert": false
+          }
+        },
+        {
+          "set": {
+            "Weld_E_Stop_NC": true,
+            "Gap_Exceeded": false
+          },
+          "cycles": 1,
+          "expect": {
+            "Operator_Alert": false
+          }
+        }
+      ],
+      "scenario": "E-stop active or gap drops: alert immediately FALSE and partial debounce clears."
+    }
+  ]
+}

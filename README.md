@@ -8,7 +8,7 @@
 - 正式矩阵为 30 题 × 2 个模型 × 2 种 Agent，共 120 格。首次编译为 77 PASS、39 FAIL、4 TIMEOUT；四个首次超时独立重试后，矩阵最终状态为 **90 PASS、30 FAIL、0 个未结清 TIMEOUT**（3 个重试通过、1 个重试失败）。见 [`experiments/results.csv`](experiments/results.csv) 和 [`experiments/results_summary.json`](experiments/results_summary.json)。
 - 对原始 30 个 FAIL 源码使用修正后的 CODESYS 项目适配器复编译，结果为 **30/30 PASS**，且源码哈希不变。合并证据表示 120 份源码都至少有一次离线编译通过记录；这不是新版适配器对全部 120 格的一次统一重跑。详见 [`experiments/posthoc_repair/README.md`](experiments/posthoc_repair/README.md)。
 - P02 的四种输出通过 STruC++ 测试 **20/20**；相应翻译代码通过 CBMC **918 项性质**。两项只覆盖 P02。
-- **CODESYS PLC runtime 场景执行数为 0/112。**离线编译、STruC++ 和 CBMC 结果都不能写成完整 PLC runtime 验收通过；其他 29 题的功能测试和全部 LTL 形式验证也没有完成。
+- **自研 Agent 的 CODESYS runtime 部分执行。**GPT 与 DeepSeek 共 60 份输出计划执行 224 个模型-场景组合；实际执行 88 个，其中 82 PASS、6 FAIL，覆盖 56/112 个不同场景 ID。20 份输出的全部场景通过、3 份有断言失败、37 份未运行场景（12 份正式离线编译失败，25 份 runtime 集成工程编译失败）。详见 [`experiments/codesys_validation/self_agent_runtime_20261110.md`](experiments/codesys_validation/self_agent_runtime_20261110.md)。这不是全题 runtime 通过；全部 LTL 形式验证仍未完成。
 - DeepSeek 修复前后的实验和调用费用记录保留在 `experiments/`，但不保留 prompt、模型响应正文或 API key。
 
 完整验收判断见 [`验收对照表.md`](验收对照表.md)，提交内容清单见 [`README_提交说明.md`](README_提交说明.md)，分析细节见 [`report/实验报告.pdf`](report/实验报告.pdf) 或 [`report/实验报告.docx`](report/实验报告.docx)。
@@ -43,7 +43,7 @@ npm ci
 | `st/runs/` | 正式矩阵生成的 ST 输出和对应编译日志；`attemptN` 保留自研 Agent 的修复尝试 |
 | `st/support_types/` | P07/P17 需要的题目定义 DUT |
 | `experiments/results.csv` | 原始 120 格正式矩阵 |
-| `experiments/codesys_validation/` | 正式矩阵四个首次超时的重试证据 |
+| `experiments/codesys_validation/` | 正式矩阵超时重试、P02 runtime 冒烟与自研 Agent runtime 场景汇总 |
 | `experiments/posthoc_repair/` | 30 个原始 FAIL 的修正适配器复测证据 |
 | `experiments/functional_tests/` | 四个 P02 STruC++ 运行结果 |
 | `experiments/formal_verification/` | 四个 P02 的 CBMC 输入、日志和结果 |

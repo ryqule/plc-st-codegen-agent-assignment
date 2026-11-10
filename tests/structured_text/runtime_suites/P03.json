@@ -1,0 +1,68 @@
+{
+  "task_id": "P03",
+  "cases": [
+    {
+      "id": "P03-T1",
+      "steps": [
+        {
+          "set": {
+            "loLevel": 20.0,
+            "hiLevel": 80.0,
+            "hystWindow": 5.0,
+            "Value": 81.0
+          },
+          "cycles": 1,
+          "expect": {
+            "hiAlarm": true
+          }
+        }
+      ],
+      "scenario": "lo=20, hi=80, hyst=5, Value=81: high alarm sets."
+    },
+    {
+      "id": "P03-T2",
+      "steps": [
+        {
+          "set": {
+            "Value": 77.0
+          },
+          "cycles": 1,
+          "expect": {
+            "hiAlarm": true
+          }
+        },
+        {
+          "set": {
+            "Value": 74.0
+          },
+          "cycles": 1,
+          "expect": {
+            "hiAlarm": false
+          }
+        }
+      ],
+      "scenario": "High alarm latched; Value=77: remains on; Value=74: clears."
+    },
+    {
+      "id": "P03-T3",
+      "steps": [
+        {
+          "set": {
+            "loLevel": 80.0,
+            "hiLevel": 80.0,
+            "hystWindow": 5.0,
+            "Value": 80.0
+          },
+          "cycles": 1,
+          "expect": {
+            "error": true,
+            "status": 32769,
+            "hiAlarm": false,
+            "loAlarm": false
+          }
+        }
+      ],
+      "scenario": "lo=80, hi=80: error 16#8001; no alarm output."
+    }
+  ]
+}

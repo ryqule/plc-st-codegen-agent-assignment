@@ -13,7 +13,7 @@
 | P02 CBMC 检查 | WSL Ubuntu、CBMC 5.95.1、Windows 版 STruC++ |
 | 新模型实验 | 上述 Pi 环境、DMXAPI 账户及由操作者设置的预算上限 |
 
-离线编译需要已安装 CODESYS 工程/脚本环境，但不要求运行 Control Win 服务。仓库现含 P02 专用的 Control Win runtime 冒烟测试驱动；已在本机实际执行 5 个 P02 用例并全部通过。数据集中的 112 个场景仍未全部在 PLC runtime 中执行。
+离线编译需要已安装 CODESYS 工程/脚本环境，但不要求运行 Control Win 服务。仓库含 P02 专用 Control Win runtime 冒烟驱动，也含自研 Agent 的 30 题 runtime 场景套件。2026-11-10 在 Control Win V3 x64 3.5.22.40 上尝试了自研 Agent 的 GPT 与 DeepSeek 共 60 份输出：88/224 个场景实际运行，其中 82 PASS、6 FAIL，至少执行过 56/112 个不同场景 ID；136 个因离线编译不通过或测试工程无法编译而未运行。详细结果见 [`experiments/codesys_validation/self_agent_runtime_20261110.md`](../experiments/codesys_validation/self_agent_runtime_20261110.md)。
 
 ## 2. 克隆与本地检查
 
@@ -97,7 +97,7 @@ py tools/posthoc_recheck_failures.py `
   --output-dir experiments/local_runs/posthoc_repair
 ```
 
-复测脚本读取原始 `experiments/results.csv` 和各单元源码；它不修改这些源码。输出目录应使用 `experiments/local_runs/` 下的新路径，避免覆盖随仓库交付的证据。当前仅为 P02 配置了 CODESYS runtime 冒烟测试驱动，其余 29 题的场景仍未在 runtime 执行。
+复测脚本读取原始 `experiments/results.csv` 和各单元源码；它不修改这些源码。输出目录应使用 `experiments/local_runs/` 下的新路径，避免覆盖随仓库交付的证据。P02 冒烟驱动与下一小节的自研 Agent 全题场景批测是两套独立测试。
 
 ### P02 CODESYS Control Win 运行时冒烟测试
 
@@ -123,6 +123,29 @@ finally {
 脚本会建立包含生成 POU 和测试驱动的工程，离线构建后登录本机 runtime、启动 50 ms 周期任务，并读取每个用例的实测输出。用户名和密码只用于当前 CODESYS 脚本会话，脚本退出时清除凭据，不写入运行结果；首次连接若设备尚未启用用户管理，脚本会用同一测试账号设置初始用户。由于通过 `--noUI` 运行，脚本会关闭交互式凭据回退并记录提示详情，避免等待不可见的认证或确认窗口。结果及工程只写入 `experiments/local_runs/`。只有 `RUNTIME_PASS` 代表五个 P02 用例在 Control Win 扫描中执行通过；`COMPILE_PASS`、`RUNTIME_UNAVAILABLE` 和 `RUNTIME_TIMEOUT` 都不算功能通过。112 个设计场景不能据此记作已运行。
 
 已记录的本机 runtime 结果见 [`experiments/codesys_validation/P02_control_win_runtime_smoke_20261110.json`](../experiments/codesys_validation/P02_control_win_runtime_smoke_20261110.json)：CODESYS Control Win V3 x64 3.5.22.40，5/5 PASS、0 FAIL，编译 0 错误/0 警告。该证据只覆盖 P02 的五个冒烟用例，不代表原始 120 格编译矩阵或 112 个设计场景通过 runtime 验收。
+
+### 自研 Agent 两模型 × 30 题 runtime 场景测试
+
+`tests/structured_text/runtime_suites/` 中的 30 个 JSON 各包含该题的数据集场景输入、扫描次数和断言；`tools/build_runtime_suites.py` 可从数据集重新生成，总计 112 个场景。`tools/run_codesys_runtime_suite.py` 负责为候选 ST 建立工程、编译、下载并在本机 Control Win 的 50 ms 周期任务中执行。批处理器 `tools/run_self_runtime_batch.py` 从正式 `experiments/results.csv` 读取自研 Agent 的 GPT/DeepSeek 两组输出，只读该文件；正式编译失败的候选不会运行。它也不会调用模型 API。
+
+在 PowerShell 中从仓库根目录运行。先启动系统托盘中的 **CODESYS Control Win V3 x64**，再安全输入 runtime 测试账号并运行：
+
+```powershell
+py tools/build_runtime_suites.py
+$env:CODESYS_TEST_USER = Read-Host 'CODESYS test user'
+$runtimePasswordSecure = Read-Host 'CODESYS test password' -AsSecureString
+$runtimePasswordPointer = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($runtimePasswordSecure)
+try {
+  $env:CODESYS_TEST_PASSWORD = [Runtime.InteropServices.Marshal]::PtrToStringBSTR($runtimePasswordPointer)
+  py tools/run_self_runtime_batch.py --timeout 900
+} finally {
+  [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($runtimePasswordPointer)
+  Remove-Item Env:CODESYS_TEST_USER -ErrorAction SilentlyContinue
+  Remove-Item Env:CODESYS_TEST_PASSWORD -ErrorAction SilentlyContinue
+}
+```
+
+每次运行会在被 Git 忽略的 `experiments/local_runs/codesys_runtime_suite/` 下保存工程、编译日志、实测输出、进度和汇总。可用 `--task P06 --task S10` 或 `--model gpt-6.1-sol` 限定重跑范围。`RUNTIME_PASS` 表示该输出的套件用例全部在 runtime 扫描中通过；`RUNTIME_FAIL` 表示至少一个 runtime 断言失败；正式离线编译失败的输出和测试工程编译失败的输出均未执行场景，必须分别记为未运行。当前综合结果：20/60 个输出全场景通过，3/60 有 runtime 断言失败，37/60 未完成 runtime（12 个正式离线编译失败，25 个测试工程集成编译失败）。场景分母 224 = 112 × 2；实际执行场景的通过率 82/88、不同场景 ID 覆盖 56/112，不代表 224 格总通过率，也不能并入正式 120 格离线编译矩阵。P06 与 S10 的测试序列在复测前修正了计时边界和状态顺序，最终汇总记录使用复测结果。
 
 ## 6. 可选：运行新模型实验
 
@@ -174,7 +197,7 @@ $zip = Join-Path (Split-Path -Parent (Get-Location).Path) 'PLC_ST_Agent_Submissi
 - `TIMEOUT`：编译调用超时；检查单独保存的超时重试证据，不能自行覆盖首次结果。
 - `NOT_RUN`、`UNAVAILABLE`：没有取得通过证据，绝不能计作 PASS。
 - `experiments/results.csv` 是原始矩阵；`experiments/posthoc_repair/recheck.csv` 是修正项目适配器后对原始失败单元的单独复测。两者分开报告。
-- 所有已提交的 `st/runs/` 文件均是模型输出或其有限修复尝试；除报告明确列出的 P02 加分项外，数据集 112 个 runtime 场景并没有逐题执行。
+- 所有已提交的 `st/runs/` 文件均是模型输出或其有限修复尝试。P02 的功能测试与形式验证、以及自研 Agent 的 112 个 runtime 场景向量属于不同范围；runtime 汇总明确区分已执行、断言失败、未运行，不替代原始编译矩阵。
 
 ## 9. 重算汇总
 

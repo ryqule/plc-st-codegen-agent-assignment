@@ -1,0 +1,77 @@
+{
+  "task_id": "P14",
+  "cases": [
+    {
+      "id": "P14-T1",
+      "steps": [
+        {
+          "set": {
+            "ipText": "192.168.1.10"
+          },
+          "cycles": 1,
+          "expect": {
+            "ipValue": 3232235786
+          }
+        }
+      ],
+      "scenario": "'192.168.1.10' -> 16#C0A8010A."
+    },
+    {
+      "id": "P14-T2",
+      "steps": [
+        {
+          "set": {
+            "ipText": "0.0.0.0"
+          },
+          "cycles": 1,
+          "expect": {
+            "ipValue": 0
+          }
+        }
+      ],
+      "scenario": "'0.0.0.0' -> 0 and is valid."
+    },
+    {
+      "id": "P14-T3",
+      "steps": [
+        {
+          "set": {
+            "ipText": "256.1.1.1"
+          },
+          "cycles": 1,
+          "expect": {
+            "ipValue": 0
+          }
+        },
+        {
+          "set": {
+            "ipText": "1..2.3"
+          },
+          "cycles": 1,
+          "expect": {
+            "ipValue": 0
+          }
+        },
+        {
+          "set": {
+            "ipText": "1.2.3"
+          },
+          "cycles": 1,
+          "expect": {
+            "ipValue": 0
+          }
+        },
+        {
+          "set": {
+            "ipText": "1.2.3.4x"
+          },
+          "cycles": 1,
+          "expect": {
+            "ipValue": 0
+          }
+        }
+      ],
+      "scenario": "'256.1.1.1', '1..2.3', '1.2.3' and '1.2.3.4x' -> 0."
+    }
+  ]
+}

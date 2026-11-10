@@ -41,7 +41,9 @@
 
 在 P02 的四种输出（Pi/self × GPT/DeepSeek）上使用 STruC++ 0.7.0 运行相同的五项扫描周期测试：数据集的三个 P02 场景，以及 32 位全位上升、全位下降边界。四份输出共 20/20 通过。DeepSeek Pi 输出有一处 STruC++ 不接受的嵌套位移/掩码写法，测试 runner 对执行副本作等价表达式归一化；原 ST 保持不变，转换记录和两个源码哈希均保存在 JSON 结果中。
 
-随后使用 CBMC 5.95.1 对四份 P02 的 STruC++ C++ 翻译代码检查两个任意连续 32 位输入变化和状态更新性质，并执行循环展开、边界、指针、溢出及未定义移位检查。共验证 918 项性质，0 项失败。仅验证 P02 的翻译结果，不代表 CODESYS runtime 等价，也未覆盖其余 29 题或全部 LTL。原 112 个场景尚未在 CODESYS Control Win runtime 执行；PLCVerif 未安装，PLCVerif/LTL 实际验证数为 0。
+随后使用 CBMC 5.95.1 对四份 P02 的 STruC++ C++ 翻译代码检查两个任意连续 32 位输入变化和状态更新性质，并执行循环展开、边界、指针、溢出及未定义移位检查。共验证 918 项性质，0 项失败。仅验证 P02 的翻译结果，不代表 CODESYS runtime 等价，也未覆盖其余 29 题或全部 LTL。
+
+在正式矩阵结束后，另行对自研 Agent 的 GPT/DeepSeek 输出运行 Control Win 场景套件，结果单独归档于 `experiments/codesys_validation/self_agent_runtime_20261110.md`。该批次计划 224 个模型-场景组合，实际运行 88 个（82 PASS、6 FAIL），覆盖 56/112 个不同场景 ID；136 个组合因正式离线编译失败或集成测试工程编译失败而未进入 runtime。它不修改正式 120 格结果，也不代表 Pi 基线的 runtime 覆盖。PLCVerif 未安装，PLCVerif/LTL 实际验证数仍为 0。
 
 测试脚本、模板、运行结果和复现说明位于 `tools/run_st_tests.py`、`tools/run_p02_cbmc.py`、`tests/structured_text/`、`experiments/functional_tests/` 和 `experiments/formal_verification/`。
 

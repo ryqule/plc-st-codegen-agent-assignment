@@ -41,6 +41,12 @@ py tools/run_p02_codesys_runtime.py `
 
 The result is `RUNTIME_PASS` only when the running POU completes all five cases with no failures. `COMPILE_PASS` means only that the CODESYS project built offline; it is not a runtime pass. The JSON records the ST source hash and per-case actual values. The username and password are read from `CODESYS_TEST_USER` and `CODESYS_TEST_PASSWORD` in the current process environment, used only for this login, and not written to artifacts. On a fresh runtime, the same account is supplied as the initial device user when CODESYS requires user management setup. Because the runner uses `--noUI`, it disables interactive credential fallback and logs prompt details so a hidden login dialog can be diagnosed.
 
+## Self-developed Agent: all 30 tasks on CODESYS runtime
+
+`runtime_suites/` contains the 112 dataset-derived scenario vectors for all 30 tasks. `tools/run_self_runtime_batch.py` executes the self-developed Agent's GPT and DeepSeek outputs; it reads but does not change the formal `experiments/results.csv`, makes no model API calls, and keeps its engineering projects and raw output in the ignored `experiments/local_runs/codesys_runtime_suite/` directory. Run instructions are in [`../../docs/REPRODUCING.md`](../../docs/REPRODUCING.md).
+
+The 2026-11-10 results are in [`../../experiments/codesys_validation/self_agent_runtime_20261110.md`](../../experiments/codesys_validation/self_agent_runtime_20261110.md) with a machine-readable assertion summary alongside it. Of 224 planned task/model scenarios, 88 were executed (82 passed, 6 failed) and 136 were blocked before runtime; the executed cases cover 56/112 distinct scenario IDs. A full-output pass requires every vector for that model/task to run and pass; the executed-case pass rate is not the full-matrix pass rate. This test suite does not replace the formal offline compile matrix or the P02-specific smoke test above.
+
 ## Bounded formal verification bonus
 
 `tools/run_p02_cbmc.py` sends the STruC++ generated C++ function body for P02 to CBMC 5.95.1 in WSL. CBMC checks two arbitrary consecutive 32-bit state transitions against the masks, changed/edge flags, counts, and previous-value update. It also checks loop unwinding, bounds, and pointers. The initial zero state is checked by the automated test suite.
