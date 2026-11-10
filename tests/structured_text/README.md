@@ -29,7 +29,7 @@ py tools/run_p02_codesys_runtime.py `
   --output-dir experiments/local_runs/codesys_runtime/P02_smoke
 ```
 
-To download and run it on the local Control Win runtime, start **CODESYS Control Win V3 x64** first, then add `--run`:
+To download and run it on the local Control Win runtime, start **CODESYS Control Win V3 x64** first, enter the test account credentials into the current PowerShell process as shown in `docs/REPRODUCING.md`, then add `--run`:
 
 ```powershell
 py tools/run_p02_codesys_runtime.py `
@@ -37,7 +37,7 @@ py tools/run_p02_codesys_runtime.py `
   --output-dir experiments/local_runs/codesys_runtime/P02_runtime
 ```
 
-The result is `RUNTIME_PASS` only when the running POU completes all five cases with no failures. `COMPILE_PASS` means only that the CODESYS project built offline; it is not a runtime pass. The JSON records the ST source hash and per-case actual values. Runtime login requires the local Control Win service to be running and discoverable through the CODESYS Gateway.
+The result is `RUNTIME_PASS` only when the running POU completes all five cases with no failures. `COMPILE_PASS` means only that the CODESYS project built offline; it is not a runtime pass. The JSON records the ST source hash and per-case actual values. The username and password are read from `CODESYS_TEST_USER` and `CODESYS_TEST_PASSWORD` in the current process environment, used only for this login, and not written to artifacts.
 
 ## Bounded formal verification bonus
 

@@ -104,7 +104,7 @@ def runscript_source(pous: list[dict], runner: dict, project_path: Path, result_
     }
     embedded = "\n".join("%s = %r" % (key, value) for key, value in values.items())
     body = r'''# IronPython script executed by CODESYS.
-import io, json, re, traceback
+import io, json, os, re, traceback
 from scriptengine import *
 __EMBEDDED__
 
@@ -170,17 +170,18 @@ try:
                     raise Exception("CODESYS TCP/IP gateway driver is unavailable")
                 gateway = online.gateways.add_new_gateway(
                     "Codex P02 runtime test", {"IP-Address":"localhost", "Port":1217}, drivers[0])
-                targets = gateway.perform_network_scan()
-                target = None
-                for candidate in targets:
-                    if str(candidate.device_id.id) == "__DEVICE_ID__":
-                        target = candidate
-                        break
-                if target is None:
-                    raise Exception("Control Win runtime was not found by the local CODESYS Gateway")
                 device = [obj for obj in project.find("Device", True) if obj.is_device][0]
-                device.set_gateway_and_address(gateway, target.address)
+                # Avoid a broad network scan: this test targets the local
+                # Control Win service, which listens on the default port.
+                target_address = gateway.find_address_by_ip("127.0.0.1", 11740)
+                result["runtime"]["address"] = str(target_address)
+                device.set_gateway_and_address(gateway, target_address)
                 project.save()
+                runtime_user = os.environ.get("CODESYS_TEST_USER", "")
+                runtime_password = os.environ.get("CODESYS_TEST_PASSWORD", "")
+                if not runtime_user or not runtime_password:
+                    raise Exception("Set CODESYS_TEST_USER and CODESYS_TEST_PASSWORD in the current process environment")
+                online.set_default_credentials(runtime_user, runtime_password)
                 online_app = online.create_online_application(app)
                 online_app.login(OnlineChangeOption.Try, False)
                 if online_app.application_state != ApplicationState.run:
@@ -244,6 +245,10 @@ finally:
             online.gateways.remove_gateway(gateway.guid)
         except Exception:
             pass
+    try:
+        online.clear_all_credentials()
+    except Exception:
+        pass
     if project is not None:
         try:
             project.save()

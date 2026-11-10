@@ -101,15 +101,26 @@ py tools/posthoc_recheck_failures.py `
 
 ### P02 CODESYS Control Win 运行时冒烟测试
 
-本仓库含 P02 runtime 测试驱动和 CODESYS 脚本入口。先确认系统托盘中的 **CODESYS Control Win V3 x64** 已启动，再执行：
+本仓库含 P02 runtime 测试驱动和 CODESYS 脚本入口。先确认系统托盘中的 **CODESYS Control Win V3 x64** 已启动。登录凭据只从当前 PowerShell 进程环境读取，按以下方式安全输入；不要写入 JSON、命令行参数或仓库：
 
 ```powershell
-py tools/run_p02_codesys_runtime.py `
-  --run `
-  --output-dir experiments/local_runs/codesys_runtime/P02_runtime
+$env:CODESYS_TEST_USER = Read-Host 'CODESYS test user'
+$runtimePasswordSecure = Read-Host 'CODESYS test password' -AsSecureString
+$runtimePasswordPointer = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($runtimePasswordSecure)
+try {
+  $env:CODESYS_TEST_PASSWORD = [Runtime.InteropServices.Marshal]::PtrToStringBSTR($runtimePasswordPointer)
+  py tools/run_p02_codesys_runtime.py `
+    --run `
+    --output-dir experiments/local_runs/codesys_runtime/P02_runtime
+}
+finally {
+  [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($runtimePasswordPointer)
+  Remove-Item Env:CODESYS_TEST_USER -ErrorAction SilentlyContinue
+  Remove-Item Env:CODESYS_TEST_PASSWORD -ErrorAction SilentlyContinue
+}
 ```
 
-脚本会建立包含生成 POU 和测试驱动的工程，离线构建后尝试登录本机 runtime、启动 50 ms 周期任务，并读取每个用例的实测输出。结果及工程只写入 `experiments/local_runs/`。只有 `RUNTIME_PASS` 代表五个 P02 用例在 Control Win 扫描中执行通过；`COMPILE_PASS`、`RUNTIME_UNAVAILABLE` 和 `RUNTIME_TIMEOUT` 都不算功能通过。112 个设计场景不能据此记作已运行。
+脚本会建立包含生成 POU 和测试驱动的工程，离线构建后登录本机 runtime、启动 50 ms 周期任务，并读取每个用例的实测输出。用户名和密码只用于当前 CODESYS 脚本会话，脚本退出时清除凭据，不写入运行结果。结果及工程只写入 `experiments/local_runs/`。只有 `RUNTIME_PASS` 代表五个 P02 用例在 Control Win 扫描中执行通过；`COMPILE_PASS`、`RUNTIME_UNAVAILABLE` 和 `RUNTIME_TIMEOUT` 都不算功能通过。112 个设计场景不能据此记作已运行。
 
 ## 6. 可选：运行新模型实验
 
