@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "recorded_on": "2026-11-10",
+  "status": "RUNTIME_PASS",
+  "verification_kind": "CODESYS Control Win runtime functional smoke test",
+  "target": {
+    "name": "CODESYS Control Win V3 x64",
+    "id": "0000 0004",
+    "version": "3.5.22.40"
+  },
+  "cycle_time_ms": 50,
+  "compile": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "runtime": {
+    "state": "COMPLETED",
+    "passed": 5,
+    "failed": 0,
+    "first_failed_case": 0,
+    "cases": [
+      {
+        "id": "P02-T1",
+        "steps": [
+          {
+            "value": "16#00000000"
+          }
+        ],
+        "expected": {
+          "hasChanged": false,
+          "hasRisingEdges": false,
+          "risingBits": 0,
+          "noOfRisingBits": 0,
+          "hasFallingEdges": false,
+          "fallingBits": 0,
+          "noOfFallingBits": 0
+        },
+        "observed": {
+          "hasChanged": false,
+          "hasRisingEdges": false,
+          "risingBits": 0,
+          "noOfRisingBits": 0,
+          "hasFallingEdges": false,
+          "fallingBits": 0,
+          "noOfFallingBits": 0
+        },
+        "pass": true
+      },
+      {
+        "id": "P02-T2",
+        "steps": [
+          {
+            "value": "16#0000000F"
+          },
+          {
+            "value": "16#00000013"
+          }
+        ],
+        "expected": {
+          "hasChanged": true,
+          "hasRisingEdges": true,
+          "risingBits": 16,
+          "noOfRisingBits": 1,
+          "hasFallingEdges": true,
+          "fallingBits": 12,
+          "noOfFallingBits": 2
+        },
+        "observed": {
+          "hasChanged": true,
+          "hasRisingEdges": true,
+          "risingBits": 16,
+          "noOfRisingBits": 1,
+          "hasFallingEdges": true,
+          "fallingBits": 12,
+          "noOfFallingBits": 2
+        },
+        "pass": true
+      },
+      {
+        "id": "P02-T3",
+        "steps": [
+          {
+            "value": "16#00000015"
+          },
+          {
+            "value": "16#00000015"
+          }
+        ],
+        "expected": {
+          "hasChanged": false,
+          "hasRisingEdges": false,
+          "risingBits": 0,
+          "noOfRisingBits": 0,
+          "hasFallingEdges": false,
+          "fallingBits": 0,
+          "noOfFallingBits": 0
+        },
+        "observed": {
+          "hasChanged": false,
+          "hasRisingEdges": false,
+          "risingBits": 0,
+          "noOfRisingBits": 0,
+          "hasFallingEdges": false,
+          "fallingBits": 0,
+          "noOfFallingBits": 0
+        },
+        "pass": true
+      },
+      {
+        "id": "P02-B1",
+        "steps": [
+          {
+            "value": "16#FFFFFFFF"
+          }
+        ],
+        "expected": {
+          "hasChanged": true,
+          "hasRisingEdges": true,
+          "risingBits": 4294967295,
+          "noOfRisingBits": 32,
+          "hasFallingEdges": false,
+          "fallingBits": 0,
+          "noOfFallingBits": 0
+        },
+        "observed": {
+          "hasChanged": true,
+          "hasRisingEdges": true,
+          "risingBits": 4294967295,
+          "noOfRisingBits": 32,
+          "hasFallingEdges": false,
+          "fallingBits": 0,
+          "noOfFallingBits": 0
+        },
+        "pass": true
+      },
+      {
+        "id": "P02-B2",
+        "steps": [
+          {
+            "value": "16#FFFFFFFF"
+          },
+          {
+            "value": "16#00000000"
+          }
+        ],
+        "expected": {
+          "hasChanged": true,
+          "hasRisingEdges": false,
+          "risingBits": 0,
+          "noOfRisingBits": 0,
+          "hasFallingEdges": true,
+          "fallingBits": 4294967295,
+          "noOfFallingBits": 32
+        },
+        "observed": {
+          "hasChanged": true,
+          "hasRisingEdges": false,
+          "risingBits": 0,
+          "noOfRisingBits": 0,
+          "hasFallingEdges": true,
+          "fallingBits": 4294967295,
+          "noOfFallingBits": 32
+        },
+        "pass": true
+      }
+    ]
+  },
+  "source": {
+    "path": "st/runs/self/deepseek/P02_attempt1.st",
+    "sha256": "9c9ceb2941c0804f519bcd96a23cee242bf0d7d0282419090b403bfff42a64da"
+  },
+  "driver": {
+    "path": "tests/structured_text/P02_runtime_driver.st",
+    "sha256": "29645937f7e792b84bab4c9a05391c43f3e0aff288f4444716c998f199e8da57"
+  },
+  "vectors": {
+    "path": "tests/structured_text/P02_runtime_vectors.json",
+    "sha256": "90970b8064d0524f6833e2231050aa1410e69da29dd28aec8621bbab672d08cb"
+  },
+  "generated_codesys_script_sha256": "44ab33f465a8a434cb06ccbf9c24d8eec4d208d8cf30945d38689e1e7babb5e9",
+  "scope_note": "One P02 candidate and five deterministic vectors only. Does not update or merge into the 120-cell offline compile matrix and does not establish runtime coverage of the 112 dataset scenarios.",
+  "credentials_recorded": false
+}

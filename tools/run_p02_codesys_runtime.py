@@ -100,11 +100,12 @@ def runscript_source(pous: list[dict], runner: dict, project_path: Path, result_
         "SOURCE_POUS": pous,
         "RUNNER_DECL": runner["declaration"], "RUNNER_IMPL": runner["implementation"],
         "PROJECT_PATH": str(project_path.resolve()), "RESULT_PATH": str(result_path.resolve()),
+        "PROGRESS_PATH": str(result_path.with_name("progress.json").resolve()),
         "RUN_RUNTIME": run_runtime, "RUNTIME_TIMEOUT_MS": timeout_ms,
     }
     embedded = "\n".join("%s = %r" % (key, value) for key, value in values.items())
     body = r'''# IronPython script executed by CODESYS.
-import io, json, os, re, traceback
+import io, json, os, re, traceback, time
 from scriptengine import *
 __EMBEDDED__
 
@@ -113,6 +114,19 @@ project = None
 online_app = None
 gateway = None
 try:
+    if hasattr(system, "script_prompt_handling"):
+        system.script_prompt_handling = ScriptPromptHandling.LogPrompts
+        system.log_prompt_details = True
+    else:
+        raise Exception("Using legacy prompt handling")
+except Exception:
+    # Compatibility with CODESYS 3.5.x, before ScriptPromptHandling existed.
+    system.prompt_handling = PromptHandling.LogSimplePrompts | PromptHandling.LogMessageKeys
+def mark(stage, **details):
+    with io.open(PROGRESS_PATH, "w", encoding="utf-8") as stream:
+        json.dump({"stage":stage, "timestamp":time.time(), "details":details}, stream)
+try:
+    mark("project_create")
     project = projects.create(PROJECT_PATH)
     devices = device_repository.get_all_devices("__DEVICE_NAME__", None)
     matches = [item for item in devices if item.device_id.id == "__DEVICE_ID__"]
@@ -149,6 +163,7 @@ try:
         if getattr(reference, "is_placeholder", False) and reference.placeholder_name == "IoStandard":
             reference.default_resolution = "IoStandard, 3.5.22.0 (System)"
     project.save()
+    mark("compile")
     for category in system.get_message_categories(False):
         system.clear_messages(category)
     app.rebuild()
@@ -163,8 +178,10 @@ try:
         result["status"] = "COMPILE_FAIL"
     else:
         result["status"] = "COMPILE_PASS"
+        mark("compile_pass", warnings=len(result["compile_warnings"]))
         if RUN_RUNTIME:
             try:
+                mark("gateway_setup")
                 drivers = list(online.gateway_drivers.find_with_name("TCP/IP"))
                 if not drivers:
                     raise Exception("CODESYS TCP/IP gateway driver is unavailable")
@@ -177,23 +194,41 @@ try:
                 result["runtime"]["address"] = str(target_address)
                 device.set_gateway_and_address(gateway, target_address)
                 project.save()
+                mark("credentials_setup", address=str(target_address))
                 runtime_user = os.environ.get("CODESYS_TEST_USER", "")
                 runtime_password = os.environ.get("CODESYS_TEST_PASSWORD", "")
                 if not runtime_user or not runtime_password:
                     raise Exception("Set CODESYS_TEST_USER and CODESYS_TEST_PASSWORD in the current process environment")
                 online.set_default_credentials(runtime_user, runtime_password)
+                # The CLI uses --noUI. Prevent CODESYS from waiting for an
+                # interactive credential fallback that cannot be answered.
+                online.auth_fallback_modes = getattr(CredentialSourceKind, "None")
+                mark("login")
                 online_app = online.create_online_application(app)
+                online_device = online_app.get_online_device()
+                # A fresh Control Win runtime may require device user
+                # management to be initialized before the first login.
+                online_device.set_credentials_for_initial_user(
+                    runtime_user, runtime_password, True, False)
+                online.set_specific_credentials(online_app, runtime_user, runtime_password)
+                mark("initial_user_configured")
                 online_app.login(OnlineChangeOption.Try, False)
+                mark("login_complete", state=str(online_app.application_state))
                 if online_app.application_state != ApplicationState.run:
+                    mark("start")
                     online_app.start()
+                    mark("start_complete", state=str(online_app.application_state))
                 done = False
-                max_polls = max(1, int(RUNTIME_TIMEOUT_MS / 100))
+                max_polls = max(1, int(RUNTIME_TIMEOUT_MS // 100))
                 for attempt in range(0, max_polls):
                     system.delay(100)
                     value = str(online_app.read_value("P02RuntimeTest.test_done")).strip().upper()
+                    if attempt % 10 == 0:
+                        mark("polling", poll=attempt + 1, done=value)
                     if value == "TRUE":
                         done = True
                         break
+                mark("read_values", done=done)
                 expressions = ["P02RuntimeTest.test_done", "P02RuntimeTest.passed",
                                "P02RuntimeTest.failed", "P02RuntimeTest.first_failed_case"]
                 fields = ("case_pass", "actual_hasChanged", "actual_hasRisingEdges",
@@ -203,6 +238,7 @@ try:
                     for field in fields:
                         expressions.append("P02RuntimeTest.%s[%d]" % (field, index))
                 vals = online_app.read_values(expressions)
+                mark("values_read")
                 value_map = dict(zip(expressions, vals))
                 case_results = []
                 case_passes = []
@@ -230,6 +266,7 @@ try:
                 result["status"] = "RUNTIME_UNAVAILABLE"
                 result["runtime"] = {"state":"UNAVAILABLE", "error":str(error), "traceback":traceback.format_exc()}
 finally:
+    mark("cleanup", status=result["status"])
     if online_app is not None:
         try:
             if online_app.application_state == ApplicationState.run:
@@ -304,7 +341,7 @@ def main() -> int:
         executable, args.profile, script_path)
     try:
         process = subprocess.run(command, cwd=str(ROOT), capture_output=True,
-                                 text=True, encoding="utf-8", errors="replace",
+                                 text=True, encoding="mbcs", errors="replace",
                                  timeout=args.timeout, check=False)
     except subprocess.TimeoutExpired as exc:
         (output_dir / "stdout.txt").write_text(str(exc.stdout or ""), encoding="utf-8")

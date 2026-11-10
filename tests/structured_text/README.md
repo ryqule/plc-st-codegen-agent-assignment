@@ -22,6 +22,8 @@ Each JSON result includes the tool path, POU name, source and test-template SHA2
 
 `P02_runtime_vectors.json` is the machine-readable five-case scan-level oracle. `P02_runtime_driver.st` runs each case in an isolated function-block instance on a 50 ms cyclic task, records pass/fail per case, and exposes the actual output values for inspection. No physical I/O is mapped.
 
+Recorded runtime evidence: [`../../experiments/codesys_validation/P02_control_win_runtime_smoke_20261110.json`](../../experiments/codesys_validation/P02_control_win_runtime_smoke_20261110.json) reports 5/5 passing cases on CODESYS Control Win V3 x64 3.5.22.40, with 0 compile errors and 0 warnings. This is a P02 smoke test, not coverage of the 112 dataset scenarios.
+
 Build the test project with the installed CODESYS profile and write artifacts under the ignored `experiments/local_runs/` directory:
 
 ```powershell
@@ -37,7 +39,7 @@ py tools/run_p02_codesys_runtime.py `
   --output-dir experiments/local_runs/codesys_runtime/P02_runtime
 ```
 
-The result is `RUNTIME_PASS` only when the running POU completes all five cases with no failures. `COMPILE_PASS` means only that the CODESYS project built offline; it is not a runtime pass. The JSON records the ST source hash and per-case actual values. The username and password are read from `CODESYS_TEST_USER` and `CODESYS_TEST_PASSWORD` in the current process environment, used only for this login, and not written to artifacts.
+The result is `RUNTIME_PASS` only when the running POU completes all five cases with no failures. `COMPILE_PASS` means only that the CODESYS project built offline; it is not a runtime pass. The JSON records the ST source hash and per-case actual values. The username and password are read from `CODESYS_TEST_USER` and `CODESYS_TEST_PASSWORD` in the current process environment, used only for this login, and not written to artifacts. On a fresh runtime, the same account is supplied as the initial device user when CODESYS requires user management setup. Because the runner uses `--noUI`, it disables interactive credential fallback and logs prompt details so a hidden login dialog can be diagnosed.
 
 ## Bounded formal verification bonus
 

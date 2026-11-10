@@ -13,7 +13,7 @@
 | P02 CBMC 检查 | WSL Ubuntu、CBMC 5.95.1、Windows 版 STruC++ |
 | 新模型实验 | 上述 Pi 环境、DMXAPI 账户及由操作者设置的预算上限 |
 
-离线编译需要已安装 CODESYS 工程/脚本环境，但不要求运行 Control Win 服务。当前交付没有 PLC runtime adapter，112 个数据集测试场景尚未在 CODESYS runtime 中执行。
+离线编译需要已安装 CODESYS 工程/脚本环境，但不要求运行 Control Win 服务。仓库现含 P02 专用的 Control Win runtime 冒烟测试驱动；已在本机实际执行 5 个 P02 用例并全部通过。数据集中的 112 个场景仍未全部在 PLC runtime 中执行。
 
 ## 2. 克隆与本地检查
 
@@ -120,7 +120,9 @@ finally {
 }
 ```
 
-脚本会建立包含生成 POU 和测试驱动的工程，离线构建后登录本机 runtime、启动 50 ms 周期任务，并读取每个用例的实测输出。用户名和密码只用于当前 CODESYS 脚本会话，脚本退出时清除凭据，不写入运行结果。结果及工程只写入 `experiments/local_runs/`。只有 `RUNTIME_PASS` 代表五个 P02 用例在 Control Win 扫描中执行通过；`COMPILE_PASS`、`RUNTIME_UNAVAILABLE` 和 `RUNTIME_TIMEOUT` 都不算功能通过。112 个设计场景不能据此记作已运行。
+脚本会建立包含生成 POU 和测试驱动的工程，离线构建后登录本机 runtime、启动 50 ms 周期任务，并读取每个用例的实测输出。用户名和密码只用于当前 CODESYS 脚本会话，脚本退出时清除凭据，不写入运行结果；首次连接若设备尚未启用用户管理，脚本会用同一测试账号设置初始用户。由于通过 `--noUI` 运行，脚本会关闭交互式凭据回退并记录提示详情，避免等待不可见的认证或确认窗口。结果及工程只写入 `experiments/local_runs/`。只有 `RUNTIME_PASS` 代表五个 P02 用例在 Control Win 扫描中执行通过；`COMPILE_PASS`、`RUNTIME_UNAVAILABLE` 和 `RUNTIME_TIMEOUT` 都不算功能通过。112 个设计场景不能据此记作已运行。
+
+已记录的本机 runtime 结果见 [`experiments/codesys_validation/P02_control_win_runtime_smoke_20261110.json`](../experiments/codesys_validation/P02_control_win_runtime_smoke_20261110.json)：CODESYS Control Win V3 x64 3.5.22.40，5/5 PASS、0 FAIL，编译 0 错误/0 警告。该证据只覆盖 P02 的五个冒烟用例，不代表原始 120 格编译矩阵或 112 个设计场景通过 runtime 验收。
 
 ## 6. 可选：运行新模型实验
 
